@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF52DE8824C3E01A00032553 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DE8724C3E01A00032553 /* AppDelegate.swift */; };
+		BF52DE8A24C3E01A00032553 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DE8924C3E01A00032553 /* SceneDelegate.swift */; };
+		BF52DE8C24C3E01A00032553 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DE8B24C3E01A00032553 /* ViewController.swift */; };
+		BF52DE8F24C3E01A00032553 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF52DE8D24C3E01A00032553 /* Main.storyboard */; };
+		BF52DE9224C3E01A00032553 /* NittanyTrivia.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF52DE9024C3E01A00032553 /* NittanyTrivia.xcdatamodeld */; };
+		BF52DE9424C3E01C00032553 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF52DE9324C3E01C00032553 /* Assets.xcassets */; };
+		BF52DE9724C3E01C00032553 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF52DE9524C3E01C00032553 /* LaunchScreen.storyboard */; };
+		BF52DEA224C3E01D00032553 /* NittanyTriviaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DEA124C3E01D00032553 /* NittanyTriviaTests.swift */; };
+		BF52DEAD24C3E01D00032553 /* NittanyTriviaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DEAC24C3E01D00032553 /* NittanyTriviaUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF52DE9E24C3E01D00032553 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF52DE7C24C3E01A00032553 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF52DE8324C3E01A00032553;
+			remoteInfo = NittanyTrivia;
+		};
+		BF52DEA924C3E01D00032553 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF52DE7C24C3E01A00032553 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF52DE8324C3E01A00032553;
+			remoteInfo = NittanyTrivia;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BF52DE8424C3E01A00032553 /* NittanyTrivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NittanyTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF52DE8724C3E01A00032553 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF52DE8924C3E01A00032553 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BF52DE8B24C3E01A00032553 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF52DE8E24C3E01A00032553 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BF52DE9124C3E01A00032553 /* NittanyTrivia.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NittanyTrivia.xcdatamodel; sourceTree = "<group>"; };
+		BF52DE9324C3E01C00032553 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF52DE9624C3E01C00032553 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF52DE9824C3E01C00032553 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF52DE9D24C3E01D00032553 /* NittanyTriviaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NittanyTriviaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF52DEA124C3E01D00032553 /* NittanyTriviaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NittanyTriviaTests.swift; sourceTree = "<group>"; };
+		BF52DEA324C3E01D00032553 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF52DEA824C3E01D00032553 /* NittanyTriviaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NittanyTriviaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF52DEAC24C3E01D00032553 /* NittanyTriviaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NittanyTriviaUITests.swift; sourceTree = "<group>"; };
+		BF52DEAE24C3E01D00032553 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF52DE8124C3E01A00032553 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF52DE9A24C3E01D00032553 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF52DEA524C3E01D00032553 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF52DE7B24C3E01A00032553 = {
+			isa = PBXGroup;
+			children = (
+				BF52DE8624C3E01A00032553 /* NittanyTrivia */,
+				BF52DEA024C3E01D00032553 /* NittanyTriviaTests */,
+				BF52DEAB24C3E01D00032553 /* NittanyTriviaUITests */,
+				BF52DE8524C3E01A00032553 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF52DE8524C3E01A00032553 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF52DE8424C3E01A00032553 /* NittanyTrivia.app */,
+				BF52DE9D24C3E01D00032553 /* NittanyTriviaTests.xctest */,
+				BF52DEA824C3E01D00032553 /* NittanyTriviaUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF52DE8624C3E01A00032553 /* NittanyTrivia */ = {
+			isa = PBXGroup;
+			children = (
+				BF52DE8724C3E01A00032553 /* AppDelegate.swift */,
+				BF52DE8924C3E01A00032553 /* SceneDelegate.swift */,
+				BF52DE8B24C3E01A00032553 /* ViewController.swift */,
+				BF52DE8D24C3E01A00032553 /* Main.storyboard */,
+				BF52DE9324C3E01C00032553 /* Assets.xcassets */,
+				BF52DE9524C3E01C00032553 /* LaunchScreen.storyboard */,
+				BF52DE9824C3E01C00032553 /* Info.plist */,
+				BF52DE9024C3E01A00032553 /* NittanyTrivia.xcdatamodeld */,
+			);
+			path = NittanyTrivia;
+			sourceTree = "<group>";
+		};
+		BF52DEA024C3E01D00032553 /* NittanyTriviaTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF52DEA124C3E01D00032553 /* NittanyTriviaTests.swift */,
+				BF52DEA324C3E01D00032553 /* Info.plist */,
+			);
+			path = NittanyTriviaTests;
+			sourceTree = "<group>";
+		};
+		BF52DEAB24C3E01D00032553 /* NittanyTriviaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BF52DEAC24C3E01D00032553 /* NittanyTriviaUITests.swift */,
+				BF52DEAE24C3E01D00032553 /* Info.plist */,
+			);
+			path = NittanyTriviaUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF52DE8324C3E01A00032553 /* NittanyTrivia */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF52DEB124C3E01D00032553 /* Build configuration list for PBXNativeTarget "NittanyTrivia" */;
+			buildPhases = (
+				BF52DE8024C3E01A00032553 /* Sources */,
+				BF52DE8124C3E01A00032553 /* Frameworks */,
+				BF52DE8224C3E01A00032553 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NittanyTrivia;
+			productName = NittanyTrivia;
+			productReference = BF52DE8424C3E01A00032553 /* NittanyTrivia.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF52DE9C24C3E01D00032553 /* NittanyTriviaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF52DEB424C3E01D00032553 /* Build configuration list for PBXNativeTarget "NittanyTriviaTests" */;
+			buildPhases = (
+				BF52DE9924C3E01D00032553 /* Sources */,
+				BF52DE9A24C3E01D00032553 /* Frameworks */,
+				BF52DE9B24C3E01D00032553 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF52DE9F24C3E01D00032553 /* PBXTargetDependency */,
+			);
+			name = NittanyTriviaTests;
+			productName = NittanyTriviaTests;
+			productReference = BF52DE9D24C3E01D00032553 /* NittanyTriviaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BF52DEA724C3E01D00032553 /* NittanyTriviaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF52DEB724C3E01D00032553 /* Build configuration list for PBXNativeTarget "NittanyTriviaUITests" */;
+			buildPhases = (
+				BF52DEA424C3E01D00032553 /* Sources */,
+				BF52DEA524C3E01D00032553 /* Frameworks */,
+				BF52DEA624C3E01D00032553 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF52DEAA24C3E01D00032553 /* PBXTargetDependency */,
+			);
+			name = NittanyTriviaUITests;
+			productName = NittanyTriviaUITests;
+			productReference = BF52DEA824C3E01D00032553 /* NittanyTriviaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF52DE7C24C3E01A00032553 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "Shahzeb Ahmed";
+				TargetAttributes = {
+					BF52DE8324C3E01A00032553 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					BF52DE9C24C3E01D00032553 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = BF52DE8324C3E01A00032553;
+					};
+					BF52DEA724C3E01D00032553 = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = BF52DE8324C3E01A00032553;
+					};
+				};
+			};
+			buildConfigurationList = BF52DE7F24C3E01A00032553 /* Build configuration list for PBXProject "NittanyTrivia" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF52DE7B24C3E01A00032553;
+			productRefGroup = BF52DE8524C3E01A00032553 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF52DE8324C3E01A00032553 /* NittanyTrivia */,
+				BF52DE9C24C3E01D00032553 /* NittanyTriviaTests */,
+				BF52DEA724C3E01D00032553 /* NittanyTriviaUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF52DE8224C3E01A00032553 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF52DE9724C3E01C00032553 /* LaunchScreen.storyboard in Resources */,
+				BF52DE9424C3E01C00032553 /* Assets.xcassets in Resources */,
+				BF52DE8F24C3E01A00032553 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF52DE9B24C3E01D00032553 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF52DEA624C3E01D00032553 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF52DE8024C3E01A00032553 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF52DE9224C3E01A00032553 /* NittanyTrivia.xcdatamodeld in Sources */,
+				BF52DE8C24C3E01A00032553 /* ViewController.swift in Sources */,
+				BF52DE8824C3E01A00032553 /* AppDelegate.swift in Sources */,
+				BF52DE8A24C3E01A00032553 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF52DE9924C3E01D00032553 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF52DEA224C3E01D00032553 /* NittanyTriviaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF52DEA424C3E01D00032553 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF52DEAD24C3E01D00032553 /* NittanyTriviaUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF52DE9F24C3E01D00032553 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF52DE8324C3E01A00032553 /* NittanyTrivia */;
+			targetProxy = BF52DE9E24C3E01D00032553 /* PBXContainerItemProxy */;
+		};
+		BF52DEAA24C3E01D00032553 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF52DE8324C3E01A00032553 /* NittanyTrivia */;
+			targetProxy = BF52DEA924C3E01D00032553 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF52DE8D24C3E01A00032553 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF52DE8E24C3E01A00032553 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BF52DE9524C3E01C00032553 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF52DE9624C3E01C00032553 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF52DEAF24C3E01D00032553 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BF52DEB024C3E01D00032553 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF52DEB224C3E01D00032553 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TDY68T62HW;
+				INFOPLIST_FILE = NittanyTrivia/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.NittanyTrivia.ShahzebAhmed.NittanyTrivia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF52DEB324C3E01D00032553 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TDY68T62HW;
+				INFOPLIST_FILE = NittanyTrivia/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.NittanyTrivia.ShahzebAhmed.NittanyTrivia;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BF52DEB524C3E01D00032553 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TDY68T62HW;
+				INFOPLIST_FILE = NittanyTriviaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.NittanyTrivia.ShahzebAhmed.NittanyTriviaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NittanyTrivia.app/NittanyTrivia";
+			};
+			name = Debug;
+		};
+		BF52DEB624C3E01D00032553 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TDY68T62HW;
+				INFOPLIST_FILE = NittanyTriviaTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.NittanyTrivia.ShahzebAhmed.NittanyTriviaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NittanyTrivia.app/NittanyTrivia";
+			};
+			name = Release;
+		};
+		BF52DEB824C3E01D00032553 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TDY68T62HW;
+				INFOPLIST_FILE = NittanyTriviaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.NittanyTrivia.ShahzebAhmed.NittanyTriviaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NittanyTrivia;
+			};
+			name = Debug;
+		};
+		BF52DEB924C3E01D00032553 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = TDY68T62HW;
+				INFOPLIST_FILE = NittanyTriviaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.NittanyTrivia.ShahzebAhmed.NittanyTriviaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NittanyTrivia;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF52DE7F24C3E01A00032553 /* Build configuration list for PBXProject "NittanyTrivia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF52DEAF24C3E01D00032553 /* Debug */,
+				BF52DEB024C3E01D00032553 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF52DEB124C3E01D00032553 /* Build configuration list for PBXNativeTarget "NittanyTrivia" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF52DEB224C3E01D00032553 /* Debug */,
+				BF52DEB324C3E01D00032553 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF52DEB424C3E01D00032553 /* Build configuration list for PBXNativeTarget "NittanyTriviaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF52DEB524C3E01D00032553 /* Debug */,
+				BF52DEB624C3E01D00032553 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF52DEB724C3E01D00032553 /* Build configuration list for PBXNativeTarget "NittanyTriviaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF52DEB824C3E01D00032553 /* Debug */,
+				BF52DEB924C3E01D00032553 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BF52DE9024C3E01A00032553 /* NittanyTrivia.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BF52DE9124C3E01A00032553 /* NittanyTrivia.xcdatamodel */,
+			);
+			currentVersion = BF52DE9124C3E01A00032553 /* NittanyTrivia.xcdatamodel */;
+			path = NittanyTrivia.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BF52DE7C24C3E01A00032553 /* Project object */;
+}

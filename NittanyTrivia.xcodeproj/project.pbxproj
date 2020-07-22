@@ -3,19 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		BF52DE8824C3E01A00032553 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DE8724C3E01A00032553 /* AppDelegate.swift */; };
 		BF52DE8A24C3E01A00032553 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DE8924C3E01A00032553 /* SceneDelegate.swift */; };
-		BF52DE8C24C3E01A00032553 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DE8B24C3E01A00032553 /* ViewController.swift */; };
 		BF52DE8F24C3E01A00032553 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF52DE8D24C3E01A00032553 /* Main.storyboard */; };
 		BF52DE9224C3E01A00032553 /* NittanyTrivia.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF52DE9024C3E01A00032553 /* NittanyTrivia.xcdatamodeld */; };
 		BF52DE9424C3E01C00032553 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF52DE9324C3E01C00032553 /* Assets.xcassets */; };
 		BF52DE9724C3E01C00032553 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF52DE9524C3E01C00032553 /* LaunchScreen.storyboard */; };
 		BF52DEA224C3E01D00032553 /* NittanyTriviaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DEA124C3E01D00032553 /* NittanyTriviaTests.swift */; };
 		BF52DEAD24C3E01D00032553 /* NittanyTriviaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DEAC24C3E01D00032553 /* NittanyTriviaUITests.swift */; };
+		BF52DEBB24C3E31B00032553 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BF52DEBA24C3E31B00032553 /* Podfile */; };
+		BFE2C6A424C89CDA00DEEE1E /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2C6A324C89CDA00DEEE1E /* Question.swift */; };
+		BFF43EF524C7E6F80074FDD0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF43EF424C7E6F80074FDD0 /* WelcomeViewController.swift */; };
+		BFF43EF724C8030A0074FDD0 /* PlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF43EF624C8030A0074FDD0 /* PlayController.swift */; };
+		BFF43EF924C806AA0074FDD0 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF43EF824C806AA0074FDD0 /* Leaderboard.swift */; };
+		BFF43EFB24C80A9B0074FDD0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF43EFA24C80A9B0074FDD0 /* LoginViewController.swift */; };
+		E2B020453827756338ACB491 /* Pods_NittanyTrivia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B89BE5E21B6228EF16187BD /* Pods_NittanyTrivia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B89BE5E21B6228EF16187BD /* Pods_NittanyTrivia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NittanyTrivia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80D7DC0E3BA4B82FB5EDB38B /* Pods-NittanyTrivia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NittanyTrivia.debug.xcconfig"; path = "Target Support Files/Pods-NittanyTrivia/Pods-NittanyTrivia.debug.xcconfig"; sourceTree = "<group>"; };
+		A99253257E78677A29AF34D4 /* Pods-NittanyTrivia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NittanyTrivia.release.xcconfig"; path = "Target Support Files/Pods-NittanyTrivia/Pods-NittanyTrivia.release.xcconfig"; sourceTree = "<group>"; };
 		BF52DE8424C3E01A00032553 /* NittanyTrivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NittanyTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF52DE8724C3E01A00032553 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF52DE8924C3E01A00032553 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BF52DE8B24C3E01A00032553 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BF52DE8E24C3E01A00032553 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BF52DE9124C3E01A00032553 /* NittanyTrivia.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NittanyTrivia.xcdatamodel; sourceTree = "<group>"; };
 		BF52DE9324C3E01C00032553 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +59,12 @@
 		BF52DEA824C3E01D00032553 /* NittanyTriviaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NittanyTriviaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF52DEAC24C3E01D00032553 /* NittanyTriviaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NittanyTriviaUITests.swift; sourceTree = "<group>"; };
 		BF52DEAE24C3E01D00032553 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF52DEBA24C3E31B00032553 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		BFE2C6A324C89CDA00DEEE1E /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		BFF43EF424C7E6F80074FDD0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		BFF43EF624C8030A0074FDD0 /* PlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayController.swift; sourceTree = "<group>"; };
+		BFF43EF824C806AA0074FDD0 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
+		BFF43EFA24C80A9B0074FDD0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2B020453827756338ACB491 /* Pods_NittanyTrivia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +93,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B1A6D958592128F4210C29F4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B89BE5E21B6228EF16187BD /* Pods_NittanyTrivia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BD159BEBCF4EE5937BCB8B81 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				80D7DC0E3BA4B82FB5EDB38B /* Pods-NittanyTrivia.debug.xcconfig */,
+				A99253257E78677A29AF34D4 /* Pods-NittanyTrivia.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BF52DE7B24C3E01A00032553 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +117,8 @@
 				BF52DEA024C3E01D00032553 /* NittanyTriviaTests */,
 				BF52DEAB24C3E01D00032553 /* NittanyTriviaUITests */,
 				BF52DE8524C3E01A00032553 /* Products */,
+				BD159BEBCF4EE5937BCB8B81 /* Pods */,
+				B1A6D958592128F4210C29F4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,11 +137,13 @@
 			children = (
 				BF52DE8724C3E01A00032553 /* AppDelegate.swift */,
 				BF52DE8924C3E01A00032553 /* SceneDelegate.swift */,
-				BF52DE8B24C3E01A00032553 /* ViewController.swift */,
-				BF52DE8D24C3E01A00032553 /* Main.storyboard */,
+				BFF91A9124C3E86A000AEC4F /* Model */,
+				BFF91A9024C3E85E000AEC4F /* View */,
+				BFF91A8F24C3E755000AEC4F /* Controller */,
 				BF52DE9324C3E01C00032553 /* Assets.xcassets */,
 				BF52DE9524C3E01C00032553 /* LaunchScreen.storyboard */,
 				BF52DE9824C3E01C00032553 /* Info.plist */,
+				BF52DEBA24C3E31B00032553 /* Podfile */,
 				BF52DE9024C3E01A00032553 /* NittanyTrivia.xcdatamodeld */,
 			);
 			path = NittanyTrivia;
@@ -131,6 +167,33 @@
 			path = NittanyTriviaUITests;
 			sourceTree = "<group>";
 		};
+		BFF91A8F24C3E755000AEC4F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BFF43EF424C7E6F80074FDD0 /* WelcomeViewController.swift */,
+				BFF43EF624C8030A0074FDD0 /* PlayController.swift */,
+				BFF43EF824C806AA0074FDD0 /* Leaderboard.swift */,
+				BFF43EFA24C80A9B0074FDD0 /* LoginViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BFF91A9024C3E85E000AEC4F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF52DE8D24C3E01A00032553 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BFF91A9124C3E86A000AEC4F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BFE2C6A324C89CDA00DEEE1E /* Question.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +201,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF52DEB124C3E01D00032553 /* Build configuration list for PBXNativeTarget "NittanyTrivia" */;
 			buildPhases = (
+				8E93BF46B0E8C4093FC6BE8E /* [CP] Check Pods Manifest.lock */,
 				BF52DE8024C3E01A00032553 /* Sources */,
 				BF52DE8124C3E01A00032553 /* Frameworks */,
 				BF52DE8224C3E01A00032553 /* Resources */,
+				E8FEBEC5B0055557751E0814 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -237,6 +302,7 @@
 			files = (
 				BF52DE9724C3E01C00032553 /* LaunchScreen.storyboard in Resources */,
 				BF52DE9424C3E01C00032553 /* Assets.xcassets in Resources */,
+				BF52DEBB24C3E31B00032553 /* Podfile in Resources */,
 				BF52DE8F24C3E01A00032553 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -257,15 +323,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8E93BF46B0E8C4093FC6BE8E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NittanyTrivia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8FEBEC5B0055557751E0814 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NittanyTrivia/Pods-NittanyTrivia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NittanyTrivia/Pods-NittanyTrivia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NittanyTrivia/Pods-NittanyTrivia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BF52DE8024C3E01A00032553 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFF43EFB24C80A9B0074FDD0 /* LoginViewController.swift in Sources */,
+				BFE2C6A424C89CDA00DEEE1E /* Question.swift in Sources */,
 				BF52DE9224C3E01A00032553 /* NittanyTrivia.xcdatamodeld in Sources */,
-				BF52DE8C24C3E01A00032553 /* ViewController.swift in Sources */,
+				BFF43EF924C806AA0074FDD0 /* Leaderboard.swift in Sources */,
+				BFF43EF524C7E6F80074FDD0 /* WelcomeViewController.swift in Sources */,
 				BF52DE8824C3E01A00032553 /* AppDelegate.swift in Sources */,
 				BF52DE8A24C3E01A00032553 /* SceneDelegate.swift in Sources */,
+				BFF43EF724C8030A0074FDD0 /* PlayController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,11 +548,13 @@
 		};
 		BF52DEB224C3E01D00032553 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80D7DC0E3BA4B82FB5EDB38B /* Pods-NittanyTrivia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TDY68T62HW;
 				INFOPLIST_FILE = NittanyTrivia/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -454,11 +568,13 @@
 		};
 		BF52DEB324C3E01D00032553 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A99253257E78677A29AF34D4 /* Pods-NittanyTrivia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TDY68T62HW;
 				INFOPLIST_FILE = NittanyTrivia/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

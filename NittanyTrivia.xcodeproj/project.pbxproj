@@ -16,7 +16,9 @@
 		BF52DEA224C3E01D00032553 /* NittanyTriviaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DEA124C3E01D00032553 /* NittanyTriviaTests.swift */; };
 		BF52DEAD24C3E01D00032553 /* NittanyTriviaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DEAC24C3E01D00032553 /* NittanyTriviaUITests.swift */; };
 		BF52DEBB24C3E31B00032553 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BF52DEBA24C3E31B00032553 /* Podfile */; };
+		BFACF26A24CBDB260022EF76 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFACF26924CBDB260022EF76 /* GoogleService-Info.plist */; };
 		BFE2C6A424C89CDA00DEEE1E /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2C6A324C89CDA00DEEE1E /* Question.swift */; };
+		BFE2C6A624C8C60800DEEE1E /* QuestionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2C6A524C8C60800DEEE1E /* QuestionChecker.swift */; };
 		BFF43EF524C7E6F80074FDD0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF43EF424C7E6F80074FDD0 /* WelcomeViewController.swift */; };
 		BFF43EF724C8030A0074FDD0 /* PlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF43EF624C8030A0074FDD0 /* PlayController.swift */; };
 		BFF43EF924C806AA0074FDD0 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF43EF824C806AA0074FDD0 /* Leaderboard.swift */; };
@@ -59,8 +61,10 @@
 		BF52DEA824C3E01D00032553 /* NittanyTriviaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NittanyTriviaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF52DEAC24C3E01D00032553 /* NittanyTriviaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NittanyTriviaUITests.swift; sourceTree = "<group>"; };
 		BF52DEAE24C3E01D00032553 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF52DEBA24C3E31B00032553 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		BF52DEBA24C3E31B00032553 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BFACF26924CBDB260022EF76 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		BFE2C6A324C89CDA00DEEE1E /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		BFE2C6A524C8C60800DEEE1E /* QuestionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionChecker.swift; sourceTree = "<group>"; };
 		BFF43EF424C7E6F80074FDD0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		BFF43EF624C8030A0074FDD0 /* PlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayController.swift; sourceTree = "<group>"; };
 		BFF43EF824C806AA0074FDD0 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 		BF52DE8624C3E01A00032553 /* NittanyTrivia */ = {
 			isa = PBXGroup;
 			children = (
+				BFACF26924CBDB260022EF76 /* GoogleService-Info.plist */,
 				BF52DE8724C3E01A00032553 /* AppDelegate.swift */,
 				BF52DE8924C3E01A00032553 /* SceneDelegate.swift */,
 				BFF91A9124C3E86A000AEC4F /* Model */,
@@ -190,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				BFE2C6A324C89CDA00DEEE1E /* Question.swift */,
+				BFE2C6A524C8C60800DEEE1E /* QuestionChecker.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,6 +212,7 @@
 				BF52DE8124C3E01A00032553 /* Frameworks */,
 				BF52DE8224C3E01A00032553 /* Resources */,
 				E8FEBEC5B0055557751E0814 /* [CP] Embed Pods Frameworks */,
+				BB174952972E1AA3E879A60B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -302,6 +309,7 @@
 			files = (
 				BF52DE9724C3E01C00032553 /* LaunchScreen.storyboard in Resources */,
 				BF52DE9424C3E01C00032553 /* Assets.xcassets in Resources */,
+				BFACF26A24CBDB260022EF76 /* GoogleService-Info.plist in Resources */,
 				BF52DEBB24C3E31B00032553 /* Podfile in Resources */,
 				BF52DE8F24C3E01A00032553 /* Main.storyboard in Resources */,
 			);
@@ -346,6 +354,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BB174952972E1AA3E879A60B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NittanyTrivia/Pods-NittanyTrivia-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NittanyTrivia/Pods-NittanyTrivia-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NittanyTrivia/Pods-NittanyTrivia-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E8FEBEC5B0055557751E0814 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -372,6 +397,7 @@
 			files = (
 				BFF43EFB24C80A9B0074FDD0 /* LoginViewController.swift in Sources */,
 				BFE2C6A424C89CDA00DEEE1E /* Question.swift in Sources */,
+				BFE2C6A624C8C60800DEEE1E /* QuestionChecker.swift in Sources */,
 				BF52DE9224C3E01A00032553 /* NittanyTrivia.xcdatamodeld in Sources */,
 				BFF43EF924C806AA0074FDD0 /* Leaderboard.swift in Sources */,
 				BFF43EF524C7E6F80074FDD0 /* WelcomeViewController.swift in Sources */,
@@ -559,7 +585,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.NittanyTrivia.ShahzebAhmed.NittanyTrivia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NittanyTrivia.ShahzebAhmed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -579,7 +605,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.NittanyTrivia.ShahzebAhmed.NittanyTrivia;
+				PRODUCT_BUNDLE_IDENTIFIER = com.NittanyTrivia.ShahzebAhmed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

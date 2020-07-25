@@ -4,28 +4,28 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>BoringSSL-GRPC.xcscheme</key>
+		<key>AppAuth.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>Firebase.xcscheme</key>
+		<key>BoringSSL-GRPC.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>FirebaseAuth.xcscheme</key>
+		<key>Firebase.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>FirebaseAuthInterop.xcscheme</key>
+		<key>FirebaseAuth.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -46,26 +46,26 @@
 			<key>orderHint</key>
 			<integer>6</integer>
 		</dict>
-		<key>FirebaseCoreDiagnosticsInterop.xcscheme</key>
+		<key>FirebaseFirestore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
-		<key>FirebaseFirestore.xcscheme</key>
+		<key>FirebaseFirestoreSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
-		<key>FirebaseFirestoreSwift.xcscheme</key>
+		<key>GTMAppAuth.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>9</integer>
+			<integer>15</integer>
 		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
@@ -79,21 +79,21 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>9</integer>
 		</dict>
-		<key>GoogleDataTransportCCTSupport.xcscheme</key>
+		<key>GoogleSignIn.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>11</integer>
+			<integer>10</integer>
 		</dict>
 		<key>GoogleUtilities.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>12</integer>
+			<integer>11</integer>
 		</dict>
 		<key>Pods-NittanyTrivia.xcscheme</key>
 		<dict>
@@ -121,21 +121,21 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>14</integer>
+			<integer>13</integer>
 		</dict>
 		<key>gRPC-C++.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>13</integer>
+			<integer>12</integer>
 		</dict>
 		<key>gRPC-Core.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>15</integer>
+			<integer>14</integer>
 		</dict>
 		<key>leveldb-library.xcscheme</key>
 		<dict>

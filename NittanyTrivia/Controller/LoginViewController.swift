@@ -8,11 +8,10 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 class Login: UIViewController {
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

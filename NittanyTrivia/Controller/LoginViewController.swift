@@ -9,12 +9,21 @@
 import Foundation
 import UIKit
 import Firebase
+import GoogleSignIn
+
 
 class Login: UIViewController {
 
+    @IBOutlet weak var Register: GIDSignInButton!
+    @IBOutlet weak var Login: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().signIn()
     }
+    
+    
     
 
 }

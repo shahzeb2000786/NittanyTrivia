@@ -14,7 +14,10 @@ import GoogleSignIn
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
-
+    var userId = ""            // For client-side use only!
+    var fullName = ""
+    var givenName = ""
+    var email = ""
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -23,25 +26,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
         return true
     }
-    
+
+
+    // -------------------------------google sign in functions------------------------------------------
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
       // ...
       if let error = error {
         // ...
         return
       }
-
+        print("successful sign in")
       guard let authentication = user.authentication else { return }
       let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                         accessToken: authentication.accessToken)
-      // ...
-    }//function to conform to gidsignindelegate
-
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+     userId = user.userID                  // For client-side use only, setting global vals to hold google info
+     fullName = user.profile.name
+     givenName = user.profile.givenName
+     email = user.profile.email
+      let idToken = user.authentication.idToken // Safe to send to the server
+        Auth.auth().signIn(with: credential) { (User, Error) in    //authenticates user's sign in info
+            if let userInfo = User {
+                print("success")
+            }
+            else{
+                print("not successful")
+            }
+        }
+    } // google sign in method
+    
+  func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
         // ...
     }//function to conform to gidsignindelegate
     
+    
+// -------------------------------end of google sign in functions------------------------------------------
     
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any])
@@ -50,6 +69,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }//google sign in required set up function
 
     // MARK: UISceneSession Lifecycle
+    
+    
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.

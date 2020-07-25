@@ -26,6 +26,14 @@
 				<string>com.googleusercontent.apps.621475356483-n2ug1f7v7phhhiqlr9gj7nchbmgmgu8l</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.NittanyTrivia.ShahzebAhmed</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>

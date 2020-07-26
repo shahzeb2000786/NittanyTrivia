@@ -16,6 +16,7 @@
 		BF52DEA224C3E01D00032553 /* NittanyTriviaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DEA124C3E01D00032553 /* NittanyTriviaTests.swift */; };
 		BF52DEAD24C3E01D00032553 /* NittanyTriviaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DEAC24C3E01D00032553 /* NittanyTriviaUITests.swift */; };
 		BF52DEBB24C3E31B00032553 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BF52DEBA24C3E31B00032553 /* Podfile */; };
+		BF92E71024CD1F1800E8B8DA /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92E70F24CD1F1800E8B8DA /* HomePage.swift */; };
 		BFACF26A24CBDB260022EF76 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFACF26924CBDB260022EF76 /* GoogleService-Info.plist */; };
 		BFE2C6A424C89CDA00DEEE1E /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2C6A324C89CDA00DEEE1E /* Question.swift */; };
 		BFE2C6A624C8C60800DEEE1E /* QuestionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2C6A524C8C60800DEEE1E /* QuestionChecker.swift */; };
@@ -62,6 +63,7 @@
 		BF52DEAC24C3E01D00032553 /* NittanyTriviaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NittanyTriviaUITests.swift; sourceTree = "<group>"; };
 		BF52DEAE24C3E01D00032553 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF52DEBA24C3E31B00032553 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BF92E70F24CD1F1800E8B8DA /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		BFACF26924CBDB260022EF76 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		BFE2C6A324C89CDA00DEEE1E /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		BFE2C6A524C8C60800DEEE1E /* QuestionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionChecker.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				BFF43EF624C8030A0074FDD0 /* PlayController.swift */,
 				BFF43EF824C806AA0074FDD0 /* Leaderboard.swift */,
 				BFF43EFA24C80A9B0074FDD0 /* LoginViewController.swift */,
+				BF92E70F24CD1F1800E8B8DA /* HomePage.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				BFE2C6A624C8C60800DEEE1E /* QuestionChecker.swift in Sources */,
 				BF52DE9224C3E01A00032553 /* NittanyTrivia.xcdatamodeld in Sources */,
 				BFF43EF924C806AA0074FDD0 /* Leaderboard.swift in Sources */,
+				BF92E71024CD1F1800E8B8DA /* HomePage.swift in Sources */,
 				BFF43EF524C7E6F80074FDD0 /* WelcomeViewController.swift in Sources */,
 				BF52DE8824C3E01A00032553 /* AppDelegate.swift in Sources */,
 				BF52DE8A24C3E01A00032553 /* SceneDelegate.swift in Sources */,

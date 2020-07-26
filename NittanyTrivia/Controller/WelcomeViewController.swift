@@ -9,26 +9,29 @@ import Foundation
 import UIKit
 import Firebase
 import GoogleSignIn
-let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
+
 
 class WelcomeViewController: UIViewController {
 
+    @IBOutlet weak var googleButton: GIDSignInButton!
     
-    func random() -> [String] {
-        let userName = appDelegate.fullName
-        let userEmail = appDelegate.email
-        let userGivenName = appDelegate.givenName //given name is equivalent to firstname/nickname
-        let userInfo = [userName,userEmail,userGivenName]
-        return userInfo
-    }
+//    func setUserInfo() -> [String] {
+//        let userName = appDelegate.fullName
+//        let userEmail = appDelegate.email
+//        let userGivenName = appDelegate.givenName //given name is equivalent to firstname/nickname
+//        let userInfo = [userName,userEmail,userGivenName]
+//        return userInfo
+//    }
   
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance()?.presentingViewController = self
-
         // Automatically sign in the user.
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()
-        print(random())
+        googleButton.layer.cornerRadius = 20
+        googleButton.sizeToFit()
+       // print(setUserInfo())
+        
     }
     
 

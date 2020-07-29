@@ -19,12 +19,20 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
     
     @IBOutlet weak var competeButton: UIButton!
     @IBOutlet weak var survivalButton: UIButton!
+    @IBOutlet weak var coinsButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getQuestion()//this function is located within Question.swift
         competeButton.layer.cornerRadius = 40
         survivalButton.layer.cornerRadius = 40
+        
+        
+        coinsButton.titleLabel?.numberOfLines = 1
+        coinsButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        coinsButton.titleLabel?.minimumScaleFactor = 0.5
+        
         print (appDelegate.email)
         
         

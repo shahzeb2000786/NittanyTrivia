@@ -22,17 +22,23 @@ class PlayController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getQuestion()
         question.text? = questionList.questionList[questionList.questionNumber].question
 //        question.text? = Question1.question
         
-        firstOption.setTitle(questionList.questionList[questionList.questionNumber].firstOption, for: .normal)
         
-        secondOption.setTitle(questionList.questionList[questionList.questionNumber].secondOption, for: .normal)
         
-        thirdOption.setTitle(questionList.questionList[questionList.questionNumber].thirdOption, for: .normal)
         
-        fourthOption.setTitle(questionList.questionList[questionList.questionNumber].fourthOption, for: .normal)
+//        firstOption.setTitle(questionList.questionList[questionList.questionNumber].firstOption, for: .normal)
+//
+//        secondOption.setTitle(questionList.questionList[questionList.questionNumber].secondOption, for: .normal)
+//
+//        thirdOption.setTitle(questionList.questionList[questionList.questionNumber].thirdOption, for: .normal)
+//
+//        fourthOption.setTitle(questionList.questionList[questionList.questionNumber].fourthOption, for: .normal)
+        
+        
+        
     }
     
     
@@ -79,13 +85,13 @@ class PlayController: UIViewController {
         question.text? =
             questionList.questionList[questionList.questionNumber].question
         
-        firstOption.setTitle(questionList.questionList[questionList.questionNumber].firstOption, for: .normal)
-        
-        secondOption.setTitle(questionList.questionList[questionList.questionNumber].secondOption, for: .normal)
-        
-        thirdOption.setTitle(questionList.questionList[questionList.questionNumber].thirdOption, for: .normal)
-        
-        fourthOption.setTitle(questionList.questionList[questionList.questionNumber].fourthOption, for: .normal)
+//        firstOption.setTitle(questionList.questionList[questionList.questionNumber].firstOption, for: .normal)
+//
+//        secondOption.setTitle(questionList.questionList[questionList.questionNumber].secondOption, for: .normal)
+//
+//        thirdOption.setTitle(questionList.questionList[questionList.questionNumber].thirdOption, for: .normal)
+//
+//        fourthOption.setTitle(questionList.questionList[questionList.questionNumber].fourthOption, for: .normal)
     
     }
     

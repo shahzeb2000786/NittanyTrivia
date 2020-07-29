@@ -55,36 +55,40 @@
             <objects>
                 <viewController id="qNi-wg-Gdc" customClass="PlayController" customModule="NittanyTrivia" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PtW-oH-LDK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Who was Penn State's first President?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hQP-EW-WHq">
-                                <rect key="frame" x="57" y="132" width="300" height="140"/>
+                                <rect key="frame" x="0.0" y="-4" width="414" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" name="buttonColor"/>
                                 <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IgC-IQ-N2y">
-                                <rect key="frame" x="115" y="44" width="177" height="92"/>
+                                <rect key="frame" x="107" y="144" width="177" height="92"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="55"/>
-                                <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Icz-UC-WOb">
-                                <rect key="frame" x="80" y="280" width="230" height="70"/>
+                                <rect key="frame" x="80" y="289" width="230" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title=" Evan Pugh"/>
+                                <state key="normal" title=" Evan Pugh">
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="firstOptionSelect:" destination="qNi-wg-Gdc" eventType="touchUpInside" id="38r-3r-13K"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cE5-Ks-Zmy">
-                                <rect key="frame" x="80" y="408" width="230" height="70"/>
+                                <rect key="frame" x="80" y="478" width="230" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Eric Barron"/>
                                 <connections>
@@ -92,10 +96,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOe-i2-Pt5">
-                                <rect key="frame" x="80" y="486" width="255" height="70"/>
+                                <rect key="frame" x="21" y="584" width="374" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="George Washington"/>
+                                <state key="normal" title="George Washington Mcghee "/>
                                 <connections>
                                     <action selector="fourthOptionSelect:" destination="qNi-wg-Gdc" eventType="touchUpInside" id="uWJ-zt-Wj3"/>
                                 </connections>
@@ -108,28 +113,29 @@
                                     <color key="titleColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i00-24-Slu">
-                                <rect key="frame" x="202" y="584" width="155" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Next Question">
-                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="nextQuestion:" destination="qNi-wg-Gdc" eventType="touchUpInside" id="1iF-rn-PqG"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ach-Qp-Vi1">
-                                <rect key="frame" x="80" y="330" width="230" height="70"/>
+                                <rect key="frame" x="80" y="386" width="230" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="   Donald Trump"/>
                                 <connections>
                                     <action selector="secondOptionSelect:" destination="qNi-wg-Gdc" eventType="touchUpInside" id="Djb-DK-WtO"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i00-24-Slu">
+                                <rect key="frame" x="211" y="697" width="155" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Next Question">
+                                    <color key="titleColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextQuestion:" destination="qNi-wg-Gdc" eventType="touchUpInside" id="1iF-rn-PqG"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" name="backgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="vSi-84-Zr6"/>
                     </view>
                     <navigationItem key="navigationItem" id="orH-kn-gEf"/>
@@ -143,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4q-Mu-7Qh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1558" y="-615"/>
+            <point key="canvasLocation" x="1557.9710144927537" y="-615.40178571428567"/>
         </scene>
         <!--Leaderboard-->
         <scene sceneID="RGR-2U-G9T">
@@ -218,28 +224,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="c54-gL-fL1">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="445" height="842"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T7j-g8-6jE" userLabel="TitleView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="106.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="445" height="106.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trivia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8K-kU-Ud1">
-                                                <rect key="frame" x="157" y="23" width="100.5" height="59.5"/>
+                                                <rect key="frame" x="172.5" y="23" width="100.5" height="59.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPk-bt-At9">
-                                                <rect key="frame" x="20" y="20" width="109" height="63.5"/>
+                                                <rect key="frame" x="20" y="20" width="124.5" height="63.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                <state key="normal" title="3 ❤️">
+                                                <state key="normal" title="10 ❤️">
                                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPB-fg-ajk">
-                                                <rect key="frame" x="285.5" y="22" width="108.5" height="64.5"/>
+                                                <rect key="frame" x="301" y="22" width="124" height="64.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                <state key="normal" title="280 💎">
+                                                <state key="normal" title="28000 💰">
                                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
@@ -261,51 +267,88 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UYj-hV-l8C" userLabel="BodyView">
-                                        <rect key="frame" x="0.0" y="106.5" width="414" height="655"/>
+                                        <rect key="frame" x="0.0" y="106.5" width="445" height="655"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJS-SF-IIg">
-                                                <rect key="frame" x="112" y="545" width="190" height="90"/>
-                                                <color key="backgroundColor" name="buttonColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="90" id="8aX-U1-3eI"/>
-                                                    <constraint firstAttribute="width" constant="190" id="Pgc-x8-rTP"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                                <state key="normal" title="Survival">
-                                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                </state>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="xXN-B0-Zfz">
-                                                <rect key="frame" x="102" y="257.5" width="210" height="140"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="140" id="AoB-mX-rAw"/>
-                                                    <constraint firstAttribute="width" constant="210" id="jpd-cP-PDW"/>
-                                                </constraints>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNB-5X-nqt">
-                                                <rect key="frame" x="102" y="20" width="210" height="90"/>
-                                                <color key="backgroundColor" name="buttonColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="90" id="5wD-hu-gKe"/>
-                                                    <constraint firstAttribute="width" constant="210" id="Xhg-Xl-PGb"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                                <state key="normal" title="Compete">
-                                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                </state>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="OKJ-I7-DZo" userLabel="BodyStack">
+                                                <rect key="frame" x="97.5" y="0.0" width="250" height="655"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Q7-ug-Bid" userLabel="CompeteView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="250" height="198.5"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNB-5X-nqt">
+                                                                <rect key="frame" x="20" y="54" width="210" height="90"/>
+                                                                <color key="backgroundColor" name="buttonColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="90" id="5wD-hu-gKe"/>
+                                                                    <constraint firstAttribute="width" constant="210" id="Xhg-Xl-PGb"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                                <state key="normal" title="Compete">
+                                                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                </state>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="oNB-5X-nqt" firstAttribute="centerX" secondItem="5Q7-ug-Bid" secondAttribute="centerX" id="5FP-fd-JJd"/>
+                                                            <constraint firstItem="oNB-5X-nqt" firstAttribute="centerY" secondItem="5Q7-ug-Bid" secondAttribute="centerY" id="LXV-X9-tUE"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDC-fO-Tix" userLabel="LogoView">
+                                                        <rect key="frame" x="0.0" y="228.5" width="250" height="198"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="xXN-B0-Zfz">
+                                                                <rect key="frame" x="20" y="29" width="210" height="140"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="140" id="AoB-mX-rAw"/>
+                                                                    <constraint firstAttribute="width" constant="210" id="jpd-cP-PDW"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="xXN-B0-Zfz" firstAttribute="centerY" secondItem="IDC-fO-Tix" secondAttribute="centerY" id="AHY-0L-Bfe"/>
+                                                            <constraint firstItem="xXN-B0-Zfz" firstAttribute="centerX" secondItem="IDC-fO-Tix" secondAttribute="centerX" id="bDG-H5-ku6"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUD-XC-PtM" userLabel="SurvivalView">
+                                                        <rect key="frame" x="0.0" y="456.5" width="250" height="198.5"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJS-SF-IIg">
+                                                                <rect key="frame" x="30" y="54.5" width="190" height="90"/>
+                                                                <color key="backgroundColor" name="buttonColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="90" id="8aX-U1-3eI"/>
+                                                                    <constraint firstAttribute="width" constant="190" id="Pgc-x8-rTP"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                                <state key="normal" title="Survival">
+                                                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <segue destination="qNi-wg-Gdc" kind="show" id="abj-5Y-wuH"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="cJS-SF-IIg" firstAttribute="centerX" secondItem="IUD-XC-PtM" secondAttribute="centerX" id="51U-UA-J0X"/>
+                                                            <constraint firstItem="cJS-SF-IIg" firstAttribute="centerY" secondItem="IUD-XC-PtM" secondAttribute="centerY" id="Eql-jc-LJ2"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="xXN-B0-Zfz" firstAttribute="centerY" secondItem="UYj-hV-l8C" secondAttribute="centerY" id="6Af-bG-3R8"/>
-                                            <constraint firstItem="oNB-5X-nqt" firstAttribute="centerX" secondItem="UYj-hV-l8C" secondAttribute="centerX" id="JSx-aS-0C5"/>
-                                            <constraint firstItem="xXN-B0-Zfz" firstAttribute="centerX" secondItem="UYj-hV-l8C" secondAttribute="centerX" id="PLA-wA-vd9"/>
-                                            <constraint firstItem="oNB-5X-nqt" firstAttribute="top" secondItem="UYj-hV-l8C" secondAttribute="top" constant="20" id="TbE-mW-jJ3"/>
-                                            <constraint firstItem="cJS-SF-IIg" firstAttribute="centerX" secondItem="UYj-hV-l8C" secondAttribute="centerX" id="f3W-L7-HwS"/>
-                                            <constraint firstAttribute="bottom" secondItem="cJS-SF-IIg" secondAttribute="bottom" constant="20" id="lPb-1Y-dyY"/>
+                                            <constraint firstItem="OKJ-I7-DZo" firstAttribute="top" secondItem="UYj-hV-l8C" secondAttribute="top" id="A0c-zM-Gcy"/>
+                                            <constraint firstAttribute="bottom" secondItem="OKJ-I7-DZo" secondAttribute="bottom" id="Lx6-cI-aMg"/>
+                                            <constraint firstItem="OKJ-I7-DZo" firstAttribute="centerX" secondItem="UYj-hV-l8C" secondAttribute="centerX" id="QVj-gn-hyH"/>
+                                            <constraint firstItem="OKJ-I7-DZo" firstAttribute="centerY" secondItem="UYj-hV-l8C" secondAttribute="centerY" id="cob-nN-b2u"/>
+                                            <constraint firstItem="OKJ-I7-DZo" firstAttribute="leading" secondItem="UYj-hV-l8C" secondAttribute="leading" constant="97.5" id="qNR-BQ-a2d"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x7U-JU-R0J" userLabel="PanelView">
-                                        <rect key="frame" x="0.0" y="761.5" width="414" height="80.5"/>
+                                        <rect key="frame" x="0.0" y="761.5" width="445" height="80.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IaU-VJ-vSu" userLabel="Help Button">
                                                 <rect key="frame" x="310" y="7.5" width="65" height="65"/>
@@ -402,6 +445,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="AC3-Mm-6xO"/>
                     <connections>
+                        <outlet property="coinsButton" destination="VPB-fg-ajk" id="O0F-O6-jVi"/>
                         <outlet property="competeButton" destination="oNB-5X-nqt" id="xex-vw-kvO"/>
                         <outlet property="survivalButton" destination="cJS-SF-IIg" id="89m-xb-1gV"/>
                     </connections>

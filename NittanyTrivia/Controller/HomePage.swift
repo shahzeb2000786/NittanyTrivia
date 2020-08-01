@@ -24,7 +24,6 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getQuestion()//this function is located within Question.swift
         competeButton.layer.cornerRadius = 40
         survivalButton.layer.cornerRadius = 40
         
@@ -33,9 +32,9 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
         coinsButton.titleLabel?.adjustsFontSizeToFitWidth = true
         coinsButton.titleLabel?.minimumScaleFactor = 0.5
         
+        
         print (appDelegate.email)
-        
-        
+    
     }
     
     @IBAction func leaderboardPressed(_ sender: UIButton) {
@@ -43,6 +42,7 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
     }
     
     @IBAction func storePressed(_ sender: UIButton) {
+      
     }
     
     @IBAction func homePressed(_ sender: UIButton) {

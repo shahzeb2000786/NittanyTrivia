@@ -17,69 +17,86 @@ struct Question {
     let option2 : String
     let option3 : String
     let option4 : String
-    let correctAnswer: String
-  //  let category: String
-//    let difficulty: String
+    let correctOption: String
+    let category: String
+    let difficulty: String
 }
 
 
-//getQuestion draws reads items from the "questions" collection which contains trivia questions
-func returnQuestion(question: String, option1: String, option2: String, option3: String, option4: String, correctAnswer: String) -> Question {
-    let questionToReturn =  Question(question: question, option1: option1, option2: option2, option3: option3, option4: option4, correctAnswer: correctAnswer)
+//the questionToAskUser variable below, will be the question to show the user when they play and is initailized below
+var questionToAskUser = Question(question: "1", option1: "1", option2: "1", option3: "1", option4: "1", correctOption: "1", category: "1", difficulty: "1")
+
+
+
+
+
+//getQuestions reads items from the "questions" collection which contains trivia questions and randomly reassigns the value for the global "questionToAskUser" variable.
+func getQuestion()  {
+    
+    var databaseReference = db.collection("Questions")
+    let randomSortNum = Int.random(in: 0..<500)
+    var questionsCollection = db.collection("Questions")
+    var randomQuestion = questionsCollection.whereField("randomSortNum", isGreaterThan: randomSortNum)
+        .order(by: "randomSortNum")
+        .limit(to: 1)
+    
+    randomQuestion.getDocuments { (question, error) in
+        if (error != nil){
+            print(error!.localizedDescription)
+        }
+        else{
+            if let questionToReturn = question{
+                print(randomSortNum)
+                if (questionToReturn.documents != []){
+                    let questionData = questionToReturn.documents[0].data()
+                    let question = ( questionData["question"]! as! String)
+                    let option1 = ( questionData["option1"]! as! String)
+                    let option2 = ( questionData["option2"]! as! String)
+                    let option3 = ( questionData["option3"]! as! String)
+                    let option4 = ( questionData["option4"]! as! String)
+                    let correctOption = ( questionData["correctOption"]! as! String)
+                    let category = ( questionData["category"]! as! String)
+                    let difficulty = ( questionData["difficulty"]! as! String)
+                    
+                    
+                    let randomlyGeneratedQuestion = returnQuestion(
+                    question: question, option1: option1, option2: option2, option3:
+                    option3, option4: option4, correctOption: correctOption,
+                    category: category, difficulty: difficulty
+                    )
+                    
+                    
+                    
+                    questionToAskUser = randomlyGeneratedQuestion
+                    
+               
+                   // print(questionToAskUser)
+                    
+                }//end of inner if
+            }//end of outer if
+        }//end of else
+    }// end of get documents
+}//end of getQuestion
+
+func returnQuestion(question: String, option1: String, option2: String, option3: String, option4: String, correctOption: String, category: String, difficulty: String) -> Question {
+    let questionToReturn =  Question(question: question, option1: option1, option2: option2, option3: option3, option4: option4, correctOption: correctOption, category: category, difficulty: difficulty)
     print(questionToReturn)
     return questionToReturn
 }
 
-func getQuestion()  {
-    
-    db.collection("Questions").getDocuments() { (querySnapshot, err) in
-        if let err = err {
-            print("Error getting documents: \(err)")
-        } else {
-            var totalQuestions: [Any]
-            totalQuestions = []
-            for document in querySnapshot!.documents {
-               // print(document.data().values)
-                totalQuestions.append(document.data().values.description)
-            }//end of for loop
-            
-//            print(type(of: totalQuestions[0]))
-//            print(totalQuestions[0])
-//            let randQuestion = ((totalQuestions[1] as AnyObject))
-//            print(type(of: randQuestion))
 
-        }//end of else statement
-        
-    }//end of db.collection.getDocuments
-}//end of getQuestion
-
-
-
-let Question1 = Question(question: "Who was Penn State's first President?", option1: "Donald Trump", option2: "Eric Barron" , option3: "Lebron James", option4: "Evan Pugh", correctAnswer: "Evan Pugh")
-
-let Question2 = Question(question: "Which one of these celebrities is a Penn State Alumnus", option1: "Ty Burell", option2: "Daniel Radcliffe" , option3: "Michael Vick", option4: "Kanye West", correctAnswer: "Ty Burell")
-
-let Question3 = Question(question: "What does the H in the HUB building stand for", option1: "Hazlenut", option2: "Harbaugh" , option3: "Hannah", option4: "Hetzel", correctAnswer: "Hetzel")
-
-
-
-
-
-
-struct QuestionList {
-    var questionNumber = 0
-    let questionList = [Question1, Question2, Question3]
-}
 
 
 struct QuestionChecker {
     //function below checks if question is right and if it is returns green color, if not then it returns red
-    func checkQuestion(selectedAnswer: String, correctAnswer: String) -> UIColor {
-        if selectedAnswer == correctAnswer{
+    func checkQuestion(selectedOption: String, correctOption: String) -> UIColor {
+        if selectedOption == correctOption{
+            print("correct")
             return UIColor.green
         }
         return UIColor.red
     }
+    
     
     
     

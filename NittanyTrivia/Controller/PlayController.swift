@@ -10,9 +10,10 @@ import Foundation
 import UIKit
 
 class PlayController: UIViewController {
-    let questionChecker = QuestionChecker()//contains logic to check answers to questions
-    var questionList = QuestionList() //contains the list of questions to ask as well a the current question Number
+   
     
+    let questionChecker = QuestionChecker()//contains logic to check answers to questions
+   
     @IBOutlet weak var question: UITextView!
     @IBOutlet weak var firstOption: UIButton!
     @IBOutlet weak var secondOption: UIButton!
@@ -22,77 +23,87 @@ class PlayController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getQuestion()
-        question.text? = questionList.questionList[questionList.questionNumber].question
-//        question.text? = Question1.question
         
+            self.question.text? = questionToAskUser.question
+            self.firstOption.setTitle(questionToAskUser.option1, for: .normal)
+            self.secondOption.setTitle(questionToAskUser.option2, for: .normal)
+            self.thirdOption.setTitle(questionToAskUser.option3, for: .normal)
+            self.fourthOption.setTitle(questionToAskUser.option4, for: .normal)
         
-        
-        
-//        firstOption.setTitle(questionList.questionList[questionList.questionNumber].firstOption, for: .normal)
-//
-//        secondOption.setTitle(questionList.questionList[questionList.questionNumber].secondOption, for: .normal)
-//
-//        thirdOption.setTitle(questionList.questionList[questionList.questionNumber].thirdOption, for: .normal)
-//
-//        fourthOption.setTitle(questionList.questionList[questionList.questionNumber].fourthOption, for: .normal)
-        
+        self.question.layer.cornerRadius = 20
+        self.firstOption.layer.cornerRadius = 40
+
+        self.secondOption.layer.cornerRadius = 40
+        self.thirdOption.layer.cornerRadius = 40
+        self.fourthOption.layer.cornerRadius = 40
+
         
         
     }
     
     
+
     
     @IBAction func firstOptionSelect(_ sender: UIButton) {
-        sender.backgroundColor = questionChecker.checkQuestion(selectedAnswer: sender.titleLabel?.text ?? "Error" , correctAnswer: questionList.questionList[questionList.questionNumber].correctAnswer)
+        sender.backgroundColor = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionToAskUser.correctOption)
+        self.nextQuestion()
+
     }
     
     @IBAction func secondOptionSelect(_ sender: UIButton) {
-        sender.backgroundColor = questionChecker.checkQuestion(selectedAnswer: sender.titleLabel?.text ?? "Error" , correctAnswer: questionList.questionList[questionList.questionNumber].correctAnswer)
+        sender.backgroundColor = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionToAskUser.correctOption)
+        self.nextQuestion()
+
     }
     
     @IBAction func thirdOptionSelect(_ sender: UIButton) {
-        sender.backgroundColor = questionChecker.checkQuestion(selectedAnswer: sender.titleLabel?.text ?? "Error" , correctAnswer: questionList.questionList[questionList.questionNumber].correctAnswer)
+        sender.backgroundColor = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionToAskUser.correctOption)
+        self.nextQuestion()
     }
     
     @IBAction func fourthOptionSelect(_ sender: UIButton) {
-        sender.backgroundColor = questionChecker.checkQuestion(selectedAnswer: sender.titleLabel?.text ?? "Error" , correctAnswer: questionList.questionList[questionList.questionNumber].correctAnswer)
+        sender.backgroundColor = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionToAskUser.correctOption)
+        self.nextQuestion()
+
     }
     
     
     @IBAction func nextQuestion(_ sender: UIButton) {
-        nextQuestion()
+
+            self.nextQuestion()
+
     }
     
 
+    
+    
+    
+    
+    
     func nextQuestion(){
-        //if questionNumber exceeds the index of the total question amount, it redirects the user back to the first question by setting the current question Numberto 0
-        if (questionList.questionNumber + 1 == questionList.questionList.count){
-            questionList.questionNumber = 0
-        } else{
-        questionList.questionNumber = questionList.questionNumber  + 1
-        }
+        getQuestion() //changes the the global questionToAskUser variable
+       // print(questionToAskUser)
+        firstOption.backgroundColor = UIColor.white
+        secondOption.backgroundColor = UIColor.white
+        thirdOption.backgroundColor = UIColor.white
+        fourthOption.backgroundColor = UIColor.white
+           
+       
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // updates ui with a delay, while firebase fetches data
+          // Code you want to be delayed
+           self.question.text? = questionToAskUser.question
+           self.firstOption.setTitle(questionToAskUser.option1, for: .normal)
+           self.secondOption.setTitle(questionToAskUser.option2, for: .normal)
+           self.thirdOption.setTitle(questionToAskUser.option3, for: .normal)
+           self.fourthOption.setTitle(questionToAskUser.option4, for: .normal)
+       }//end of dispatchqeuue
         
-        
-        
-        //UI updates below (reset question asked and answer options and reset button background colors)
-        firstOption.backgroundColor = UIColor.black
-        secondOption.backgroundColor = UIColor.black
-        thirdOption.backgroundColor = UIColor.black
-        fourthOption.backgroundColor = UIColor.black
-        
-        
-        question.text? =
-            questionList.questionList[questionList.questionNumber].question
-        
-//        firstOption.setTitle(questionList.questionList[questionList.questionNumber].firstOption, for: .normal)
-//
-//        secondOption.setTitle(questionList.questionList[questionList.questionNumber].secondOption, for: .normal)
-//
-//        thirdOption.setTitle(questionList.questionList[questionList.questionNumber].thirdOption, for: .normal)
-//
-//        fourthOption.setTitle(questionList.questionList[questionList.questionNumber].fourthOption, for: .normal)
+
+    }//end of nextQuestion function
     
-    }
+
     
-}
+    
+}//end of class
+
+

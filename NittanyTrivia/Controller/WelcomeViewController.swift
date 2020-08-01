@@ -15,14 +15,7 @@ class WelcomeViewController: UIViewController {
 
     @IBOutlet weak var googleButton: GIDSignInButton!
     
-//    func setUserInfo() -> [String] {
-//        let userName = appDelegate.fullName
-//        let userEmail = appDelegate.email
-//        let userGivenName = appDelegate.givenName //given name is equivalent to firstname/nickname
-//        let userInfo = [userName,userEmail,userGivenName]
-//        return userInfo
-//    }
-  
+
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance()?.presentingViewController = self

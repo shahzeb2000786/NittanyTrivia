@@ -24,7 +24,7 @@ struct Question {
 
 
 //the questionToAskUser variable below, will be the question to show the user when they play and is initailized below
-var questionToAskUser = Question(question: "1", option1: "1", option2: "1", option3: "1", option4: "1", correctOption: "1", category: "1", difficulty: "1")
+var questionToAskUser = Question(question: "", option1: "", option2: "", option3: "", option4: "", correctOption: "", category: "1", difficulty: "1")
 
 
 

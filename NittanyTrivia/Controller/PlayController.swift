@@ -9,13 +9,9 @@
 import Foundation
 import UIKit
 
-let color = UIColor(named: "Color")
-
-
 class PlayController: UIViewController {
    
-    var questionsCounted = 0
-    var currentScore = 0
+    var currentScore = -1
     let questionChecker = QuestionChecker()//contains logic to check answers to questions
     
     @IBOutlet weak var topBarView: UIView!
@@ -32,15 +28,13 @@ class PlayController: UIViewController {
     
     @IBOutlet weak var gameOverView: UIView!
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
             
-        timer()
-        topBarView.backgroundColor = UIColor(named: "celebritiesColor")
+                topBarView.backgroundColor = UIColor(named: "celebritiesColor")
    
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.timer()
             self.nextQuestion() //updates the questionToAskUser to a random question from the questions database
         }//end of dispatchqueue
         
@@ -50,7 +44,7 @@ class PlayController: UIViewController {
         self.secondOption.setTitle(questionToAskUser.option2, for: .normal)
         self.thirdOption.setTitle(questionToAskUser.option3, for: .normal)
         self.fourthOption.setTitle(questionToAskUser.option4, for: .normal)
-       
+        self.scoreText?.text = "0"
         
         self.question.layer.cornerRadius = 20
         self.firstOption.layer.cornerRadius = 40
@@ -69,31 +63,31 @@ class PlayController: UIViewController {
     @IBAction func firstOptionSelect(_ sender: UIButton) {
         let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionToAskUser.correctOption)
         sender.backgroundColor = color
-        //isGameOver(Color: color)
-        nextQuestion()
+        isGameOver(Color: color)
+        //nextQuestion()
 
     }
     
     @IBAction func secondOptionSelect(_ sender: UIButton) {
         let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionToAskUser.correctOption)
         sender.backgroundColor = color
-        //isGameOver(Color: color)
-        nextQuestion()
+       isGameOver(Color: color)
+        //nextQuestion()
 
     }
     
     @IBAction func thirdOptionSelect(_ sender: UIButton) {
         let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionToAskUser.correctOption)
         sender.backgroundColor = color
-        //isGameOver(Color: color
-        nextQuestion()
+        isGameOver(Color: color)
+        //nextQuestion()
     }
     
     @IBAction func fourthOptionSelect(_ sender: UIButton) {
         let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionToAskUser.correctOption)
         sender.backgroundColor = color
-        //isGameOver(Color: color)
-        nextQuestion()
+        isGameOver(Color: color)
+        //nextQuestion()
     }
     
 
@@ -107,7 +101,6 @@ class PlayController: UIViewController {
         thirdOption.backgroundColor = UIColor.white
         fourthOption.backgroundColor = UIColor.white
            
-      
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // updates ui with a delay, while firebase fetches data
           // Code you want to be delayed
            self.question.text? = questionToAskUser.question
@@ -116,6 +109,8 @@ class PlayController: UIViewController {
            self.thirdOption.setTitle(questionToAskUser.option3, for: .normal)
            self.fourthOption.setTitle(questionToAskUser.option4, for: .normal)
            self.changeBarUI(category: questionToAskUser.category)
+            self.questionsCountAdder()
+            self.timer()
        }//end of dispatchqeuue
         
 
@@ -125,6 +120,7 @@ class PlayController: UIViewController {
 
 
 extension PlayController{//extension with question timer functionality
+   
     func timer(){
         var timeToDisplay = 15//the amount of time user has to answerquestion
         var timerValue = 0//will be used to show the current time left for user to answer question
@@ -143,29 +139,32 @@ extension PlayController{//extension with question timer functionality
 
 
 
-extension PlayController{//extension to deal with number of questions user has answered
+extension PlayController{//extension to deal with number of questions user has answered, also continuing or ending the game depending on user's answer
     func questionsCountAdder () {
-        questionsCounted = questionsCounted + 1
+        currentScore = currentScore + 1
+        scoreText?.text = String(currentScore)
+        finalScoreText?.text = "Score: " + String(currentScore)
     }
     
-    
-//    func isGameOver(Color: UIColor){
-//        if Color == UIColor.red{
-//            gameOverLabel.isHidden = false
-//        }
-//
-//        else{
-//
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-//                self.nextQuestion() //updates the questionToAskUser to a random question from the questions database
-//            }//end of dispatchqueue
-//        }//end of else
-//    }//end isGameOver
-    
-    
-    
-    
+    func isGameOver(Color: UIColor){
+        if Color == UIColor.red{
+            gameOverView.isHidden = false
+            timerText.text  = "0"
+        }
+
+        else{
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.nextQuestion() //updates the questionToAskUser to a random question from the questions database
+            }//end of dispatchqueue
+        }//end of else
+    }//end isGameOver
 }//end of extension
+
+
+
+
+
 extension PlayController {
     func changeBarUI(category: String) {//changes topbarview color and category image depending on question category
         switch category {

@@ -58,7 +58,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Who was Penn State's first President?" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hQP-EW-WHq">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hQP-EW-WHq">
                                 <rect key="frame" x="14" y="155" width="380" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -71,7 +71,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title=" Evan Pugh">
+                                <state key="normal">
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -83,7 +83,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Eric Barron"/>
                                 <connections>
                                     <action selector="thirdOptionSelect:" destination="qNi-wg-Gdc" eventType="touchUpInside" id="eyg-zf-3eJ"/>
                                 </connections>
@@ -93,7 +92,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="George Bush"/>
                                 <connections>
                                     <action selector="fourthOptionSelect:" destination="qNi-wg-Gdc" eventType="touchUpInside" id="uWJ-zt-Wj3"/>
                                 </connections>
@@ -103,7 +101,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="   Donald Trump"/>
                                 <connections>
                                     <action selector="secondOptionSelect:" destination="qNi-wg-Gdc" eventType="touchUpInside" id="Djb-DK-WtO"/>
                                 </connections>
@@ -134,6 +131,9 @@
                                         <state key="normal" backgroundImage="house.fill" catalog="system">
                                             <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="Tsd-UA-WOU" kind="show" id="61Z-LX-1cW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.028957715258002281" green="0.040509812533855438" blue="0.052945494651794434" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -142,7 +142,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKt-Yg-4q0">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKt-Yg-4q0">
                                         <rect key="frame" x="148" y="34" width="119" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.020727410912513733" green="0.0048195319250226021" blue="0.0050359833985567093" alpha="0.25068894477739728" colorSpace="custom" customColorSpace="sRGB"/>
@@ -150,20 +150,20 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IgC-IQ-N2y">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IgC-IQ-N2y">
                                         <rect key="frame" x="34" y="28" width="50" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sportscourt" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="PLO-4h-6Zw">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PLO-4h-6Zw">
                                         <rect key="frame" x="320" y="22" width="73" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.86141258729519221" green="0.57033033675799083" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" name="backgroundColor"/>
@@ -172,12 +172,12 @@
                     <navigationItem key="navigationItem" id="orH-kn-gEf"/>
                     <connections>
                         <outlet property="categoryImage" destination="PLO-4h-6Zw" id="924-FU-gTF"/>
-                        <outlet property="finalScoreText" destination="PMw-Ix-Yat" id="zx9-wt-f4Z"/>
+                        <outlet property="finalScoreText" destination="PMw-Ix-Yat" id="EQe-Qa-0Hv"/>
                         <outlet property="firstOption" destination="Icz-UC-WOb" id="TIS-AX-2g0"/>
                         <outlet property="fourthOption" destination="yOe-i2-Pt5" id="FXM-uW-WvM"/>
                         <outlet property="gameOverView" destination="Xxf-cZ-Whj" id="Jcl-m5-WWY"/>
                         <outlet property="question" destination="hQP-EW-WHq" id="S0m-mv-nm1"/>
-                        <outlet property="scoreText" destination="hKt-Yg-4q0" id="koh-sL-9P3"/>
+                        <outlet property="scoreText" destination="hKt-Yg-4q0" id="BJF-nz-8gI"/>
                         <outlet property="secondOption" destination="ach-Qp-Vi1" id="Uun-rB-i0P"/>
                         <outlet property="thirdOption" destination="cE5-Ks-Zmy" id="L1m-Ve-ngQ"/>
                         <outlet property="timerText" destination="IgC-IQ-N2y" id="zBY-7m-q52"/>
@@ -489,13 +489,15 @@
             <point key="canvasLocation" x="-1833" y="-567"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="61Z-LX-1cW"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Image" width="300" height="213"/>
         <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="sportscourt" catalog="system" width="128" height="83"/>
         <namedColor name="Color">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

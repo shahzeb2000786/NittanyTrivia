@@ -13,9 +13,10 @@ class PlayController: UIViewController {
    
     var currentScore = -1
     let questionChecker = QuestionChecker()//contains logic to check answers to questions
+    var timeToDisplay = 15//the total amount of time user has to answer question
+    var timerValue = 0// timeToDisplay - timerValue will be the will be the current time user has left
     
     @IBOutlet weak var topBarView: UIView!
-    
     @IBOutlet weak var question: UITextView!
     @IBOutlet weak var firstOption: UIButton!
     @IBOutlet weak var secondOption: UIButton!
@@ -25,36 +26,32 @@ class PlayController: UIViewController {
     @IBOutlet weak var scoreText: UILabel!
     @IBOutlet weak var finalScoreText: UILabel!
     @IBOutlet weak var categoryImage: UIImageView!
-    
     @IBOutlet weak var gameOverView: UIView!
 
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-            
-                topBarView.backgroundColor = UIColor(named: "celebritiesColor")
    
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.timer()
-            self.nextQuestion() //updates the questionToAskUser to a random question from the questions database
-        }//end of dispatchqueue
         
+        
+    topBarView.backgroundColor = UIColor(named: "celebritiesColor")
+    self.nextQuestion() //updates the questionToAskUser to a random question from the questions database
     
-        self.question.text? = questionToAskUser.question
-        self.firstOption.setTitle(questionToAskUser.option1, for: .normal)
-        self.secondOption.setTitle(questionToAskUser.option2, for: .normal)
-        self.thirdOption.setTitle(questionToAskUser.option3, for: .normal)
-        self.fourthOption.setTitle(questionToAskUser.option4, for: .normal)
-        self.scoreText?.text = "0"
         
-        self.question.layer.cornerRadius = 20
-        self.firstOption.layer.cornerRadius = 40
-        self.secondOption.layer.cornerRadius = 40
-        self.thirdOption.layer.cornerRadius = 40
-        self.fourthOption.layer.cornerRadius = 40
-        self.scoreText.layer.masksToBounds = true
-        self.scoreText.layer.cornerRadius = scoreText.frame.width/4
-        self.gameOverView.isHidden = true
+    self.question.layer.cornerRadius = 20
+    self.firstOption.layer.cornerRadius = 40
+    self.secondOption.layer.cornerRadius = 40
+    self.thirdOption.layer.cornerRadius = 40
+    self.fourthOption.layer.cornerRadius = 40
+    self.scoreText.layer.masksToBounds = true
+    self.scoreText.layer.cornerRadius = scoreText.frame.width/4
+    self.gameOverView.isHidden = true
         
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        self.timer()
+    }
     }//end of viewdidload
     
     
@@ -64,7 +61,6 @@ class PlayController: UIViewController {
         let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionToAskUser.correctOption)
         sender.backgroundColor = color
         isGameOver(Color: color)
-        //nextQuestion()
 
     }
     
@@ -72,7 +68,6 @@ class PlayController: UIViewController {
         let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionToAskUser.correctOption)
         sender.backgroundColor = color
        isGameOver(Color: color)
-        //nextQuestion()
 
     }
     
@@ -80,14 +75,12 @@ class PlayController: UIViewController {
         let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionToAskUser.correctOption)
         sender.backgroundColor = color
         isGameOver(Color: color)
-        //nextQuestion()
     }
     
     @IBAction func fourthOptionSelect(_ sender: UIButton) {
         let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionToAskUser.correctOption)
         sender.backgroundColor = color
         isGameOver(Color: color)
-        //nextQuestion()
     }
     
 
@@ -95,14 +88,12 @@ class PlayController: UIViewController {
     
     func nextQuestion(){
         getQuestion() //changes the the global questionToAskUser variable
-       // print(questionToAskUser)
         firstOption.backgroundColor = UIColor.white
         secondOption.backgroundColor = UIColor.white
         thirdOption.backgroundColor = UIColor.white
         fourthOption.backgroundColor = UIColor.white
            
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // updates ui with a delay, while firebase fetches data
-          // Code you want to be delayed
            self.question.text? = questionToAskUser.question
            self.firstOption.setTitle(questionToAskUser.option1, for: .normal)
            self.secondOption.setTitle(questionToAskUser.option2, for: .normal)
@@ -110,7 +101,8 @@ class PlayController: UIViewController {
            self.fourthOption.setTitle(questionToAskUser.option4, for: .normal)
            self.changeBarUI(category: questionToAskUser.category)
             self.questionsCountAdder()
-            self.timer()
+            self.timeToDisplay = 15
+            self.timerText.text? = String(self.timeToDisplay)
        }//end of dispatchqeuue
         
 
@@ -122,16 +114,14 @@ class PlayController: UIViewController {
 extension PlayController{//extension with question timer functionality
    
     func timer(){
-        var timeToDisplay = 15//the amount of time user has to answerquestion
-        var timerValue = 0//will be used to show the current time left for user to answer question
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
-            if timeToDisplay == 0{
+            if self.timeToDisplay == 0{
                 timer.invalidate()
                 self.gameOverView.isHidden = false
             }
             else{
-                timeToDisplay -= 1
-                self.timerText.text? = String(timeToDisplay)
+                self.timeToDisplay -= 1
+                self.timerText.text? = String(self.timeToDisplay)
             }
         }//end of scheduled timer
     }//end of timer() function

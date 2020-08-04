@@ -16,8 +16,8 @@ class PlayController: UIViewController {
     var timeToDisplay = 15//the total amount of time user has to answer question
     var timerValue = 0// timeToDisplay - timerValue will be the will be the current time user has left
     
+    @IBOutlet weak var question: UILabel!
     @IBOutlet weak var topBarView: UIView!
-    @IBOutlet weak var question: UITextView!
     @IBOutlet weak var firstOption: UIButton!
     @IBOutlet weak var secondOption: UIButton!
     @IBOutlet weak var thirdOption: UIButton!
@@ -37,6 +37,7 @@ class PlayController: UIViewController {
         
         
     topBarView.backgroundColor = UIColor(named: "celebritiesColor")
+        
     self.nextQuestion() //updates the questionToAskUser to a random question from the questions database
     
         
@@ -48,6 +49,12 @@ class PlayController: UIViewController {
     self.scoreText.layer.masksToBounds = true
     self.scoreText.layer.cornerRadius = scoreText.frame.width/4
     self.gameOverView.isHidden = true
+        
+        self.question.layer.masksToBounds = true
+        self.question.layer.cornerRadius = 40
+       // self.question.minimum
+        self.question.numberOfLines = 2
+        self.question.adjustsFontSizeToFitWidth = true
         
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
         self.timer()

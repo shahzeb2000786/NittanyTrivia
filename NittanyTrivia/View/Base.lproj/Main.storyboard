@@ -61,14 +61,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DFI-EO-IpJ" userLabel="Body View">
                                 <rect key="frame" x="0.0" y="135" width="414" height="618"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzl-kh-znn">
-                                        <rect key="frame" x="37" y="20" width="340" height="60"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzl-kh-znn">
+                                        <rect key="frame" x="37" y="0.0" width="340" height="308"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Icz-UC-WOb">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Icz-UC-WOb">
                                         <rect key="frame" x="53" y="308" width="314" height="48"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -79,7 +78,7 @@
                                             <action selector="firstOptionSelect:" destination="qNi-wg-Gdc" eventType="touchUpInside" id="38r-3r-13K"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cE5-Ks-Zmy">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cE5-Ks-Zmy">
                                         <rect key="frame" x="53" y="464" width="314" height="48"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -87,7 +86,7 @@
                                             <action selector="thirdOptionSelect:" destination="qNi-wg-Gdc" eventType="touchUpInside" id="eyg-zf-3eJ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOe-i2-Pt5">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yOe-i2-Pt5">
                                         <rect key="frame" x="53" y="550" width="314" height="48"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -95,7 +94,7 @@
                                             <action selector="fourthOptionSelect:" destination="qNi-wg-Gdc" eventType="touchUpInside" id="uWJ-zt-Wj3"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ach-Qp-Vi1">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ach-Qp-Vi1">
                                         <rect key="frame" x="53" y="387" width="314" height="48"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -112,6 +111,7 @@
                                     <constraint firstItem="yOe-i2-Pt5" firstAttribute="leading" secondItem="DFI-EO-IpJ" secondAttribute="leading" constant="53" id="8pd-XJ-0nh"/>
                                     <constraint firstItem="Icz-UC-WOb" firstAttribute="leading" secondItem="DFI-EO-IpJ" secondAttribute="leading" constant="53" id="B64-kw-xBU"/>
                                     <constraint firstAttribute="trailing" secondItem="ach-Qp-Vi1" secondAttribute="trailing" constant="47" id="HRG-C4-QiV"/>
+                                    <constraint firstItem="Icz-UC-WOb" firstAttribute="top" secondItem="Zzl-kh-znn" secondAttribute="bottom" id="Lnf-TI-0zJ"/>
                                     <constraint firstAttribute="trailing" secondItem="Zzl-kh-znn" secondAttribute="trailing" constant="37" id="QHq-sy-102"/>
                                     <constraint firstItem="ach-Qp-Vi1" firstAttribute="top" secondItem="Icz-UC-WOb" secondAttribute="bottom" constant="31" id="XR5-kH-27U"/>
                                     <constraint firstAttribute="bottom" secondItem="yOe-i2-Pt5" secondAttribute="bottom" constant="20" id="Yap-QX-50x"/>
@@ -119,7 +119,7 @@
                                     <constraint firstItem="cE5-Ks-Zmy" firstAttribute="top" secondItem="ach-Qp-Vi1" secondAttribute="bottom" constant="29" id="h3V-r0-lTT"/>
                                     <constraint firstAttribute="trailing" secondItem="cE5-Ks-Zmy" secondAttribute="trailing" constant="47" id="iML-yA-GH7"/>
                                     <constraint firstAttribute="trailing" secondItem="yOe-i2-Pt5" secondAttribute="trailing" constant="47" id="oGf-mc-OcN"/>
-                                    <constraint firstItem="Zzl-kh-znn" firstAttribute="top" secondItem="DFI-EO-IpJ" secondAttribute="top" constant="20" id="uy5-5J-MB2"/>
+                                    <constraint firstItem="Zzl-kh-znn" firstAttribute="top" secondItem="DFI-EO-IpJ" secondAttribute="top" id="uy5-5J-MB2"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6lh-oR-bDM">

@@ -23,15 +23,6 @@
                                 <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tjb-Vp-cc7">
-                                <rect key="frame" x="99" y="575" width="216" height="74"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                <state key="normal" title="Play"/>
-                                <connections>
-                                    <segue destination="Tsd-UA-WOU" kind="show" id="8St-qy-cVQ"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kw4-HP-qmv" customClass="GIDSignInButton">
                                 <rect key="frame" x="58" y="335" width="314" height="119"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -44,11 +35,12 @@
                     <navigationItem key="navigationItem" id="fT5-Pz-Hga"/>
                     <connections>
                         <outlet property="googleButton" destination="kw4-HP-qmv" id="jiw-RO-MOi"/>
+                        <segue destination="Tsd-UA-WOU" kind="show" identifier="toHomePage" id="5mK-EC-MfF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2568" y="-567"/>
+            <point key="canvasLocation" x="-2584" y="-567"/>
         </scene>
         <!--Play Controller-->
         <scene sceneID="II7-rl-52C">
@@ -560,7 +552,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="61Z-LX-1cW"/>
+        <segue reference="5mK-EC-MfF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Image" width="300" height="213"/>

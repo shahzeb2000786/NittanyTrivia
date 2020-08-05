@@ -19,8 +19,8 @@
 		BF8374C024D65D2200996848 /* colorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8374BF24D65D2200996848 /* colorManager.swift */; };
 		BF92E71024CD1F1800E8B8DA /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92E70F24CD1F1800E8B8DA /* HomePage.swift */; };
 		BFACF26A24CBDB260022EF76 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFACF26924CBDB260022EF76 /* GoogleService-Info.plist */; };
+		BFD0523424DA768200AAE4D3 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD0523324DA768200AAE4D3 /* Firebase.swift */; };
 		BFE2C6A424C89CDA00DEEE1E /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2C6A324C89CDA00DEEE1E /* Question.swift */; };
-		BFE2C6A624C8C60800DEEE1E /* QuestionChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2C6A524C8C60800DEEE1E /* QuestionChecker.swift */; };
 		BFF43EF524C7E6F80074FDD0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF43EF424C7E6F80074FDD0 /* WelcomeViewController.swift */; };
 		BFF43EF724C8030A0074FDD0 /* PlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF43EF624C8030A0074FDD0 /* PlayController.swift */; };
 		BFF43EF924C806AA0074FDD0 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF43EF824C806AA0074FDD0 /* Leaderboard.swift */; };
@@ -66,8 +66,8 @@
 		BF8374BF24D65D2200996848 /* colorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorManager.swift; sourceTree = "<group>"; };
 		BF92E70F24CD1F1800E8B8DA /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		BFACF26924CBDB260022EF76 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		BFD0523324DA768200AAE4D3 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		BFE2C6A324C89CDA00DEEE1E /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		BFE2C6A524C8C60800DEEE1E /* QuestionChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionChecker.swift; sourceTree = "<group>"; };
 		BFF43EF424C7E6F80074FDD0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		BFF43EF624C8030A0074FDD0 /* PlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayController.swift; sourceTree = "<group>"; };
 		BFF43EF824C806AA0074FDD0 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
@@ -197,8 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				BFE2C6A324C89CDA00DEEE1E /* Question.swift */,
-				BFE2C6A524C8C60800DEEE1E /* QuestionChecker.swift */,
 				BF8374BF24D65D2200996848 /* colorManager.swift */,
+				BFD0523324DA768200AAE4D3 /* Firebase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -398,9 +398,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD0523424DA768200AAE4D3 /* Firebase.swift in Sources */,
 				BFE2C6A424C89CDA00DEEE1E /* Question.swift in Sources */,
 				BF8374C024D65D2200996848 /* colorManager.swift in Sources */,
-				BFE2C6A624C8C60800DEEE1E /* QuestionChecker.swift in Sources */,
 				BF52DE9224C3E01A00032553 /* NittanyTrivia.xcdatamodeld in Sources */,
 				BFF43EF924C806AA0074FDD0 /* Leaderboard.swift in Sources */,
 				BF92E71024CD1F1800E8B8DA /* HomePage.swift in Sources */,

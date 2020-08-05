@@ -34,7 +34,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="fT5-Pz-Hga"/>
                     <connections>
-                        <outlet property="googleButton" destination="kw4-HP-qmv" id="jiw-RO-MOi"/>
+                        <outlet property="googleButton" destination="kw4-HP-qmv" id="uuq-v6-DRb"/>
                         <segue destination="Tsd-UA-WOU" kind="show" identifier="toHomePage" id="5mK-EC-MfF"/>
                     </connections>
                 </viewController>

@@ -8,9 +8,13 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class PlayController: UIViewController {
-   
+    
+   let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
+    
     var currentScore = -1
     let questionChecker = QuestionChecker()//contains logic to check answers to questions
     var timeToDisplay = 15//the total amount of time user has to answer question
@@ -147,10 +151,20 @@ extension PlayController{//extension to deal with number of questions user has a
         if Color == UIColor.red{
             gameOverView.isHidden = false
             timerText.text  = "0"
-        }
+        
+            let userDocRef = db.collection("Users").document(appDelegate.email)
+            userDocRef.getDocument { (document, error) in
+                if let document = document {
+                    print(document.data())
+                    let currentPoints = document.get("points") as! Int //user's total points from fbase
+                    let finalPoints = currentPoints + self.currentScore
+                    document.reference.updateData(["points" : finalPoints])//
+                }//end of if
+            }//end of userDocref
+        
+        }//end of if Color == UIColor.red
 
         else{
-
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.nextQuestion() //updates the questionToAskUser to a random question from the questions database
             }//end of dispatchqueue

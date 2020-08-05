@@ -24,6 +24,7 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(appDelegate.email)
         competeButton.layer.cornerRadius = 40
         survivalButton.layer.cornerRadius = 40
         

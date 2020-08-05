@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import Firebase
-let db = Firestore.firestore()
+
 
 struct Question {
     let question: String
@@ -32,7 +32,6 @@ var questionToAskUser = Question(question: "", option1: "", option2: "", option3
 
 //getQuestions reads items from the "questions" collection which contains trivia questions and randomly reassigns the value for the global "questionToAskUser" variable.
 func getQuestion()  {
-    
     var databaseReference = db.collection("Questions")
     let randomSortNum = Int.random(in: 0..<500)
     var questionsCollection = db.collection("Questions")

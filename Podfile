@@ -9,5 +9,6 @@ target 'NittanyTrivia' do
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
   pod 'GoogleSignIn'
+  pod "Firebase/Database"
 
 end

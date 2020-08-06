@@ -22,8 +22,7 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate {
         googleButton.layer.cornerRadius = 20
         googleButton.sizeToFit()
     
-       // print(setUserInfo())
-       
+        navigationController?.navigationBar.isHidden = true
     }
     
     
@@ -59,6 +58,7 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate {
                     "gems": 1
                 ])
                 self.performSegue(withIdentifier: "toHomePage", sender: self)
+                
                }
                else{
                    print("User could not be authenticated")

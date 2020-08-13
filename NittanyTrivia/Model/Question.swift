@@ -5,7 +5,6 @@
 //  Created by Shahzeb Ahmed on 7/22/20.
 //  Copyright © 2020 Shahzeb Ahmed. All rights reserved.
 //
-
 import Foundation
 import UIKit
 import Firebase
@@ -76,7 +75,6 @@ func getQuestion()  {
         }//end of else
     }// end of get documents
 }//end of getQuestion
-
 func returnQuestion(question: String, option1: String, option2: String, option3: String, option4: String, correctOption: String, category: String, difficulty: String) -> Question {
     let questionToReturn =  Question(question: question, option1: option1, option2: option2, option3: option3, option4: option4, correctOption: correctOption, category: category, difficulty: difficulty)
     print(questionToReturn)

@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 import Firebase
+let questionChecker = QuestionChecker()//contains logic to check answers to questions
 
 class Leaderboards: UIViewController {
-     var topPlayers = Array<Any>()
+    var topPlayers: [LeaderboardsUser] = []
     @IBOutlet weak var leaderboardsTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,10 @@ class Leaderboards: UIViewController {
                       
                        if let querySnapshot = querySnapshot {
                            for document in querySnapshot.documents{
-                            self.topPlayers.append(document.data()["email"])
+                            let userEmail = document.data()["email"] as! String
+                            let userPoints = document.data()["points"] as! Int
+                            var user = LeaderboardsUser(email: userEmail , points: userPoints)
+                            self.topPlayers.append(user)
                               // print(document.data()["email"])
                                // print(document.data()["points"])
                               // print(document.data().count)
@@ -65,8 +69,8 @@ extension Leaderboards: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let leaderboardsCell = tableView.dequeueReusableCell(withIdentifier: "leaderboardsCell", for: indexPath)
 
-
-        leaderboardsCell.textLabel?.text = self.topPlayers[indexPath.row] as! String
+        let user = self.topPlayers[indexPath.row]
+        leaderboardsCell.textLabel?.text =  String(user.points) + " " + user.email
         leaderboardsCell.backgroundColor = UIColor.gray
         leaderboardsCell.clipsToBounds = true
         leaderboardsCell.layer.cornerRadius = 40

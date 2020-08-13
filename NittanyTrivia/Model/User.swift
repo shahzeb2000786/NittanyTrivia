@@ -9,17 +9,16 @@
 import Foundation
 
 struct User {
-    coins: Int
-    email: String
-    firstName: String
-    gems: Int
-    fullName: String
-    lives: Int
-    points: Int
+    var coins: Int
+    var email: String
+    var firstName: String
+    var gems: Int
+    var fullName: String
+    var lives: Int
+    var points: Int
     
 }
-
-struct LeaderboardUser {//struct which contains relevant user info to put on leaderboard
-    email: String
-    points: Int
+struct LeaderboardsUser {//struct which contains relevant user info to put on leaderboard
+   var email: String
+   var points: Int
 }

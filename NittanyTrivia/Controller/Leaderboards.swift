@@ -62,7 +62,6 @@ extension Leaderboards: UITableViewDataSource {
         print(self.topPlayers)
         }
         return self.topPlayers.count
-        //return self.topPlayers.count
 
     }
     

@@ -25,7 +25,6 @@
 		BFE2C6A424C89CDA00DEEE1E /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE2C6A324C89CDA00DEEE1E /* Question.swift */; };
 		BFF43EF524C7E6F80074FDD0 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF43EF424C7E6F80074FDD0 /* WelcomeViewController.swift */; };
 		BFF43EF724C8030A0074FDD0 /* PlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF43EF624C8030A0074FDD0 /* PlayController.swift */; };
-		BFF43EF924C806AA0074FDD0 /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF43EF824C806AA0074FDD0 /* Leaderboard.swift */; };
 		E2B020453827756338ACB491 /* Pods_NittanyTrivia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B89BE5E21B6228EF16187BD /* Pods_NittanyTrivia.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,7 +73,6 @@
 		BFE2C6A324C89CDA00DEEE1E /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		BFF43EF424C7E6F80074FDD0 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		BFF43EF624C8030A0074FDD0 /* PlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayController.swift; sourceTree = "<group>"; };
-		BFF43EF824C806AA0074FDD0 /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +181,6 @@
 			children = (
 				BFF43EF424C7E6F80074FDD0 /* WelcomeViewController.swift */,
 				BFF43EF624C8030A0074FDD0 /* PlayController.swift */,
-				BFF43EF824C806AA0074FDD0 /* Leaderboard.swift */,
 				BF92E70F24CD1F1800E8B8DA /* HomePage.swift */,
 				BF5BF07524E5963100A5F709 /* Leaderboards.swift */,
 			);
@@ -409,7 +406,6 @@
 				BF8374C024D65D2200996848 /* colorManager.swift in Sources */,
 				BF52DE9224C3E01A00032553 /* NittanyTrivia.xcdatamodeld in Sources */,
 				BF5BF07824E5ADCF00A5F709 /* User.swift in Sources */,
-				BFF43EF924C806AA0074FDD0 /* Leaderboard.swift in Sources */,
 				BF92E71024CD1F1800E8B8DA /* HomePage.swift in Sources */,
 				BFF43EF524C7E6F80074FDD0 /* WelcomeViewController.swift in Sources */,
 				BF52DE8824C3E01A00032553 /* AppDelegate.swift in Sources */,

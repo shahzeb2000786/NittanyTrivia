@@ -547,7 +547,7 @@
                                                                     <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <segue destination="bET-wL-egt" kind="show" id="uDe-jg-kZ3"/>
+                                                                    <segue destination="bET-wL-egt" kind="show" id="TyI-Qa-pbP"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -1057,8 +1057,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="HWk-qu-QeW"/>
         <segue reference="MNa-uZ-csb"/>
-        <segue reference="ig1-8J-93r"/>
+        <segue reference="113-eR-4x0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Image" width="300" height="213"/>

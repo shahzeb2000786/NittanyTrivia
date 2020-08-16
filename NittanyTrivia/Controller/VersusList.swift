@@ -14,7 +14,7 @@ import UIKit
 class VersusList: UIViewController {
     @IBOutlet weak var gamesTable: UITableView!
     var currentGames = [Any]()
-    let enemyClickedOn: String = "" //will contain the user's 
+    let enemyClickedOn: String = "" //will contain the user's
     override func viewDidLoad(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
         gamesTable.dataSource = self

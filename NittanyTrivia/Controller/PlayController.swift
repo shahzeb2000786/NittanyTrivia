@@ -39,7 +39,7 @@ class PlayController: UIViewController {
    
         
         
-    topBarView.backgroundColor = UIColor(named: "celebritiesColor")
+        topBarView.backgroundColor = UIColor(named: "celebritiesColor") 
         
     self.nextQuestion() //updates the questionToAskUser to a random question from the questions database
     
@@ -196,3 +196,4 @@ extension PlayController {
         
     }
 }
+

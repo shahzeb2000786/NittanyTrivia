@@ -32,7 +32,7 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate {
          if let error = error {
            return
          }
-           print("successful sign in")
+         print("successful sign in")
          guard let authentication = user.authentication else { return }
          let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                            accessToken: authentication.accessToken)
@@ -46,17 +46,31 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate {
                 self.appDelegate.fullName = user.profile.name
                 self.appDelegate.givenName = user.profile.givenName
                 
-//                creates a default user on sign in.
-                db.collection("Users").document(self.appDelegate.email).setData([
-                    "id": self.appDelegate.userId,
-                    "firstName": self.appDelegate.givenName,
-                    "lastName": self.appDelegate.fullName,
-                    "email": self.appDelegate.email,
-                    "points": 0,
-                    "lives": 3,
-                    "coins": 100,
-                    "gems": 1
-                ])
+                
+                
+//              creates a default user on sign in for the first time.
+                db.collection("Users").whereField("email", isEqualTo: self.appDelegate.email)
+                .getDocuments() { (querySnapshot, err) in
+                   if let err = err {
+                       print("Error getting documents: \(err)")
+                   } else {
+                       if (querySnapshot!.documents == []){
+                        db.collection("Users").document(self.appDelegate.email).setData([
+                            "id": self.appDelegate.userId,
+                            "firstName": self.appDelegate.givenName,
+                            "lastName": self.appDelegate.fullName,
+                            "email": self.appDelegate.email,
+                            "points": 0,
+                            "lives": 3,
+                            "coins": 100,
+                            "gems": 1,
+                            "versus": ["wins": 0, "losses": 0, "draws": 0, "winPercentage": 0.0, "games": Array<Any>()]
+                            
+                        ])//setData
+                       }//if
+                   }//else
+                 }//getDocuments
+                
                 self.performSegue(withIdentifier: "toHomePage", sender: self)
                 
                }

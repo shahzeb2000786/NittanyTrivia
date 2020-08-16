@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 import Firebase
-
+let db = Firestore.firestore()
 
 struct Question {
     let question: String

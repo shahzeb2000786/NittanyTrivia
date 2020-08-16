@@ -8,4 +8,12 @@
 
 import Foundation
 import Firebase
-let db = Firestore.firestore()
+
+
+struct Game{
+    let isChallenger: Bool
+    let enemy: String
+    let questionsAnswered: Int
+    let enemyQuestionsAnswered: Int
+}
+

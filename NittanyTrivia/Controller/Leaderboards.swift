@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Firebase
+
 let questionChecker = QuestionChecker()//contains logic to check answers to questions
 
 class Leaderboards: UIViewController {
@@ -69,7 +70,8 @@ extension Leaderboards: UITableViewDataSource {
         let leaderboardsCell = tableView.dequeueReusableCell(withIdentifier: "leaderboardsCell", for: indexPath)
 
         let user = self.topPlayers[indexPath.row]
-        leaderboardsCell.textLabel?.text =  String(user.points) + " " + user.email
+        leaderboardsCell.textLabel?.text =  user.email + " " + String(user.points) + " points"
+        leaderboardsCell.textLabel?.textColor = UIColor.white
         leaderboardsCell.backgroundColor = UIColor.gray
         leaderboardsCell.clipsToBounds = true
         leaderboardsCell.layer.cornerRadius = 40

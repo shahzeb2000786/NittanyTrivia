@@ -10,10 +10,115 @@ import Foundation
 import Firebase
 
 
-struct Game{
-    let isChallenger: Bool
-    let enemy: String
-    let questionsAnswered: Int
-    let enemyQuestionsAnswered: Int
+//struct Game{
+//    let isChallenger: Bool
+//    let enemy: String
+//    let questionsAnswered: Int
+//    let enemyQuestionsAnswered: Int
+//}
+
+let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
+
+
+var randomEnemy: [String: Any] = ["email": "JaneDoe@mail.com:"] //will contain a random user when getRandomEnemy is executed
+
+
+//getRandomEnemy queries the Users database and randomly finds an opponent foer the user to go against when the user clicks new game for versus mode. Creates a randomSortNum which is compared to the "randomSortNum" field in the user's collection to find a possible list random users and then draws a one random user from this list and assigns it to the variable "randomEnemy"
+func getRandomEnemy()  {
+    var usersCollection = db.collection("Users")
+    let randomSortNum = Int.random(in: 0..<500)//used to query collection to find
+    var randomUsers = usersCollection.whereField("randomSortNum", isGreaterThan: randomSortNum)
+    .order(by: "randomSortNum")
+    randomUsers.getDocuments { (users, error) in
+        if let err = error {
+            print(error!.localizedDescription)
+        }//if
+        else{
+            if let users = users {
+                var userList =  (users.documents)
+                for users in userList{
+                    if (users.data()["email"] as! String == appDelegate.email){
+                        userList.remove(at: userList.firstIndex(of: users)!)
+                    }//if
+                }//for
+                let user = userList.randomElement()
+                let data = user?.data()
+                randomEnemy = user?.data() as! [String: Any]
+                print(randomEnemy)
+               // print(randomEnemy)
+            }//if
+        }//else
+    }//getDocuments
+}//getRandomEnemy
+
+
+
+
+//createGame adds a new game into the user's "game" field when they click on the play button, and end up challenging someone random. 
+func createGame(){
+    getRandomEnemy()
+    
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+        var currentGames = [Any]()
+        var currentEnemyGames = [Any]()
+        let currentUser = db.collection("Users").document(appDelegate.email)
+        let currentEnemy = db.collection("Users").document(randomEnemy["email"] as! String)
+        
+        currentUser.getDocument { (document , error) in
+            if let error = error {
+                print (error)
+            }//if
+            else{
+                if let document = document{
+                    currentGames = document.get("versus.games") as! [Any]
+                    let  gameID = Int.random(in: 0...100000)
+                    currentGames.append(["isChallenger": true, "enemy": randomEnemy["email"], "questionsAnswered": 0, "enemyQuestionsAnswered": 0, "id": gameID])
+                    currentUser.updateData(["versus.games" : currentGames])
+                    
+                    createEnemyGame()
+                    
+                }//if
+            }//else
+            
+        }//getDocument
+        
+    }//dispatchqueue
+}//createGame
+
+
+
+//createEnemyGame creates a game for a randomlu chosen "enemy" when another clicks the play button and is called in "createGame" to silmulataneously create two games, for both users when one user coicks "play"
+func createEnemyGame(){
+    var currentEnemyGames = [Any]()
+    let currentEnemy = db.collection("Users").document(randomEnemy["email"] as! String)
+    currentEnemy.getDocument { (document, error) in
+        if let error = error {
+            print(error)
+        }//if
+        else{
+            if let document = document{
+                currentEnemyGames = document.get("versus.games") as! [Any]
+                currentEnemyGames.append(["isChallenger": false, "enemy": appDelegate.email, "questionsAnswered": 0, "enemyQuestionsAnswered": 0])
+                currentEnemy.updateData(["versus.games" : currentEnemyGames])
+            }//if
+        }//else
+    }//get document
 }
+
+func endGame(usersScore: String){
+    var currentGames = [Any]()
+    let currentUser = db.collection("Users").document(appDelegate.email)
+    currentUser.getDocument { (document, error) in
+        if let error = error {
+            print (error)
+        }//if
+        else{
+            if let document = document{
+                currentUser.updateData(["versus.games" : ["sup"] ])
+            }
+        }//else
+    }//getDocument
+    
+}
+
 

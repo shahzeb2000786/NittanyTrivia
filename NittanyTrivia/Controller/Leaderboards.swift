@@ -74,7 +74,7 @@ extension Leaderboards: UITableViewDataSource {
         leaderboardsCell.textLabel?.textColor = UIColor.white
         leaderboardsCell.backgroundColor = UIColor.gray
         leaderboardsCell.clipsToBounds = true
-        leaderboardsCell.layer.cornerRadius = 40
+        leaderboardsCell.layer.cornerRadius = 15
         
         return leaderboardsCell
     }

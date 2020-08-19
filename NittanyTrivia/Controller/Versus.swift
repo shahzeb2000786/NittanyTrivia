@@ -15,40 +15,14 @@ class Versus: UIViewController{
     
     override func viewDidLoad(){
         super.viewDidLoad()
-       createGame()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            while(randomEnemy["email"] as! String == self.appDelegate.email){
-                print("hello")
-                print (self.appDelegate.email == randomEnemy["email"] as! String)
-                getRandomEnemy()
-            }
+        getQuestion(numOfQuestions: 10)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+           print(questionsToAskUser)
             print(randomEnemy["email"])
-
+            
         }
     
     }
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-//goes inside viewDidLoad
-//var currentGames = [Any]()
-//    let currentUser = db.collection("Users").document(appDelegate.email)
-//    currentUser.getDocument { (document , error) in
-//        currentGames = document?.get("games") as! [Any]
-//    }
-//    currentGames.append(["isChallenger": false, "enemy": "Shahzeb", "questionsAnswered": 8, "enemyQuestionsAnswered": 7])
-//    currentUser.updateData(["games" : currentGames])
-//}

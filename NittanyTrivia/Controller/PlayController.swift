@@ -41,7 +41,7 @@ class PlayController: UIViewController {
         
         topBarView.backgroundColor = UIColor(named: "celebritiesColor") 
         
-    self.nextQuestion() //updates the questionToAskUser to a random question from the questions database
+    self.nextQuestion() //updates the questionsToAskUser to a random question from the questions database
     
         
     self.question.layer.cornerRadius = 20
@@ -68,27 +68,28 @@ class PlayController: UIViewController {
 
     
     @IBAction func firstOptionSelect(_ sender: UIButton) {
-        let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionToAskUser.correctOption)
+        let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionsToAskUser[0].correctOption)
+        
         sender.backgroundColor = color
         isGameOver(Color: color)
 
     }
     
     @IBAction func secondOptionSelect(_ sender: UIButton) {
-        let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionToAskUser.correctOption)
+        let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionsToAskUser[0].correctOption)
         sender.backgroundColor = color
        isGameOver(Color: color)
 
     }
     
     @IBAction func thirdOptionSelect(_ sender: UIButton) {
-        let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionToAskUser.correctOption)
+        let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionsToAskUser[0].correctOption)
         sender.backgroundColor = color
         isGameOver(Color: color)
     }
     
     @IBAction func fourthOptionSelect(_ sender: UIButton) {
-        let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionToAskUser.correctOption)
+        let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionsToAskUser[0].correctOption)
         sender.backgroundColor = color
         isGameOver(Color: color)
     }
@@ -97,19 +98,19 @@ class PlayController: UIViewController {
 
     
     func nextQuestion(){
-        getQuestion() //changes the the global questionToAskUser variable
+        getQuestion(numOfQuestions: 1) //changes the the global questionsToAskUser variable
         firstOption.backgroundColor = UIColor.white
         secondOption.backgroundColor = UIColor.white
         thirdOption.backgroundColor = UIColor.white
         fourthOption.backgroundColor = UIColor.white
            
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // updates ui with a delay, while firebase fetches data
-           self.question.text? = questionToAskUser.question
-           self.firstOption.setTitle(questionToAskUser.option1, for: .normal)
-           self.secondOption.setTitle(questionToAskUser.option2, for: .normal)
-           self.thirdOption.setTitle(questionToAskUser.option3, for: .normal)
-           self.fourthOption.setTitle(questionToAskUser.option4, for: .normal)
-           self.changeBarUI(category: questionToAskUser.category)
+            self.question.text? = (questionsToAskUser[0]).question
+            self.firstOption.setTitle(questionsToAskUser[0].option1, for: .normal)
+           self.secondOption.setTitle(questionsToAskUser[0].option2, for: .normal)
+           self.thirdOption.setTitle(questionsToAskUser[0].option3, for: .normal)
+           self.fourthOption.setTitle(questionsToAskUser[0].option4, for: .normal)
+           self.changeBarUI(category: questionsToAskUser[0].category)
             self.questionsCountAdder()
             self.timeToDisplay = 15
             self.timerText.text? = String(self.timeToDisplay)
@@ -165,7 +166,7 @@ extension PlayController{//extension to deal with number of questions user has a
 
         else{
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.nextQuestion() //updates the questionToAskUser to a random question from the questions database
+                self.nextQuestion() //updates the questionsToAskUsers to a random question from the questions database
             }//end of dispatchqueue
         }//end of else
     }//end isGameOver

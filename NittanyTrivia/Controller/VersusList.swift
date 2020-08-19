@@ -42,10 +42,10 @@ extension VersusList: UITableViewDataSource{
             var currentGame = self.currentGames[indexPath.row] as! NSDictionary
         cell.textLabel?.text = "enemy: " + (currentGame["enemy"] as! String) + "     " + "Your score: " + (String(currentGame["questionsAnswered"] as! Int)) + "/10"
         if (currentGame["isChallenger"] as! Bool == false){//detects a game sent by another player
-            cell.layer.backgroundColor = CGColor(srgbRed: 0.0, green: 0.6, blue: 0.0, alpha: 1.0)
+            cell.layer.backgroundColor = CGColor(srgbRed: 0.0, green: 0.6, blue: 0.25, alpha: 0.75)
         }
         else{
-            cell.layer.backgroundColor = CGColor(srgbRed: 0.4, green: 0, blue: 0.09, alpha: 1.0)
+            cell.layer.backgroundColor = CGColor(srgbRed: 0.4, green: 0, blue: 0.15, alpha: 0.75)
         }
         cell.layer.masksToBounds = true
 

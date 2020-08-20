@@ -175,7 +175,7 @@ extension PlayController{//extension to deal with number of questions user has a
 
 
 
-
+//extension deals with changing top bar color and category image depending on the question category.
 extension PlayController {
     func changeBarUI(category: String) {//changes topbarview color and category image depending on question category
         switch category {

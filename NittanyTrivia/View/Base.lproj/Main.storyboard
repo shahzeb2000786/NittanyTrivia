@@ -945,7 +945,7 @@
                                             <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="firstOptionSelect:" destination="zOd-1p-CTS" eventType="touchUpInside" id="QmI-VV-Gve"/>
+                                            <action selector="firstOptionSelect:" destination="zOd-1p-CTS" eventType="touchUpInside" id="QEO-Cd-wIT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4z-Sl-9dB">
@@ -953,7 +953,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <connections>
-                                            <action selector="thirdOptionSelect:" destination="zOd-1p-CTS" eventType="touchUpInside" id="Okg-TK-tec"/>
+                                            <action selector="secondOptionSelect:" destination="zOd-1p-CTS" eventType="touchUpInside" id="Cfi-me-dlG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqH-rq-uuI">
@@ -961,7 +961,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <connections>
-                                            <action selector="fourthOptionSelect:" destination="zOd-1p-CTS" eventType="touchUpInside" id="aHr-ou-Mmq"/>
+                                            <action selector="thirdOptionSelect:" destination="zOd-1p-CTS" eventType="touchUpInside" id="fai-dR-IOj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XQL-K1-XLc">
@@ -969,7 +969,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <connections>
-                                            <action selector="secondOptionSelect:" destination="zOd-1p-CTS" eventType="touchUpInside" id="QYh-cB-C2M"/>
+                                            <action selector="fourthOptionSelect:" destination="zOd-1p-CTS" eventType="touchUpInside" id="B31-Ku-QmT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1059,6 +1059,18 @@
                         <viewLayoutGuide key="safeArea" id="QUY-Yq-Wqp"/>
                     </view>
                     <navigationItem key="navigationItem" id="jRI-CN-64f"/>
+                    <connections>
+                        <outlet property="categoryImage" destination="0kp-BZ-cuG" id="Mtd-yC-tQx"/>
+                        <outlet property="finalScoreText" destination="aLo-pC-wUG" id="fI9-7h-F2I"/>
+                        <outlet property="firstOption" destination="flA-Ei-v7V" id="wpl-37-B1n"/>
+                        <outlet property="fourthOption" destination="XQL-K1-XLc" id="s57-Mv-MTg"/>
+                        <outlet property="gameOverView" destination="Lpn-yG-lhx" id="xt7-HZ-xvc"/>
+                        <outlet property="question" destination="Un0-Bh-b2q" id="See-tx-onb"/>
+                        <outlet property="scoreText" destination="Uk9-Fi-tja" id="dyc-Wq-sgf"/>
+                        <outlet property="secondOption" destination="X4z-Sl-9dB" id="9nv-Su-ujJ"/>
+                        <outlet property="thirdOption" destination="NqH-rq-uuI" id="c7w-dB-hEE"/>
+                        <outlet property="topBarView" destination="Jax-8a-iqs" id="aP9-zZ-I0S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YRE-e7-WtU" sceneMemberID="firstResponder"/>
             </objects>

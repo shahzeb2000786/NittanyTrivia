@@ -30,7 +30,6 @@ var questionsToAskUser: [Question] = [Question(question: "", option1: "", option
 
 
 //getQuestions reads items from the "questions" collection which contains trivia questions and randomly reassigns the value for the global "questionToAskUser" variable.
-func getSetOfQuestions(){}
 func getQuestion(numOfQuestions: Int)  {
     var databaseReference = db.collection("Questions")
     let randomSortNum = Int.random(in: 0..<500)
@@ -61,8 +60,7 @@ func getQuestion(numOfQuestions: Int)  {
                         let questionToAdd = Question(question: question, option1: option1, option2: option2, option3: option3, option4: option4, correctOption: correctOption, category: category, difficulty: difficulty)
                         questionsToAskUser.append(questionToAdd)
                     }//for
-                    
-                    questionsToAskUser = returnQuestion(questionList: questionsToAskUser )
+                    //questionsToAskUser = returnQuestion(questionList: questionsToAskUser )
              
                    // print(questionToAskUser)
                 }//end of inner if
@@ -70,6 +68,7 @@ func getQuestion(numOfQuestions: Int)  {
         }//end of else
     }// end of get documents
 }//end of getQuestion
+
 func returnQuestion(questionList: [Question]) -> [Question] {
     return questionList
 }

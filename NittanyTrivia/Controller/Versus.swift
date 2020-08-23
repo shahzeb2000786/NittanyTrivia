@@ -16,6 +16,7 @@ class Versus: UIViewController{
     @IBOutlet weak var scoreText: UILabel!
     @IBOutlet weak var finalScoreText: UILabel!
     @IBOutlet weak var categoryImage: UIImageView!
+    @IBOutlet weak var timerText: UILabel!
     @IBOutlet weak var gameOverView: UIView!
     @IBOutlet weak var question: UILabel!
     @IBOutlet weak var firstOption: UIButton!
@@ -23,12 +24,22 @@ class Versus: UIViewController{
     @IBOutlet weak var thirdOption: UIButton!
     @IBOutlet weak var fourthOption: UIButton!
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
+    var timeToDisplay = 15//the total amount of time user has to answer question
+    var timerValue = 0// timeToDisplay - timerValue will be the will be the current time user has left
     var currentScore = -1
     var questionIndex = -1
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
+   
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        timer()
+        self.question.layer.masksToBounds = true
+         self.question.layer.cornerRadius = 40
+        // self.question.minimum
+         self.question.numberOfLines = 2
+         self.question.adjustsFontSizeToFitWidth = true
+        
         getQuestion(numOfQuestions: 10)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
            print(questionsToAskUser)
@@ -80,15 +91,15 @@ class Versus: UIViewController{
             return
         }
          DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // updates ui with a delay, while firebase fetches data
-            self.question.text? = (questionsToAskUser[self.questionIndex]).question
+            self.question.text? = String(self.questionIndex + 1) + ".) " +  (questionsToAskUser[self.questionIndex]).question
             self.firstOption.setTitle(questionsToAskUser[self.questionIndex].option1, for: .normal)
             self.secondOption.setTitle(questionsToAskUser[self.questionIndex].option2, for: .normal)
             self.thirdOption.setTitle(questionsToAskUser[self.questionIndex].option3, for: .normal)
             self.fourthOption.setTitle(questionsToAskUser[self.questionIndex].option4, for: .normal)
             self.changeBarUI(category: questionsToAskUser[self.questionIndex].category)
             
-//             self.timeToDisplay = 15
-//             self.timerText.text? = String(self.timeToDisplay)
+             self.timeToDisplay = 15
+             self.timerText.text? = String(self.timeToDisplay)
         }//end of dispatchqeuue
         self.questionIndex = self.questionIndex + 1
 
@@ -110,7 +121,7 @@ extension Versus{//extension to deal with number of questions user has answered,
         if Color == UIColor.red{
             gameOverView.isHidden = false
            // timerText.text  = "0"
-        
+            createGame(questionsAnswered: self.currentScore)
             let userDocRef = db.collection("Users").document(appDelegate.email)
             userDocRef.getDocument { (document, error) in
                 if let document = document {
@@ -156,3 +167,38 @@ extension Versus {
         
     }
 }
+
+
+
+
+
+
+
+extension Versus{//extension with question timer functionality
+   
+    func timer(){
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+            if self.timeToDisplay == 0{
+                timer.invalidate()
+                self.gameOverView.isHidden = false
+            }
+            else{
+                self.timeToDisplay -= 1
+                self.timerText.text? = String(self.timeToDisplay)
+            }
+        }//end of scheduled timer
+    }//end of timer() function
+}//end of extension
+
+
+
+//extension Versus {
+//    func giveFeedBack(finalScore: Int){
+//        switch finalScore {
+//        case <#pattern#>:
+//            <#code#>
+//        default:
+//            <#code#>
+//        }
+//    }
+//}

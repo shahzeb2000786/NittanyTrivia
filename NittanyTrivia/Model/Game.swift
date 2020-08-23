@@ -92,7 +92,7 @@ func getNewRandomEnemy(randomSortNum: Int)  {
 
 
 //createGame adds a new game into the user's "game" field when they click on the play button, and end up challenging someone random. 
-func createGame(){
+func createGame(questionsAnswered: Int){//questionsAnswered is num of question user answered correctly
     getRandomEnemy()
     
     DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
@@ -109,21 +109,20 @@ func createGame(){
                 if let document = document{
                     currentGames = document.get("versus.games") as! [Any]
                     let  gameID = Int.random(in: 0...100000)
-                    currentGames.append(["isChallenger": true, "enemy": randomEnemy["email"], "questionsAnswered": 0, "enemyQuestionsAnswered": 0, "id": gameID])
+                    currentGames.append(["isChallenger": true, "enemy": randomEnemy["email"], "questionsAnswered": questionsAnswered, "enemyQuestionsAnswered": 0, "id": gameID])
                     currentUser.updateData(["versus.games" : currentGames])
-                    createEnemyGame(id: gameID)
+                    createEnemyGame(id: gameID, opponentQuestionsAnswered: questionsAnswered)
                 }//if
             }//else
-            
         }//getDocument
-        
     }//dispatchqueue
 }//createGame
 
 
 
-//createEnemyGame creates a game for a randomlu chosen "enemy" when another clicks the play button and is called in "createGame" to silmulataneously create two games, for both users when one user clicks "play"
-func createEnemyGame(id: Int){
+
+//createEnemyGame creates a game for a randomlu chosen "enemy" when another clicks the play button and is called in "createGame" to silmulataneously create two games, for both users when one user clicks "play". opponentQuestionsAnswered is the num of questions the opponent for the enemy answered
+func createEnemyGame(id: Int, opponentQuestionsAnswered: Int){
     var currentEnemyGames = [Any]()
     let currentEnemy = db.collection("Users").document(randomEnemy["email"] as! String)
     currentEnemy.getDocument { (document, error) in
@@ -133,7 +132,7 @@ func createEnemyGame(id: Int){
         else{
             if let document = document{
                 currentEnemyGames = document.get("versus.games") as! [Any]
-                currentEnemyGames.append(["isChallenger": false, "enemy": appDelegate.email, "questionsAnswered": 0, "enemyQuestionsAnswered": 0, "id": id])
+                currentEnemyGames.append(["isChallenger": false, "enemy": appDelegate.email, "questionsAnswered": 0, "enemyQuestionsAnswered": opponentQuestionsAnswered, "id": id])
                 currentEnemy.updateData(["versus.games" : currentEnemyGames])
             }//if
         }//else

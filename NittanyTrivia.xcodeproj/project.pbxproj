@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF1AA76C24F2D677003338A0 /* gameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1AA76A24F2D677003338A0 /* gameCell.swift */; };
+		BF1AA76D24F2D677003338A0 /* gameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF1AA76B24F2D677003338A0 /* gameCell.xib */; };
 		BF3F669624E85A2000CA0644 /* Versus.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3F669524E85A2000CA0644 /* Versus.swift */; };
 		BF52DE8824C3E01A00032553 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DE8724C3E01A00032553 /* AppDelegate.swift */; };
 		BF52DE8A24C3E01A00032553 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DE8924C3E01A00032553 /* SceneDelegate.swift */; };
@@ -51,6 +53,8 @@
 		1B89BE5E21B6228EF16187BD /* Pods_NittanyTrivia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NittanyTrivia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D7DC0E3BA4B82FB5EDB38B /* Pods-NittanyTrivia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NittanyTrivia.debug.xcconfig"; path = "Target Support Files/Pods-NittanyTrivia/Pods-NittanyTrivia.debug.xcconfig"; sourceTree = "<group>"; };
 		A99253257E78677A29AF34D4 /* Pods-NittanyTrivia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NittanyTrivia.release.xcconfig"; path = "Target Support Files/Pods-NittanyTrivia/Pods-NittanyTrivia.release.xcconfig"; sourceTree = "<group>"; };
+		BF1AA76A24F2D677003338A0 /* gameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameCell.swift; sourceTree = "<group>"; };
+		BF1AA76B24F2D677003338A0 /* gameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = gameCell.xib; sourceTree = "<group>"; };
 		BF3F669524E85A2000CA0644 /* Versus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Versus.swift; sourceTree = "<group>"; };
 		BF52DE8424C3E01A00032553 /* NittanyTrivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NittanyTrivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF52DE8724C3E01A00032553 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,7 +75,6 @@
 		BF5BF07724E5ADCF00A5F709 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BF8374BF24D65D2200996848 /* colorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorManager.swift; sourceTree = "<group>"; };
 		BF8532B624E9B58100B22D25 /* VersusList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersusList.swift; sourceTree = "<group>"; };
-
 		BF92E70F24CD1F1800E8B8DA /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		BFACF26924CBDB260022EF76 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		BFD0523324DA768200AAE4D3 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
@@ -190,7 +193,6 @@
 				BF5BF07524E5963100A5F709 /* Leaderboards.swift */,
 				BF3F669524E85A2000CA0644 /* Versus.swift */,
 				BF8532B624E9B58100B22D25 /* VersusList.swift */,
-
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -199,6 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				BF52DE8D24C3E01A00032553 /* Main.storyboard */,
+				BF1AA76A24F2D677003338A0 /* gameCell.swift */,
+				BF1AA76B24F2D677003338A0 /* gameCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -324,6 +328,7 @@
 				BF52DE9724C3E01C00032553 /* LaunchScreen.storyboard in Resources */,
 				BF52DE9424C3E01C00032553 /* Assets.xcassets in Resources */,
 				BFACF26A24CBDB260022EF76 /* GoogleService-Info.plist in Resources */,
+				BF1AA76D24F2D677003338A0 /* gameCell.xib in Resources */,
 				BF52DEBB24C3E31B00032553 /* Podfile in Resources */,
 				BF52DE8F24C3E01A00032553 /* Main.storyboard in Resources */,
 			);
@@ -416,11 +421,11 @@
 				BF5BF07824E5ADCF00A5F709 /* User.swift in Sources */,
 				BF92E71024CD1F1800E8B8DA /* HomePage.swift in Sources */,
 				BFF43EF524C7E6F80074FDD0 /* WelcomeViewController.swift in Sources */,
+				BF1AA76C24F2D677003338A0 /* gameCell.swift in Sources */,
 				BF52DE8824C3E01A00032553 /* AppDelegate.swift in Sources */,
 				BF5BF07624E5963100A5F709 /* Leaderboards.swift in Sources */,
 				BF52DE8A24C3E01A00032553 /* SceneDelegate.swift in Sources */,
 				BF8532B724E9B58100B22D25 /* VersusList.swift in Sources */,
-
 				BFF43EF724C8030A0074FDD0 /* PlayController.swift in Sources */,
 				BF3F669624E85A2000CA0644 /* Versus.swift in Sources */,
 			);

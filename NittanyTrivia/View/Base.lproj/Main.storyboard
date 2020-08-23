@@ -1069,6 +1069,7 @@
                         <outlet property="scoreText" destination="Uk9-Fi-tja" id="dyc-Wq-sgf"/>
                         <outlet property="secondOption" destination="X4z-Sl-9dB" id="9nv-Su-ujJ"/>
                         <outlet property="thirdOption" destination="NqH-rq-uuI" id="c7w-dB-hEE"/>
+                        <outlet property="timerText" destination="kRd-Vw-XY8" id="cVR-gZ-dYX"/>
                         <outlet property="topBarView" destination="Jax-8a-iqs" id="aP9-zZ-I0S"/>
                     </connections>
                 </viewController>
@@ -1078,6 +1079,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="Z7J-Bx-WOd"/>
         <segue reference="vuu-Zg-3Or"/>
         <segue reference="MNa-uZ-csb"/>
         <segue reference="ig1-8J-93r"/>

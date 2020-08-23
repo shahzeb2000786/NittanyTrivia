@@ -19,6 +19,7 @@ class VersusList: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
         gamesTable.dataSource = self
         gamesTable.delegate = self
+        gamesTable.register(UINib(nibName: "gameCell", bundle: nil), forCellReuseIdentifier: "gameCell")
         
                let currentUser = db.collection("Users").document(appDelegate.email)
                currentUser.getDocument { (document , error) in
@@ -35,22 +36,25 @@ extension VersusList: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currentGames.count
     }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return (60)
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! gameCell
             print(self.currentGames)
             var currentGame = self.currentGames[indexPath.row] as! NSDictionary
-        cell.textLabel?.text = "enemy: " + (currentGame["enemy"] as! String) + "     " + "Your score: " + (String(currentGame["questionsAnswered"] as! Int)) + "/10"
+        cell.opponentLabel.text = "enemy: " + (currentGame["enemy"] as! String) + "     " + "Your score: " + (String(currentGame["questionsAnswered"] as! Int)) + "/10"
         if (currentGame["isChallenger"] as! Bool == false){//detects a game sent by another player
-            cell.layer.backgroundColor = CGColor(srgbRed: 0.0, green: 0.6, blue: 0.25, alpha: 0.75)
+            cell.gameCellView.layer.borderWidth = 1.5
+            cell.gameCellView.layer.borderColor = UIColor.red.cgColor
         }
         else{
-            cell.layer.backgroundColor = CGColor(srgbRed: 0.4, green: 0, blue: 0.15, alpha: 0.75)
+            cell.gameCellView.layer.borderWidth = 1.5
+            cell.gameCellView.layer.borderColor = UIColor.green.cgColor
         }
         cell.layer.masksToBounds = true
-
-        cell.layer.borderColor = CGColor(srgbRed: 0, green: 0, blue: 0.3, alpha: 1.0)
-        
+       // cell.layer.cornerRadius = cell.frame.size.height/4
         return cell
     }
     

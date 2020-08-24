@@ -44,7 +44,7 @@ extension VersusList: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! gameCell
             print(self.currentGames)
             var currentGame = self.currentGames[indexPath.row] as! NSDictionary
-        cell.opponentLabel.text = "enemy: " + (currentGame["enemy"] as! String) + "     " + "Your score: " + (String(currentGame["questionsAnswered"] as! Int)) + "/10"
+        cell.opponentLabel.text = (currentGame["enemy"] as! String)// + "     " + "Your score: " + (String(currentGame["questionsAnswered"] as! Int)) + "/10"
         if (currentGame["isChallenger"] as! Bool == false){//detects a game sent by another player
             cell.gameCellView.layer.borderWidth = 1.5
             cell.gameCellView.layer.borderColor = UIColor.red.cgColor

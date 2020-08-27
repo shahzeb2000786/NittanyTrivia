@@ -30,6 +30,11 @@ class VersusList: UIViewController {
                 }
         }
     }
+    
+    @IBAction func toPlayScreen(_ sender: Any) {
+         self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
+    }
+    
 }
 
 extension VersusList: UITableViewDataSource{
@@ -53,18 +58,27 @@ extension VersusList: UITableViewDataSource{
             cell.gameCellView.layer.borderWidth = 1.5
             cell.gameCellView.layer.borderColor = UIColor.green.cgColor
         }
+        
+        
+
+        
+        
+        
         cell.layer.masksToBounds = true
-       // cell.layer.cornerRadius = cell.frame.size.height/4
+        cell.separatorInset = UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100)
         return cell
     }
     
 }
 
+
 extension VersusList: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print (indexPath.row)
-        self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
-        
+        let cell = gamesTable.cellForRow(at: indexPath) as! gameCell
+        let colorOfSelected =  cell.gameCellView.layer.borderColor!
+
+    
+           // self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
         
     }
 

@@ -83,14 +83,14 @@ class Versus: UIViewController{
          secondOption.backgroundColor = UIColor.white
          thirdOption.backgroundColor = UIColor.white
          fourthOption.backgroundColor = UIColor.white
-        self.questionsCountAdder()
+        self.questionsCountAdder()//updates score/score ui
         if (questionIndex >= questionsToAskUser.count - 1){
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
                 self.isGameOver(Color: UIColor.red)
             }
             return
         }
-         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // updates ui with a delay, while firebase fetches data
+         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // updates ui with a delay
             self.question.text? = String(self.questionIndex + 1) + ".) " +  (questionsToAskUser[self.questionIndex]).question
             self.firstOption.setTitle(questionsToAskUser[self.questionIndex].option1, for: .normal)
             self.secondOption.setTitle(questionsToAskUser[self.questionIndex].option2, for: .normal)
@@ -115,6 +115,7 @@ extension Versus{//extension to deal with number of questions user has answered,
         currentScore = currentScore + 1
         scoreText?.text = String(currentScore)
         finalScoreText?.text = "Score: " + String(currentScore)
+        questionIndex = questionIndex + 1
     }
     
     func isGameOver(Color: UIColor){

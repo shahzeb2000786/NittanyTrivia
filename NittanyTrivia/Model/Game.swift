@@ -10,12 +10,13 @@ import Foundation
 import Firebase
 
 
-//struct Game{
-//    let isChallenger: Bool
-//    let enemy: String
-//    let questionsAnswered: Int
-//    let enemyQuestionsAnswered: Int
-//}
+struct Game{
+    var isChallenger: Bool
+    var enemy: String
+    var questionsAnswered: Int
+    var enemyQuestionsAnswered: Int
+    var id: Int
+}
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
 
@@ -118,7 +119,27 @@ func createGame(questionsAnswered: Int){//questionsAnswered is num of question u
     }//dispatchqueue
 }//createGame
 
-
+func endGame(gameID: Int, questionsUserAnswered: Int){
+    let currentUser = db.collection("Users").document(appDelegate.email)
+    currentUser.getDocument { (document, error) in
+        if let error = error {
+            print(error.localizedDescription)
+        }//if
+        else{
+            if let document = document{
+                let currentGames = document.get("versus.games") as! [Game]
+                for var item in currentGames {
+                    if item.id == gameID {
+                        item.questionsAnswered = questionsUserAnswered
+                            // document.reference.updateData([AnyHashable : Any])
+                    }//if
+                }//for
+                
+                
+            }//if
+        }//else
+    }//getDocument
+}
 
 
 //createEnemyGame creates a game for a randomlu chosen "enemy" when another clicks the play button and is called in "createGame" to silmulataneously create two games, for both users when one user clicks "play". opponentQuestionsAnswered is the num of questions the opponent for the enemy answered
@@ -127,7 +148,7 @@ func createEnemyGame(id: Int, opponentQuestionsAnswered: Int){
     let currentEnemy = db.collection("Users").document(randomEnemy["email"] as! String)
     currentEnemy.getDocument { (document, error) in
         if let error = error {
-            print(error)
+            print(error.localizedDescription)
         }//if
         else{
             if let document = document{

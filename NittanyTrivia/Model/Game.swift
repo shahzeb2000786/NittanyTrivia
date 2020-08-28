@@ -119,28 +119,6 @@ func createGame(questionsAnswered: Int){//questionsAnswered is num of question u
     }//dispatchqueue
 }//createGame
 
-func endGame(gameID: Int, questionsUserAnswered: Int){
-    let currentUser = db.collection("Users").document(appDelegate.email)
-    currentUser.getDocument { (document, error) in
-        if let error = error {
-            print(error.localizedDescription)
-        }//if
-        else{
-            if let document = document{
-                let currentGames = document.get("versus.games") as! [Game]
-                for var item in currentGames {
-                    if item.id == gameID {
-                        item.questionsAnswered = questionsUserAnswered
-                            // document.reference.updateData([AnyHashable : Any])
-                    }//if
-                }//for
-                
-                
-            }//if
-        }//else
-    }//getDocument
-}
-
 
 //createEnemyGame creates a game for a randomlu chosen "enemy" when another clicks the play button and is called in "createGame" to silmulataneously create two games, for both users when one user clicks "play". opponentQuestionsAnswered is the num of questions the opponent for the enemy answered
 func createEnemyGame(id: Int, opponentQuestionsAnswered: Int){
@@ -162,22 +140,71 @@ func createEnemyGame(id: Int, opponentQuestionsAnswered: Int){
 
 
 
+//gamdID will be set passed into function throug ha variable stored in the viewcontroller which getas created when a user clicks on a challenger's game and questionsAnswered the number of questions that the user answered not the enemy challenger's questions.
+func endGame(gameID: Int, questionsUserAnswered: Int){
+    let currentUser = db.collection("Users").document(appDelegate.email)
+    currentUser.getDocument { (document, error) in
+        if let error = error {
+            print(error.localizedDescription)
+        }//if
+        else{
+            if let document = document{
+                var currentGames = document.get("versus.games") as! [Game]//gets all of user's games
+                var gameLogs = document.get("versus.gameLogs") as! [Game]//gets game logs
+                var gameIndex = 0
+                for var game in currentGames {//finds the game with the designated id within the array
+                    if game.id == gameID {
+                        endEnemyGame(enemyAnswered: game.enemyQuestionsAnswered, userAnswered: questionsUserAnswered, enemyName: game.enemy, currentUserSnapshot: document, gameID: gameID)
+                        currentGames.remove(at: gameIndex)
+                        break
+                    }//if
+                gameIndex += 1
+               // document.reference.updateData(["versus.games.questionsAnswered" : Any])
+            }//if
+        }//else
+    }//getDocument
+}//endgame
 
 
-//func endGame(usersScore: String){
-//    var currentGames = [Any]()
-//    let currentUser = db.collection("Users").document(appDelegate.email)
-//    currentUser.getDocument { (document, error) in
-//        if let error = error {
-//            print (error)
-//        }//if
-//        else{
-//            if let document = document{
-//                currentUser.updateData(["versus.games" : ["sup"] ])
-//            }
-//        }//else
-//    }//getDocument
-//
-//}
+func endEnemyGame(enemyAnswered: Int, userAnswered: Int, enemyName: String, currentUserSnapshot: DocumentSnapshot, gameID: Int ){
+    let currentUser = db.collection("Users").document(appDelegate.email)
+    let enemyUserReference = db.collection("Users").document(enemyName)
+    let currentUserSnapshot = currentUserSnapshot
+    enemyUserReference.getDocument { (enemyUser, error) in
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }//if
+        if let enemyUser = enemyUser {
+            var currentEnemyGames = enemyUser.get("versus.games") as! [Game]
+            
+            var gameIndex = 0
+            for var game in currentEnemyGames {//finds the game with the designated id within the array
+                if game.id == gameID {
+                    currentEnemyGames.remove(at: gameIndex)
+                    break
+                }//if
+            gameIndex += 1
+            }//for
+        }//if
+        
+    }//getDocument
+}
+
+
+func updateWins(enemyAnswered: Int, userAnswered: Int, currentUserSnapshot: DocumentSnapshot, enemyUserSnapshot: DocumentSnapshot ){
+    if userAnswered > enemyAnswered{
+           
+       }//if
+       else if (userAnswered < enemyAnswered){
+           
+       }//else if
+       else{//takes into account a tie between users
+           
+       }//else
+}
+
+
+
 
 

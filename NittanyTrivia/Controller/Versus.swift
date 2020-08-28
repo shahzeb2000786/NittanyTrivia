@@ -26,10 +26,9 @@ class Versus: UIViewController{
     
     var timeToDisplay = 15//the total amount of time user has to answer question
     var timerValue = 0// timeToDisplay - timerValue will be the will be the current time user has left
-    var currentScore = -1
+    var currentScore = 0
     var questionIndex = -1
     let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
-   
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -44,37 +43,46 @@ class Versus: UIViewController{
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
            print(questionsToAskUser)
            print(randomEnemy["email"])
+            self.nextQuestion()
         }//dispatchQueue
-        self.nextQuestion()
     }//viewDidLoad
     
     @IBAction func firstOptionSelect(_ sender: UIButton) {
         let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionsToAskUser[questionIndex].correctOption)
         
-        sender.backgroundColor = color
-        isGameOver(Color: color)
-
+        sender.backgroundColor = color// updates color depending if user got question correct or not
+        self.scoreAdder(colorToCheck: color)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.nextQuestion()
+        }
     }//firstOptionSelect
     
     @IBAction func secondOptionSelect(_ sender: UIButton) {
         let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionsToAskUser[questionIndex].correctOption)
         sender.backgroundColor = color
-       isGameOver(Color: color)
-
+        self.scoreAdder(colorToCheck: color)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.nextQuestion()
+        }
     }//secondOptionSelect
+    
     
     @IBAction func thirdOptionSelect(_ sender: UIButton) {
         let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionsToAskUser[questionIndex].correctOption)
         sender.backgroundColor = color
-        print(sender.titleLabel?.text )
-        print(questionsToAskUser[questionIndex].correctOption)
-        isGameOver(Color: color)
+        self.scoreAdder(colorToCheck: color)
+       DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+           self.nextQuestion()
+       }
     }//thirdOptionSelect
     
     @IBAction func fourthOptionSelect(_ sender: UIButton) {
         let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionsToAskUser[questionIndex].correctOption)
         sender.backgroundColor = color
-        isGameOver(Color: color)
+        self.scoreAdder(colorToCheck: color)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.nextQuestion()
+        }
     }//fourthOptionSelect
     
     
@@ -84,12 +92,10 @@ class Versus: UIViewController{
          thirdOption.backgroundColor = UIColor.white
          fourthOption.backgroundColor = UIColor.white
         self.questionsCountAdder()//updates score/score ui
-        if (questionIndex >= questionsToAskUser.count - 1){
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-                self.isGameOver(Color: UIColor.red)
-            }
+        if self.isGameOver() == true {
             return
         }
+
          DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // updates ui with a delay
             self.question.text? = String(self.questionIndex + 1) + ".) " +  (questionsToAskUser[self.questionIndex]).question
             self.firstOption.setTitle(questionsToAskUser[self.questionIndex].option1, for: .normal)
@@ -101,7 +107,6 @@ class Versus: UIViewController{
              self.timeToDisplay = 15
              self.timerText.text? = String(self.timeToDisplay)
         }//end of dispatchqeuue
-        self.questionIndex = self.questionIndex + 1
 
      }//end of nextQuestion function
 
@@ -110,36 +115,41 @@ class Versus: UIViewController{
 
 
 
-extension Versus{//extension to deal with number of questions user has answered, also continuing or ending the game depending on user's answer
-    func questionsCountAdder () {
-        currentScore = currentScore + 1
-        scoreText?.text = String(currentScore)
-        finalScoreText?.text = "Score: " + String(currentScore)
-        questionIndex = questionIndex + 1
+extension Versus{//extension to deal with number of questions user has answered, keeping track of question index, also continuing or ending the game depending on user's answer
+    
+    func questionsCountAdder () {//gets triggered regardless of answer correctness
+        self.questionIndex = self.questionIndex + 1
     }
     
-    func isGameOver(Color: UIColor){
-        if Color == UIColor.red{
+    func scoreAdder(colorToCheck: UIColor){//gets executed if user answered question write
+        if colorToCheck == UIColor.green {
+            currentScore = currentScore + 1
+            scoreText?.text = String(currentScore)
+            finalScoreText?.text = "Score: " + String(currentScore)
+        }
+        
+    }
+    
+    
+    func isGameOver() -> Bool {
+        if (questionIndex >= questionsToAskUser.count ){
             gameOverView.isHidden = false
            // timerText.text  = "0"
             createGame(questionsAnswered: self.currentScore)
             let userDocRef = db.collection("Users").document(appDelegate.email)
             userDocRef.getDocument { (document, error) in
                 if let document = document {
-                    print(document.data())
-                    let currentPoints = document.get("points") as! Int //user's total points from fbase
-                    let finalPoints = currentPoints + self.currentScore
-                    document.reference.updateData(["points" : finalPoints])//
+                    //let currentPoints = document.get("points") as! Int //user's total points from fbase
+                    //let finalPoints = currentPoints + self.currentScore
+                   // document.reference.updateData(["points" : finalPoints])//
                 }//end of if
             }//end of userDocref
-        
-        }//end of if Color == UIColor.red
-
-        else{
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.nextQuestion() //updates the questionsToAskUsers to a random question from the questions database
-            }//end of dispatchqueue
-        }//end of else
+            print (questionsToAskUser.count)
+            return true
+        }//end of if
+        else {
+            return false
+        }
     }//end isGameOver
 }//end of extension
 

@@ -151,11 +151,17 @@ func endGame(gameID: Int, questionsUserAnswered: Int){
             if let document = document{
                 var currentGames = document.get("versus.games") as! [Game]//gets all of user's games
                 var gameLogs = document.get("versus.gameLogs") as! [Game]//gets game logs
+                if gameLogs.count == 10 {
+                    gameLogs.remove(at: gameLogs.count - 1 )
+                }
                 var gameIndex = 0
                 for var game in currentGames {//finds the game with the designated id within the array
                     if game.id == gameID {
-                        endEnemyGame(enemyAnswered: game.enemyQuestionsAnswered, userAnswered: questionsUserAnswered, enemyName: game.enemy, currentUserSnapshot: document, gameID: gameID)
                         currentGames.remove(at: gameIndex)
+                        gameLogs.append(game)
+                        currentUser.updateData(["versus.games" : currentGames, "versus.gameLogs": gameLogs])
+                        
+                        endEnemyGame(enemyAnswered: game.enemyQuestionsAnswered, userAnswered: questionsUserAnswered, enemyName: game.enemy, currentUserSnapshot: document, gameID: gameID)
                         break
                     }//if
                 gameIndex += 1
@@ -177,11 +183,17 @@ func endEnemyGame(enemyAnswered: Int, userAnswered: Int, enemyName: String, curr
         }//if
         if let enemyUser = enemyUser {
             var currentEnemyGames = enemyUser.get("versus.games") as! [Game]
+            var gameLogs = enemyUser.get("versus.gameLogs") as! [Game]//gets game logs
+            if gameLogs.count == 10 {
+                gameLogs.remove(at: gameLogs.count - 1 )
+            }
             
             var gameIndex = 0
             for var game in currentEnemyGames {//finds the game with the designated id within the array
                 if game.id == gameID {
                     currentEnemyGames.remove(at: gameIndex)
+                    gameLogs.append(game)
+                    enemyUserReference.updateData(["versus.games" : currentEnemyGames, "versus.gameLogs": gameLogs])
                     break
                 }//if
             gameIndex += 1
@@ -202,9 +214,7 @@ func updateWins(enemyAnswered: Int, userAnswered: Int, currentUserSnapshot: Docu
        else{//takes into account a tie between users
            
        }//else
+    }
 }
-
-
-
 
 

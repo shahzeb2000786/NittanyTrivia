@@ -24,6 +24,8 @@ class Versus: UIViewController{
     @IBOutlet weak var thirdOption: UIButton!
     @IBOutlet weak var fourthOption: UIButton!
     
+    var gameID: Int?
+    
     var timeToDisplay = 15//the total amount of time user has to answer question
     var timerValue = 0// timeToDisplay - timerValue will be the will be the current time user has left
     var currentScore = 0
@@ -135,16 +137,12 @@ extension Versus{//extension to deal with number of questions user has answered,
         if (questionIndex >= questionsToAskUser.count ){
             gameOverView.isHidden = false
            // timerText.text  = "0"
-            createGame(questionsAnswered: self.currentScore)
-            let userDocRef = db.collection("Users").document(appDelegate.email)
-            userDocRef.getDocument { (document, error) in
-                if let document = document {
-                    //let currentPoints = document.get("points") as! Int //user's total points from fbase
-                    //let finalPoints = currentPoints + self.currentScore
-                   // document.reference.updateData(["points" : finalPoints])//
-                }//end of if
-            }//end of userDocref
-            print (questionsToAskUser.count)
+            if let gameID = gameID {
+                endGame(gameID: gameID , questionsUserAnswered: currentScore)
+            }
+            else{
+                createGame(questionsAnswered: self.currentScore)
+            }
             return true
         }//end of if
         else {
@@ -200,6 +198,7 @@ extension Versus{//extension with question timer functionality
         }//end of scheduled timer
     }//end of timer() function
 }//end of extension
+
 
 
 

@@ -49,6 +49,7 @@ extension VersusList: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! gameCell
             print(self.currentGames)
             var currentGame = self.currentGames[indexPath.row] as! NSDictionary
+        cell.iden
         cell.opponentLabel.text = (currentGame["enemy"] as! String)// + "     " + "Your score: " + (String(currentGame["questionsAnswered"] as! Int)) + "/10"
         if (currentGame["isChallenger"] as! Bool == false){//detects a game sent by another player
             cell.gameCellView.layer.borderWidth = 1.5
@@ -58,16 +59,11 @@ extension VersusList: UITableViewDataSource{
             cell.gameCellView.layer.borderWidth = 1.5
             cell.gameCellView.layer.borderColor = UIColor.green.cgColor
         }
-        
-        
-
-        
-        
-        
         cell.layer.masksToBounds = true
         cell.separatorInset = UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100)
         return cell
     }
+    
     
 }
 
@@ -76,8 +72,7 @@ extension VersusList: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = gamesTable.cellForRow(at: indexPath) as! gameCell
         let colorOfSelected =  cell.gameCellView.layer.borderColor!
-
-    
+        
            // self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
         
     }

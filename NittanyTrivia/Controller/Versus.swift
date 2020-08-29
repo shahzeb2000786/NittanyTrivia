@@ -24,7 +24,7 @@ class Versus: UIViewController{
     @IBOutlet weak var thirdOption: UIButton!
     @IBOutlet weak var fourthOption: UIButton!
     
-    var gameID: Int?
+    
     
     var timeToDisplay = 15//the total amount of time user has to answer question
     var timerValue = 0// timeToDisplay - timerValue will be the will be the current time user has left
@@ -33,7 +33,9 @@ class Versus: UIViewController{
     let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
     
     override func viewDidLoad(){
+        
         super.viewDidLoad()
+        
         timer()
         self.question.layer.masksToBounds = true
          self.question.layer.cornerRadius = 40
@@ -137,8 +139,9 @@ extension Versus{//extension to deal with number of questions user has answered,
         if (questionIndex >= questionsToAskUser.count ){
             gameOverView.isHidden = false
            // timerText.text  = "0"
-            if let gameID = gameID {
+            if let gameID = currentGameID {
                 endGame(gameID: gameID , questionsUserAnswered: currentScore)
+                currentGameID = nil
             }
             else{
                 createGame(questionsAnswered: self.currentScore)

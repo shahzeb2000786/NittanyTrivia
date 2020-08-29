@@ -10,6 +10,9 @@ import Foundation
 import Firebase
 
 
+var currentGameID: Int?
+
+
 struct Game{
     var isChallenger: Bool
     var enemy: String
@@ -17,6 +20,7 @@ struct Game{
     var enemyQuestionsAnswered: Int
     var id: Int
 }
+
 
 let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
 
@@ -102,6 +106,7 @@ func createGame(questionsAnswered: Int){//questionsAnswered is num of question u
         let currentUser = db.collection("Users").document(appDelegate.email)
         let currentEnemy = db.collection("Users").document(randomEnemy["email"] as! String)
         
+        
         currentUser.getDocument { (document , error) in
             if let error = error {
                 print (error)
@@ -149,24 +154,32 @@ func endGame(gameID: Int, questionsUserAnswered: Int){
         }//if
         else{
             if let document = document{
-                var currentGames = document.get("versus.games") as! [Game]//gets all of user's games
-                var gameLogs = document.get("versus.gameLogs") as! [Game]//gets game logs
+                
+
+
+                var currentGames = document.get("versus.games") as! [NSDictionary]//gets all of user's games
+                var gameLogs = document.get("versus.gameLogs") as! [NSDictionary]//gets game logs
                 if gameLogs.count == 10 {
                     gameLogs.remove(at: gameLogs.count - 1 )
                 }
                 var gameIndex = 0
+                for i in "1234"{
+                print(currentGames[0].value(forKey: "id") as! Int)
+
+                }
                 for var game in currentGames {//finds the game with the designated id within the array
-                    if game.id == gameID {
+                    if game.value(forKey: "id") as! Int == gameID {
                         currentGames.remove(at: gameIndex)
                         gameLogs.append(game)
-                        currentUser.updateData(["versus.games" : currentGames, "versus.gameLogs": gameLogs])
+                        currentUser.updateData(["versus.games" : currentGames, "versus.gameLogs": gameLogs, "questionsAnswered": questionsUserAnswered])
                         
-                        endEnemyGame(enemyAnswered: game.enemyQuestionsAnswered, userAnswered: questionsUserAnswered, enemyName: game.enemy, currentUserSnapshot: document, gameID: gameID)
+                        
+                        
+                        endEnemyGame(enemyAnswered: game.value(forKey: "enemyQuestionsAnswered") as! Int, userAnswered: questionsUserAnswered, enemyName: game.value(forKey: "enemy") as! String, currentUserSnapshot: document, gameID: gameID)
                         break
                     }//if
                 gameIndex += 1
-               // document.reference.updateData(["versus.games.questionsAnswered" : Any])
-            }//if
+            }//for
         }//else
     }//getDocument
 }//endgame
@@ -182,15 +195,15 @@ func endEnemyGame(enemyAnswered: Int, userAnswered: Int, enemyName: String, curr
             return
         }//if
         if let enemyUser = enemyUser {
-            var currentEnemyGames = enemyUser.get("versus.games") as! [Game]
-            var gameLogs = enemyUser.get("versus.gameLogs") as! [Game]//gets game logs
+            var currentEnemyGames = enemyUser.get("versus.games") as! [NSDictionary]
+            var gameLogs = enemyUser.get("versus.gameLogs") as! [NSDictionary]//gets game logs
             if gameLogs.count == 10 {
                 gameLogs.remove(at: gameLogs.count - 1 )
             }
             
             var gameIndex = 0
             for var game in currentEnemyGames {//finds the game with the designated id within the array
-                if game.id == gameID {
+                if game.value(forKey: "id") as! Int == gameID {
                     currentEnemyGames.remove(at: gameIndex)
                     gameLogs.append(game)
                     enemyUserReference.updateData(["versus.games" : currentEnemyGames, "versus.gameLogs": gameLogs])

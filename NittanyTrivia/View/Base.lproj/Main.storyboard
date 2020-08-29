@@ -851,7 +851,7 @@
                                     <color key="titleColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="toPlayScreen:" destination="bET-wL-egt" eventType="touchUpInside" id="xIq-YO-PAb"/>
+                                    <action selector="toPlayScreen:" destination="bET-wL-egt" eventType="touchUpInside" id="jXV-ah-6EB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1097,7 +1097,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vuu-Zg-3Or"/>
+        <segue reference="TyI-Qa-pbP"/>
         <segue reference="MNa-uZ-csb"/>
         <segue reference="113-eR-4x0"/>
     </inferredMetricsTieBreakers>

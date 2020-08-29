@@ -163,15 +163,13 @@ func endGame(gameID: Int, questionsUserAnswered: Int){
                     gameLogs.remove(at: gameLogs.count - 1 )
                 }
                 var gameIndex = 0
-                for i in "1234"{
-                print(currentGames[0].value(forKey: "id") as! Int)
-
-                }
+                
                 for var game in currentGames {//finds the game with the designated id within the array
                     if game.value(forKey: "id") as! Int == gameID {
                         currentGames.remove(at: gameIndex)
+                        game.setValue(questionsUserAnswered, forKey: "questionsAnswered")
                         gameLogs.append(game)
-                        currentUser.updateData(["versus.games" : currentGames, "versus.gameLogs": gameLogs, "questionsAnswered": questionsUserAnswered])
+                        currentUser.updateData(["versus.games" : currentGames, "versus.gameLogs": gameLogs])
                         
                         
                         
@@ -205,6 +203,7 @@ func endEnemyGame(enemyAnswered: Int, userAnswered: Int, enemyName: String, curr
             for var game in currentEnemyGames {//finds the game with the designated id within the array
                 if game.value(forKey: "id") as! Int == gameID {
                     currentEnemyGames.remove(at: gameIndex)
+                    game.setValue(userAnswered, forKey: "enemyQuestionsAnswered")
                     gameLogs.append(game)
                     enemyUserReference.updateData(["versus.games" : currentEnemyGames, "versus.gameLogs": gameLogs])
                     break

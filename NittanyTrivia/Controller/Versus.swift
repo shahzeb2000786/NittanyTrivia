@@ -139,7 +139,7 @@ extension Versus{//extension to deal with number of questions user has answered,
         if (questionIndex >= questionsToAskUser.count ){
             gameOverView.isHidden = false
            // timerText.text  = "0"
-            if let gameID = currentGameID {
+            if let gameID = currentGameID {//only executed if a player clicked on a challenge
                 endGame(gameID: gameID , questionsUserAnswered: currentScore)
                 currentGameID = nil
             }

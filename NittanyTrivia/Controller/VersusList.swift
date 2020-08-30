@@ -72,17 +72,17 @@ extension VersusList: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = gamesTable.cellForRow(at: indexPath) as! gameCell
         let colorOfSelected =  cell.gameCellView.layer.borderColor!
+        
         var currentGame = self.currentGames[indexPath.row] as! NSDictionary
         
-        
-//        let versusControllerRef = Versus()
-//        versusControllerRef.gameID = currentGame["id"] as? Int
+
         print(currentGame["id"])
         currentGameID = currentGame["id"] as? Int
-        self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
+        if UIColor(cgColor: colorOfSelected) == UIColor.red{
+            self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
+
+        }
         
-        
-        print(currentGame["id"])
 
     }
 

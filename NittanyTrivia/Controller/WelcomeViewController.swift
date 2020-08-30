@@ -65,7 +65,7 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate {
                             "coins": 100,
                             "gems": 1,
                             "randomSortNum": Int.random(in: 0...100000),
-                            "versus": ["wins": 0, "losses": 0, "draws": 0, "winPercentage": 0.0, "games": Array<Any>(), "gameLogs": Array<Any>()]
+                            "versus": ["wins": 0, "losses": 0, "draws": 0, "winRate": 0.0, "games": Array<Any>(), "gameLogs": Array<Any>(), "gamesPlayed": 0]
                             
                         ])//setData
                        }//if

@@ -13,6 +13,15 @@ import Firebase
 var currentGameID: Int?
 
 
+//struct which contains stats of players
+struct playerStats {
+    var coins: Int
+    var draws: Int
+    var wins: Int
+    var losses: Int
+    var gamesPlayed: Int
+}
+
 struct Game{
     var isChallenger: Bool
     var enemy: String
@@ -93,7 +102,7 @@ func getNewRandomEnemy(randomSortNum: Int)  {
             }//if
         }//else
     }//getDocuments
-}
+}//getNewRandomEnemy
 
 
 //createGame adds a new game into the user's "game" field when they click on the play button, and end up challenging someone random. 
@@ -141,11 +150,11 @@ func createEnemyGame(id: Int, opponentQuestionsAnswered: Int){
             }//if
         }//else
     }//get document
-}
+}//createEnemyGame
 
 
 
-//gamdID will be set passed into function throug ha variable stored in the viewcontroller which getas created when a user clicks on a challenger's game and questionsAnswered the number of questions that the user answered not the enemy challenger's questions.
+//The gamdID will be set passed into function through variable stored in this game.swift file, which gets changed  when a user clicks on a challenger's game. The questionsAnswered parameter is the number of questions that the user answered NOT the enemy challenger's questions.
 func endGame(gameID: Int, questionsUserAnswered: Int){
     let currentUser = db.collection("Users").document(appDelegate.email)
     currentUser.getDocument { (document, error) in
@@ -156,7 +165,7 @@ func endGame(gameID: Int, questionsUserAnswered: Int){
             if let document = document{
                 
 
-
+                
                 var currentGames = document.get("versus.games") as! [NSDictionary]//gets all of user's games
                 var gameLogs = document.get("versus.gameLogs") as! [NSDictionary]//gets game logs
                 if gameLogs.count == 10 {
@@ -170,9 +179,6 @@ func endGame(gameID: Int, questionsUserAnswered: Int){
                         game.setValue(questionsUserAnswered, forKey: "questionsAnswered")
                         gameLogs.append(game)
                         currentUser.updateData(["versus.games" : currentGames, "versus.gameLogs": gameLogs])
-                        
-                        
-                        
                         endEnemyGame(enemyAnswered: game.value(forKey: "enemyQuestionsAnswered") as! Int, userAnswered: questionsUserAnswered, enemyName: game.value(forKey: "enemy") as! String, currentUserSnapshot: document, gameID: gameID)
                         break
                     }//if
@@ -183,16 +189,23 @@ func endGame(gameID: Int, questionsUserAnswered: Int){
 }//endgame
 
 
+//this function will will end the game for the challenger. enemyAnswered refers to the number of questions that the challenger answered and userAnswered refers to the number fo questions that the non challenger answered.
 func endEnemyGame(enemyAnswered: Int, userAnswered: Int, enemyName: String, currentUserSnapshot: DocumentSnapshot, gameID: Int ){
     let currentUser = db.collection("Users").document(appDelegate.email)
     let enemyUserReference = db.collection("Users").document(enemyName)
-    let currentUserSnapshot = currentUserSnapshot
+    
+
     enemyUserReference.getDocument { (enemyUser, error) in
         if let error = error {
             print(error.localizedDescription)
             return
         }//if
         if let enemyUser = enemyUser {
+            
+            let stats = updateWins(enemyAnswered: enemyAnswered, userAnswered: userAnswered, currentUserSnapshot: currentUserSnapshot, enemyUserSnapshot: enemyUser)
+            let userStats = stats[0]
+            let enemyStats = stats[1]
+            
             var currentEnemyGames = enemyUser.get("versus.games") as! [NSDictionary]
             var gameLogs = enemyUser.get("versus.gameLogs") as! [NSDictionary]//gets game logs
             if gameLogs.count == 10 {
@@ -205,28 +218,63 @@ func endEnemyGame(enemyAnswered: Int, userAnswered: Int, enemyName: String, curr
                     currentEnemyGames.remove(at: gameIndex)
                     game.setValue(userAnswered, forKey: "enemyQuestionsAnswered")
                     gameLogs.append(game)
-                    enemyUserReference.updateData(["versus.games" : currentEnemyGames, "versus.gameLogs": gameLogs])
+                    
+                    enemyUserReference.updateData(["coins": enemyStats.coins, "versus.games" : currentEnemyGames, "versus.gameLogs": gameLogs, "versus.wins": enemyStats.wins, "versus.losses": enemyStats.losses, "versus.draws": enemyStats.draws, "versus.gamesPlayed": enemyStats.gamesPlayed ])
+                    
+                    currentUser.updateData(["coins": userStats.coins, "versus.wins": userStats.wins, "versus.losses": userStats.losses, "versus.draws": userStats.draws, "versus.gamesPlayed": userStats.gamesPlayed])
                     break
                 }//if
             gameIndex += 1
             }//for
         }//if
-        
     }//getDocument
+}//endEnemyGame
 }
 
-
-func updateWins(enemyAnswered: Int, userAnswered: Int, currentUserSnapshot: DocumentSnapshot, enemyUserSnapshot: DocumentSnapshot ){
-    if userAnswered > enemyAnswered{
-           
+    
+func updateWins(enemyAnswered: Int, userAnswered: Int, currentUserSnapshot: DocumentSnapshot, enemyUserSnapshot: DocumentSnapshot ) -> [playerStats] {
+   
+    
+    var enemyVersusDoc = enemyUserSnapshot.get("versus") as! NSDictionary
+    var userVersusDoc = currentUserSnapshot.get("versus") as! NSDictionary
+    
+    var userWins = userVersusDoc.value(forKey: "wins") as! Int
+    var userLosses = userVersusDoc.value(forKey: "losses") as! Int
+    var userDraws = userVersusDoc.value(forKey: "draws") as! Int
+    var userGamesPlayed = userVersusDoc.value(forKey: "gamesPlayed") as! Int
+    var userCoins = currentUserSnapshot.get("coins") as! Int
+    
+    var enemyWins = enemyVersusDoc.value(forKey: "wins") as! Int
+    var enemyLosses = enemyVersusDoc.value(forKey: "losses") as! Int
+    var enemyDraws = enemyVersusDoc.value(forKey: "draws") as! Int
+    var enemyGamesPlayed = enemyVersusDoc.value(forKey: "gamesPlayed") as! Int
+    var enemyCoins = enemyUserSnapshot.get("coins") as! Int
+    
+    enemyGamesPlayed += 1
+    userGamesPlayed += 1
+    if userAnswered > enemyAnswered{//occurs if the challenger loses
+        
+        userWins += 1
+        enemyLosses += 1
+        userCoins += 30
+          
        }//if
-       else if (userAnswered < enemyAnswered){
-           
+       else if (userAnswered < enemyAnswered){//occurs if challenger wins
+           userLosses += 1
+           enemyWins += 1
+           enemyCoins += 30
        }//else if
        else{//takes into account a tie between users
-           
+           userDraws += 1
+           enemyDraws += 1
+           userCoins += 15
+           enemyCoins += 15
        }//else
-    }
-}
+    
+    let enemyStats =  playerStats(coins: enemyCoins, draws: enemyDraws, wins: enemyWins, losses: enemyLosses, gamesPlayed: enemyGamesPlayed)
+    let userStats = playerStats(coins: userCoins, draws: userDraws, wins: userWins, losses: userLosses, gamesPlayed: userGamesPlayed )
+    return [userStats,enemyStats]
+    }//updateWins
+
 
 

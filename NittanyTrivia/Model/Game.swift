@@ -16,6 +16,7 @@ var currentGameID: Int?
 //struct which contains stats of players
 struct playerStats {
     var coins: Int
+    var points: Int
     var draws: Int
     var wins: Int
     var losses: Int
@@ -219,9 +220,9 @@ func endEnemyGame(enemyAnswered: Int, userAnswered: Int, enemyName: String, curr
                     game.setValue(userAnswered, forKey: "enemyQuestionsAnswered")
                     gameLogs.append(game)
                     
-                    enemyUserReference.updateData(["coins": enemyStats.coins, "versus.games" : currentEnemyGames, "versus.gameLogs": gameLogs, "versus.wins": enemyStats.wins, "versus.losses": enemyStats.losses, "versus.draws": enemyStats.draws, "versus.gamesPlayed": enemyStats.gamesPlayed ])
+                    enemyUserReference.updateData(["coins": enemyStats.coins, "points": enemyStats.points, "versus.games" : currentEnemyGames, "versus.gameLogs": gameLogs, "versus.wins": enemyStats.wins, "versus.losses": enemyStats.losses, "versus.draws": enemyStats.draws, "versus.gamesPlayed": enemyStats.gamesPlayed ])
                     
-                    currentUser.updateData(["coins": userStats.coins, "versus.wins": userStats.wins, "versus.losses": userStats.losses, "versus.draws": userStats.draws, "versus.gamesPlayed": userStats.gamesPlayed])
+                    currentUser.updateData(["coins": userStats.coins, "points": userStats.points, "versus.wins": userStats.wins, "versus.losses": userStats.losses, "versus.draws": userStats.draws, "versus.gamesPlayed": userStats.gamesPlayed])
                     break
                 }//if
             gameIndex += 1
@@ -232,9 +233,10 @@ func endEnemyGame(enemyAnswered: Int, userAnswered: Int, enemyName: String, curr
 }
 
     
+
+
 func updateWins(enemyAnswered: Int, userAnswered: Int, currentUserSnapshot: DocumentSnapshot, enemyUserSnapshot: DocumentSnapshot ) -> [playerStats] {
-   
-    
+
     var enemyVersusDoc = enemyUserSnapshot.get("versus") as! NSDictionary
     var userVersusDoc = currentUserSnapshot.get("versus") as! NSDictionary
     
@@ -243,12 +245,14 @@ func updateWins(enemyAnswered: Int, userAnswered: Int, currentUserSnapshot: Docu
     var userDraws = userVersusDoc.value(forKey: "draws") as! Int
     var userGamesPlayed = userVersusDoc.value(forKey: "gamesPlayed") as! Int
     var userCoins = currentUserSnapshot.get("coins") as! Int
+    var userPoints = currentUserSnapshot.get("points") as! Int
     
     var enemyWins = enemyVersusDoc.value(forKey: "wins") as! Int
     var enemyLosses = enemyVersusDoc.value(forKey: "losses") as! Int
     var enemyDraws = enemyVersusDoc.value(forKey: "draws") as! Int
     var enemyGamesPlayed = enemyVersusDoc.value(forKey: "gamesPlayed") as! Int
     var enemyCoins = enemyUserSnapshot.get("coins") as! Int
+    var enemyPoints = enemyUserSnapshot.get("points") as! Int
     
     enemyGamesPlayed += 1
     userGamesPlayed += 1
@@ -256,25 +260,31 @@ func updateWins(enemyAnswered: Int, userAnswered: Int, currentUserSnapshot: Docu
         
         userWins += 1
         enemyLosses += 1
-        userCoins += 30
+        userCoins += 40
+        userPoints += 20
           
        }//if
        else if (userAnswered < enemyAnswered){//occurs if challenger wins
            userLosses += 1
            enemyWins += 1
-           enemyCoins += 30
+           enemyCoins += 40
+           enemyPoints += 20
        }//else if
        else{//takes into account a tie between users
            userDraws += 1
            enemyDraws += 1
-           userCoins += 15
-           enemyCoins += 15
+        
+           userCoins += 10
+           enemyCoins += 10
+        
+           enemyPoints += 10
+           userPoints += 10
        }//else
     
-    let enemyStats =  playerStats(coins: enemyCoins, draws: enemyDraws, wins: enemyWins, losses: enemyLosses, gamesPlayed: enemyGamesPlayed)
-    let userStats = playerStats(coins: userCoins, draws: userDraws, wins: userWins, losses: userLosses, gamesPlayed: userGamesPlayed )
+    let enemyStats =  playerStats(coins: enemyCoins, points: enemyPoints, draws: enemyDraws, wins: enemyWins, losses: enemyLosses, gamesPlayed: enemyGamesPlayed)
+    let userStats = playerStats(coins: userCoins, points: userPoints, draws: userDraws, wins: userWins, losses: userLosses, gamesPlayed: userGamesPlayed )
     return [userStats,enemyStats]
-    }//updateWins
+}//updateWins
 
 
 

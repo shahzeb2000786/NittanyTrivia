@@ -19,6 +19,7 @@
 		BF52DEA224C3E01D00032553 /* NittanyTriviaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DEA124C3E01D00032553 /* NittanyTriviaTests.swift */; };
 		BF52DEAD24C3E01D00032553 /* NittanyTriviaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF52DEAC24C3E01D00032553 /* NittanyTriviaUITests.swift */; };
 		BF52DEBB24C3E31B00032553 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BF52DEBA24C3E31B00032553 /* Podfile */; };
+		BF5564B124FDFAEE00419626 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5564B024FDFAEE00419626 /* UserProfile.swift */; };
 		BF5BF07624E5963100A5F709 /* Leaderboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5BF07524E5963100A5F709 /* Leaderboards.swift */; };
 		BF5BF07824E5ADCF00A5F709 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5BF07724E5ADCF00A5F709 /* User.swift */; };
 		BF8374C024D65D2200996848 /* colorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8374BF24D65D2200996848 /* colorManager.swift */; };
@@ -71,6 +72,7 @@
 		BF52DEAC24C3E01D00032553 /* NittanyTriviaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NittanyTriviaUITests.swift; sourceTree = "<group>"; };
 		BF52DEAE24C3E01D00032553 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF52DEBA24C3E31B00032553 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BF5564B024FDFAEE00419626 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		BF5BF07524E5963100A5F709 /* Leaderboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboards.swift; sourceTree = "<group>"; };
 		BF5BF07724E5ADCF00A5F709 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BF8374BF24D65D2200996848 /* colorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorManager.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				BF5BF07524E5963100A5F709 /* Leaderboards.swift */,
 				BF3F669524E85A2000CA0644 /* Versus.swift */,
 				BF8532B624E9B58100B22D25 /* VersusList.swift */,
+				BF5564B024FDFAEE00419626 /* UserProfile.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFD0523424DA768200AAE4D3 /* Game.swift in Sources */,
+				BF5564B124FDFAEE00419626 /* UserProfile.swift in Sources */,
 				BFE2C6A424C89CDA00DEEE1E /* Question.swift in Sources */,
 				BF8374C024D65D2200996848 /* colorManager.swift in Sources */,
 				BF52DE9224C3E01A00032553 /* NittanyTrivia.xcdatamodeld in Sources */,

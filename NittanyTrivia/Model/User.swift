@@ -51,7 +51,7 @@ func getUserProfileInfo(){
                 currentUserProfile.wins = user.get("versus.wins") as! Int
                 currentUserProfile.losses = user.get("versus.losses") as! Int
                 currentUserProfile.draws = user.get("versus.draws") as! Int
-                currentUserProfile.winPercentage = (user.get("versus.wins") as! Float)/(user.get("versus.losses") as! Float)
+                currentUserProfile.winPercentage = (user.get("versus.wins") as! Float)/((user.get("versus.losses") as! Float) + (user.get("versus.wins") as! Float))
                 currentUserProfile.points = user.get("points") as! Int
                 currentUserProfile.coins = user.get("coins") as! Int
                 currentUserProfile.gems = user.get("gems") as! Int

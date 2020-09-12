@@ -19,7 +19,8 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
     
     @IBOutlet weak var competeButton: UIButton!
     @IBOutlet weak var survivalButton: UIButton!
-    @IBOutlet weak var coinsButton: UIButton!
+    @IBOutlet weak var coinsLabel: UIButton!
+    @IBOutlet weak var livesLabel: UIButton!
     
     
     override func viewDidLoad() {
@@ -32,10 +33,11 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
         survivalButton.layer.cornerRadius = 40
         
         
-        coinsButton.titleLabel?.numberOfLines = 1
-        coinsButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        coinsButton.titleLabel?.minimumScaleFactor = 0.5
-        
+        coinsLabel.titleLabel?.numberOfLines = 1
+        coinsLabel.titleLabel?.adjustsFontSizeToFitWidth = true
+        coinsLabel.titleLabel?.minimumScaleFactor = 0.5
+        coinsLabel.isHidden = true
+        livesLabel.isHidden = true
         
         print (appDelegate.email)
     

@@ -20,8 +20,7 @@ class gameCell: UITableViewCell {
         opponentLabel.minimumScaleFactor = 0.5
         opponentLabel.adjustsFontSizeToFitWidth = true
     
-        
-        gameCellView.layer.cornerRadius = gameCellView.frame.size.height/3
+        //gameCellView.layer.cornerRadius = gameCellView.frame.size.height/3
 
         let margins = CGRect(x: 0, y: 0, width: 10, height: 0)
         gameCellView.frame.insetBy(dx: 2.0, dy: 2.0)

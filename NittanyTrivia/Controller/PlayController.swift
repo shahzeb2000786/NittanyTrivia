@@ -56,7 +56,7 @@ class PlayController: UIViewController {
         self.question.layer.masksToBounds = true
         self.question.layer.cornerRadius = 40
        // self.question.minimum
-        self.question.numberOfLines = 3
+        self.question.numberOfLines = 2
         self.question.adjustsFontSizeToFitWidth = true
         
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

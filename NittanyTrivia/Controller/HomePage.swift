@@ -48,7 +48,10 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
     }
     
     @IBAction func storePressed(_ sender: UIButton) {
-      
+        
+//      let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: .alert)
+//    self.present(alert, animated: true, completion: nil)
+        
     }
     
     @IBAction func homePressed(_ sender: UIButton) {

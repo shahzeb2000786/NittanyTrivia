@@ -15,9 +15,11 @@ let questionChecker = QuestionChecker()//contains logic to check answers to ques
 class Leaderboards: UIViewController {
     var topPlayers: [LeaderboardsUser] = []
     @IBOutlet weak var leaderboardsTable: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         leaderboardsTable.dataSource = self
+        leaderboardsTable.rowHeight = 65.00
         getLeaderboard()
     }
     
@@ -39,9 +41,7 @@ class Leaderboards: UIViewController {
                             let userPoints = document.data()["points"] as! Int
                             var user = LeaderboardsUser(email: userEmail , points: userPoints)
                             self.topPlayers.append(user)
-                              // print(document.data()["email"])
-                               // print(document.data()["points"])
-                              // print(document.data().count)
+                             
                             DispatchQueue.main.async{
                                 self.leaderboardsTable.reloadData()
                                
@@ -68,14 +68,16 @@ extension Leaderboards: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let leaderboardsCell = tableView.dequeueReusableCell(withIdentifier: "leaderboardsCell", for: indexPath)
-
-        let user = self.topPlayers[indexPath.row]
-        leaderboardsCell.textLabel?.text =  user.email + " " + String(user.points) + " points"
-        leaderboardsCell.textLabel?.textColor = UIColor.white
-        leaderboardsCell.backgroundColor = UIColor.gray
-        leaderboardsCell.clipsToBounds = true
-        leaderboardsCell.layer.cornerRadius = 15
         
+        let user = self.topPlayers[indexPath.row]
+        leaderboardsCell.textLabel?.text =  String(indexPath.row + 1) + "     " + user.email + "    " + String(user.points) + " points"
+        leaderboardsCell.textLabel?.textColor = UIColor.white
+        leaderboardsCell.clipsToBounds = true
+        leaderboardsCell.backgroundColor = UIColor(named: "topViewColor")
+        leaderboardsCell.layer.borderWidth = 2
+        leaderboardsCell.layer.borderColor = UIColor.white.cgColor
+        //leaderboardsCell.layer.cornerRadius = 15
+
         return leaderboardsCell
     }
     

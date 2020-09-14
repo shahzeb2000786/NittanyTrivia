@@ -22,6 +22,8 @@
 		BF5564B124FDFAEE00419626 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5564B024FDFAEE00419626 /* UserProfile.swift */; };
 		BF5BF07624E5963100A5F709 /* Leaderboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5BF07524E5963100A5F709 /* Leaderboards.swift */; };
 		BF5BF07824E5ADCF00A5F709 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5BF07724E5ADCF00A5F709 /* User.swift */; };
+		BF6B1316250F427F002030BC /* gameInfoAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6B1314250F427F002030BC /* gameInfoAlertViewController.swift */; };
+		BF6B1317250F427F002030BC /* gameInfoAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF6B1315250F427F002030BC /* gameInfoAlertViewController.xib */; };
 		BF8374C024D65D2200996848 /* colorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8374BF24D65D2200996848 /* colorManager.swift */; };
 		BF8532B724E9B58100B22D25 /* VersusList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF8532B624E9B58100B22D25 /* VersusList.swift */; };
 		BF92E71024CD1F1800E8B8DA /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF92E70F24CD1F1800E8B8DA /* HomePage.swift */; };
@@ -75,6 +77,8 @@
 		BF5564B024FDFAEE00419626 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		BF5BF07524E5963100A5F709 /* Leaderboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboards.swift; sourceTree = "<group>"; };
 		BF5BF07724E5ADCF00A5F709 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BF6B1314250F427F002030BC /* gameInfoAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameInfoAlertViewController.swift; sourceTree = "<group>"; };
+		BF6B1315250F427F002030BC /* gameInfoAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = gameInfoAlertViewController.xib; sourceTree = "<group>"; };
 		BF8374BF24D65D2200996848 /* colorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorManager.swift; sourceTree = "<group>"; };
 		BF8532B624E9B58100B22D25 /* VersusList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersusList.swift; sourceTree = "<group>"; };
 		BF92E70F24CD1F1800E8B8DA /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
@@ -206,6 +210,8 @@
 				BF52DE8D24C3E01A00032553 /* Main.storyboard */,
 				BF1AA76A24F2D677003338A0 /* gameCell.swift */,
 				BF1AA76B24F2D677003338A0 /* gameCell.xib */,
+				BF6B1314250F427F002030BC /* gameInfoAlertViewController.swift */,
+				BF6B1315250F427F002030BC /* gameInfoAlertViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF6B1317250F427F002030BC /* gameInfoAlertViewController.xib in Resources */,
 				BF52DE9724C3E01C00032553 /* LaunchScreen.storyboard in Resources */,
 				BF52DE9424C3E01C00032553 /* Assets.xcassets in Resources */,
 				BFACF26A24CBDB260022EF76 /* GoogleService-Info.plist in Resources */,
@@ -428,6 +435,7 @@
 				BF1AA76C24F2D677003338A0 /* gameCell.swift in Sources */,
 				BF52DE8824C3E01A00032553 /* AppDelegate.swift in Sources */,
 				BF5BF07624E5963100A5F709 /* Leaderboards.swift in Sources */,
+				BF6B1316250F427F002030BC /* gameInfoAlertViewController.swift in Sources */,
 				BF52DE8A24C3E01A00032553 /* SceneDelegate.swift in Sources */,
 				BF8532B724E9B58100B22D25 /* VersusList.swift in Sources */,
 				BFF43EF724C8030A0074FDD0 /* PlayController.swift in Sources */,

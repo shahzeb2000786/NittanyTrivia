@@ -865,14 +865,14 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWs-xI-Ryt" userLabel="cancelButton">
-                                            <rect key="frame" x="0.0" y="2" width="40" height="35.5"/>
+                                            <rect key="frame" x="0.0" y="1" width="40" height="37.5"/>
                                             <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="AYi-Ao-1S3"/>
                                                 <constraint firstAttribute="height" constant="40" id="s7a-Dg-EuV"/>
                                             </constraints>
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" backgroundImage="xmark" catalog="system"/>
+                                            <state key="normal" backgroundImage="minus.square.fill" catalog="system"/>
                                             <connections>
                                                 <action selector="cancelPopUp:" destination="bET-wL-egt" eventType="touchUpInside" id="LZG-Sf-rSQ"/>
                                             </connections>
@@ -899,6 +899,9 @@
                                                     <state key="normal" title="Decline">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="acceptOrDecline:" destination="bET-wL-egt" eventType="touchUpInside" id="ZO9-qo-GKN"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -938,14 +941,14 @@
                                 <rect key="frame" x="30" y="720" width="354" height="72"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <state key="normal" title="Play">
+                                <state key="normal" title="New Game">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="toPlayScreen:" destination="bET-wL-egt" eventType="touchUpInside" id="jXV-ah-6EB"/>
+                                    <action selector="createNewGame:" destination="bET-wL-egt" eventType="touchUpInside" id="jXV-ah-6EB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ib2-AM-MTr">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ib2-AM-MTr" userLabel="backButton">
                                 <rect key="frame" x="0.0" y="23" width="79" height="47"/>
                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="arrow.left" catalog="system">
@@ -955,6 +958,16 @@
                                 <connections>
                                     <segue destination="Tsd-UA-WOU" kind="show" id="cJ8-Ez-R5j"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXD-7y-7zg">
+                                <rect key="frame" x="184" y="433" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" backgroundImage="checkmark" catalog="system"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3SN-OW-kAx">
+                                <rect key="frame" x="187" y="428" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" backgroundImage="checkmark" catalog="system"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="topViewColor"/>
@@ -979,7 +992,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="9hy-ol-pcb"/>
                     <connections>
+                        <outlet property="acceptOrDeclineButton" destination="P3A-Wm-SSz" id="G9z-5G-1D0"/>
+                        <outlet property="enemyPopUpScore" destination="34A-9j-KIB" id="Kk3-4x-4Dw"/>
                         <outlet property="gamesTable" destination="K54-rv-fNo" id="zZy-Hh-QB5"/>
+                        <outlet property="playerPopUpScore" destination="9kT-rO-ARS" id="yl9-Fj-Ofo"/>
                         <outlet property="popUpView" destination="UdF-dP-QFs" id="unG-tz-1G7"/>
                         <segue destination="zOd-1p-CTS" kind="show" identifier="toVersusScreen" id="Z7J-Bx-WOd"/>
                     </connections>
@@ -1208,11 +1224,12 @@
     <resources>
         <image name="Image-1" width="365" height="252"/>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
+        <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="minus.square.fill" catalog="system" width="128" height="114"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="backgroundColor">
             <color red="0.85882353782653809" green="0.9529411792755127" blue="0.98039215803146362" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

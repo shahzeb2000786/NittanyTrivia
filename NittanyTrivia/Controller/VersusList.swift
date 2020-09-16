@@ -15,6 +15,13 @@ class VersusList: UIViewController {
     @IBOutlet weak var gamesTable: UITableView!
     @IBOutlet weak var popUpView: UIView!
     
+    @IBOutlet weak var playerPopUpScore: UILabel!
+    @IBOutlet weak var enemyPopUpScore: UILabel!
+    @IBOutlet weak var acceptOrDeclineButton: UIButton!
+    
+    
+    
+    
     var currentGames = [Any]()
     let enemyClickedOn: String = ""//the name of the opponent of the game that the person clicked on
     override func viewDidLoad(){
@@ -39,9 +46,13 @@ class VersusList: UIViewController {
     }
     
     
-    @IBAction func toPlayScreen(_ sender: Any) {
+    @IBAction func createNewGame(_ sender: Any) {
          self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
     }
+    
+    @IBAction func acceptOrDecline(_ sender: UIButton) {
+    }
+    
     
 }
 
@@ -87,10 +98,18 @@ extension VersusList: UITableViewDelegate {
         print(currentGame["id"])
         currentGameID = currentGame["id"] as? Int
         if UIColor(cgColor: colorOfSelected) == UIColor.red{
-            self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
+            acceptOrDeclineButton.titleLabel?.text = "Decline"
+            acceptOrDeclineButton.backgroundColor = UIColor.red
+            
+            popUpView.isHidden = false
+
+//            self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
 
         }
         else{
+            acceptOrDeclineButton.titleLabel?.text = "Accept"
+            acceptOrDeclineButton.backgroundColor = UIColor.green
+            
             popUpView.isHidden = false
         }
         

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="gameInfoAlert" customModule="NittanyTrivia" customModuleProvider="target">
+            <connections>
+                <outlet property="cancelButton" destination="xSC-h4-hOl" id="CHX-6r-gt2"/>
+                <outlet property="quitButton" destination="Wjw-Za-yTJ" id="L6O-oL-2Cc"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="500"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSC-h4-hOl" userLabel="cancelButton">
+                    <rect key="frame" x="0.0" y="2" width="65" height="60.5"/>
+                    <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="65" id="BI6-R5-cYP"/>
+                        <constraint firstAttribute="width" constant="65" id="pYt-fA-M8v"/>
+                    </constraints>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" backgroundImage="xmark" catalog="system"/>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="1V7-e1-kk2">
+                    <rect key="frame" x="0.0" y="65" width="500" height="401"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Scored: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yn-M0-HrG" userLabel="scoreLabel">
+                            <rect key="frame" x="0.0" y="0.0" width="500" height="100.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enemy: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sUj-6j-ffF" userLabel="enemyLabel">
+                            <rect key="frame" x="0.0" y="150.5" width="500" height="100"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wjw-Za-yTJ" userLabel="forfeitButton">
+                            <rect key="frame" x="140" y="300.5" width="220" height="100.5"/>
+                            <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                            <state key="normal" title="Forfeit">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="1yn-M0-HrG" firstAttribute="leading" secondItem="1V7-e1-kk2" secondAttribute="leading" id="5Ne-KT-WVS"/>
+                        <constraint firstItem="Wjw-Za-yTJ" firstAttribute="leading" secondItem="1V7-e1-kk2" secondAttribute="leading" constant="140" id="Ho5-qZ-C7H"/>
+                        <constraint firstAttribute="trailing" secondItem="Wjw-Za-yTJ" secondAttribute="trailing" constant="140" id="YSV-Tm-FZ3"/>
+                        <constraint firstItem="sUj-6j-ffF" firstAttribute="leading" secondItem="1V7-e1-kk2" secondAttribute="leading" id="ZBg-ja-n46"/>
+                        <constraint firstAttribute="trailing" secondItem="sUj-6j-ffF" secondAttribute="trailing" id="hrb-0l-kIc"/>
+                        <constraint firstAttribute="trailing" secondItem="1yn-M0-HrG" secondAttribute="trailing" id="qIK-7p-cg2"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xSC-h4-hOl" secondAttribute="trailing" constant="435" id="1CC-7X-gzt"/>
+                <constraint firstItem="xSC-h4-hOl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="GHQ-nM-h5C"/>
+                <constraint firstItem="1V7-e1-kk2" firstAttribute="top" secondItem="xSC-h4-hOl" secondAttribute="bottom" id="NCB-PM-I6y"/>
+                <constraint firstItem="xSC-h4-hOl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="RT6-uN-IjF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="1V7-e1-kk2" secondAttribute="trailing" id="aiH-PN-jyv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="1V7-e1-kk2" secondAttribute="bottom" id="c1L-Pe-lhe"/>
+                <constraint firstItem="1V7-e1-kk2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ezr-uY-8UP"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="105.79710144927537" y="240.40178571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+    </resources>
+</document>

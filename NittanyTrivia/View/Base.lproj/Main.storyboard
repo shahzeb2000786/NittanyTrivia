@@ -860,6 +860,69 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="K54-rv-fNo">
                                 <rect key="frame" x="0.0" y="83" width="414" height="627"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="UdF-dP-QFs" userLabel="popUpView">
+                                    <rect key="frame" x="0.0" y="100" width="414" height="311"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWs-xI-Ryt" userLabel="cancelButton">
+                                            <rect key="frame" x="0.0" y="2" width="40" height="35.5"/>
+                                            <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="AYi-Ao-1S3"/>
+                                                <constraint firstAttribute="height" constant="40" id="s7a-Dg-EuV"/>
+                                            </constraints>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" backgroundImage="xmark" catalog="system"/>
+                                            <connections>
+                                                <action selector="cancelPopUp:" destination="bET-wL-egt" eventType="touchUpInside" id="LZG-Sf-rSQ"/>
+                                            </connections>
+                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="IfN-Rb-5xH">
+                                            <rect key="frame" x="0.0" y="48" width="414" height="271"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Scored: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kT-rO-ARS" userLabel="scoreLabel">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enemy: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34A-9j-KIB" userLabel="enemyLabel">
+                                                    <rect key="frame" x="0.0" y="102" width="414" height="67"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3A-Wm-SSz" userLabel="forfeitButton">
+                                                    <rect key="frame" x="80" y="204" width="254" height="67"/>
+                                                    <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                                    <state key="normal" title="Decline">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="34A-9j-KIB" firstAttribute="leading" secondItem="IfN-Rb-5xH" secondAttribute="leading" id="GiF-vJ-EFH"/>
+                                                <constraint firstItem="P3A-Wm-SSz" firstAttribute="leading" secondItem="IfN-Rb-5xH" secondAttribute="leading" constant="80" id="Ifh-Jc-d28"/>
+                                                <constraint firstItem="9kT-rO-ARS" firstAttribute="leading" secondItem="IfN-Rb-5xH" secondAttribute="leading" id="M2P-Dh-KsA"/>
+                                                <constraint firstAttribute="trailing" secondItem="34A-9j-KIB" secondAttribute="trailing" id="WrW-CN-Ml7"/>
+                                                <constraint firstAttribute="trailing" secondItem="9kT-rO-ARS" secondAttribute="trailing" id="hI8-Sm-aMD"/>
+                                                <constraint firstAttribute="trailing" secondItem="P3A-Wm-SSz" secondAttribute="trailing" constant="80" id="s5V-Ht-Xbq"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="fWs-xI-Ryt" firstAttribute="leading" secondItem="IfN-Rb-5xH" secondAttribute="leading" id="06n-Af-S8d"/>
+                                        <constraint firstItem="fWs-xI-Ryt" firstAttribute="top" secondItem="bkr-AN-iDB" secondAttribute="top" id="HS0-k2-aKb"/>
+                                        <constraint firstItem="IfN-Rb-5xH" firstAttribute="leading" secondItem="bkr-AN-iDB" secondAttribute="leading" id="IF9-rj-Pff"/>
+                                        <constraint firstItem="bkr-AN-iDB" firstAttribute="trailing" secondItem="IfN-Rb-5xH" secondAttribute="trailing" id="JgK-bB-2Rb"/>
+                                        <constraint firstItem="IfN-Rb-5xH" firstAttribute="top" secondItem="fWs-xI-Ryt" secondAttribute="bottom" id="T52-yl-hdS"/>
+                                        <constraint firstAttribute="bottom" secondItem="IfN-Rb-5xH" secondAttribute="bottom" id="hJQ-dj-nag"/>
+                                    </constraints>
+                                    <viewLayoutGuide key="safeArea" id="bkr-AN-iDB"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="game" id="KPM-Nq-hlA">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
@@ -917,6 +980,7 @@
                     <navigationItem key="navigationItem" id="9hy-ol-pcb"/>
                     <connections>
                         <outlet property="gamesTable" destination="K54-rv-fNo" id="zZy-Hh-QB5"/>
+                        <outlet property="popUpView" destination="UdF-dP-QFs" id="unG-tz-1G7"/>
                         <segue destination="zOd-1p-CTS" kind="show" identifier="toVersusScreen" id="Z7J-Bx-WOd"/>
                     </connections>
                 </viewController>
@@ -1139,7 +1203,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="TyI-Qa-pbP"/>
-        <segue reference="3ut-f9-coc"/>
+        <segue reference="cJ8-Ez-R5j"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Image-1" width="365" height="252"/>
@@ -1148,6 +1212,7 @@
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="backgroundColor">
             <color red="0.85882353782653809" green="0.9529411792755127" blue="0.98039215803146362" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

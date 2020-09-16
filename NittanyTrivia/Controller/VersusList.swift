@@ -13,10 +13,13 @@ import UIKit
    
 class VersusList: UIViewController {
     @IBOutlet weak var gamesTable: UITableView!
+    @IBOutlet weak var popUpView: UIView!
+    
     var currentGames = [Any]()
     let enemyClickedOn: String = ""//the name of the opponent of the game that the person clicked on
     override func viewDidLoad(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
+        popUpView.isHidden = true
         gamesTable.dataSource = self
         gamesTable.delegate = self
         gamesTable.register(UINib(nibName: "gameCell", bundle: nil), forCellReuseIdentifier: "gameCell")
@@ -30,6 +33,11 @@ class VersusList: UIViewController {
                 }
         }
     }
+    
+    @IBAction func cancelPopUp(_ sender: Any) {
+        popUpView.isHidden = true
+    }
+    
     
     @IBAction func toPlayScreen(_ sender: Any) {
          self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
@@ -81,6 +89,9 @@ extension VersusList: UITableViewDelegate {
         if UIColor(cgColor: colorOfSelected) == UIColor.red{
             self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
 
+        }
+        else{
+            popUpView.isHidden = false
         }
         
 

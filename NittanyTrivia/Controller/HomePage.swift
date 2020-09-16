@@ -24,7 +24,8 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
     
     
     override func viewDidLoad() {
-        
+       
+
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
 
@@ -41,16 +42,39 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
         
         print (appDelegate.email)
     
-    }
+    }//viewDidLoad
+    
+    
+    
+//    func showMyAlert() {
+//        let screenRect = UIScreen.main.bounds
+//            let screenWidth = screenRect.size.width
+//            let screenHeight = screenRect.size.height
+//
+//            // split screen
+//            let windowRect = self.view.window?.frame
+//            let windowWidth = windowRect?.size.width
+//            let windowHeight = windowRect?.size.height
+//
+//        let testFrame = CGRect(x: 0, y: 100, width: 100, height: 100)
+//        var testView : UIView = UIView(frame: testFrame)
+//        testView.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0)
+//
+//
+//        var alert = (Bundle.main.loadNibNamed("gameInfoAlert", owner: self, options: nil)? [0]) as! gameInfoAlert
+//
+//        print (alert)
+//        self.view.addSubview(alert as! UIView)
+//
+//
+//    }
+    
     
     @IBAction func leaderboardPressed(_ sender: UIButton) {
         sender.tintColor = UIColor.gray
     }
     
     @IBAction func storePressed(_ sender: UIButton) {
-        
-//      let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: .alert)
-//    self.present(alert, animated: true, completion: nil)
         
     }
     

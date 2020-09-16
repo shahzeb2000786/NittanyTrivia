@@ -1,5 +1,5 @@
 //
-//  gameInfoAlertViewController.swift
+//  gameInfoAlert.swift
 //  NittanyTrivia
 //
 //  Created by Shahzeb Ahmed on 9/14/20.
@@ -8,14 +8,13 @@
 
 import UIKit
 
-class gameInfoAlertViewController: UIAlertController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
+class gameInfoAlert: UIView {
 
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var quitButton: UIButton!
+    
 
     /*
     // MARK: - Navigation

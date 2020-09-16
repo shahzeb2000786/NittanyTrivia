@@ -17,8 +17,9 @@ class VersusList: UIViewController {
     
     @IBOutlet weak var playerPopUpScore: UILabel!
     @IBOutlet weak var enemyPopUpScore: UILabel!
-    @IBOutlet weak var acceptOrDeclineButton: UIButton!
+    @IBOutlet weak var deleteGameButton: UIButton!
     
+    @IBOutlet weak var acceptOrDeclineView: UIView!
     
     
     
@@ -27,6 +28,7 @@ class VersusList: UIViewController {
     override func viewDidLoad(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
         popUpView.isHidden = true
+        
         gamesTable.dataSource = self
         gamesTable.delegate = self
         gamesTable.register(UINib(nibName: "gameCell", bundle: nil), forCellReuseIdentifier: "gameCell")
@@ -50,9 +52,17 @@ class VersusList: UIViewController {
          self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
     }
     
-    @IBAction func acceptOrDecline(_ sender: UIButton) {
+    @IBAction func deleteGame(_ sender: UIButton) {
     }
     
+    
+    @IBAction func acceptGame(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
+    }
+    
+    @IBAction func declineGame(_ sender: UIButton) {
+        
+    }
     
 }
 
@@ -88,6 +98,14 @@ extension VersusList: UITableViewDataSource{
 
 
 extension VersusList: UITableViewDelegate {
+    func scrollToBottom(){
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: self.currentGames.count-1, section: 0)
+            self.gamesTable.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = gamesTable.cellForRow(at: indexPath) as! gameCell
         let colorOfSelected =  cell.gameCellView.layer.borderColor!
@@ -98,19 +116,24 @@ extension VersusList: UITableViewDelegate {
         print(currentGame["id"])
         currentGameID = currentGame["id"] as? Int
         if UIColor(cgColor: colorOfSelected) == UIColor.red{
-            acceptOrDeclineButton.titleLabel?.text = "Decline"
-            acceptOrDeclineButton.backgroundColor = UIColor.red
             
-            popUpView.isHidden = false
+            
+            acceptOrDeclineView.isHidden = false
+            deleteGameButton.isHidden = true
 
+            popUpView.isHidden = false
+          
 //            self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
 
         }
         else{
-            acceptOrDeclineButton.titleLabel?.text = "Accept"
-            acceptOrDeclineButton.backgroundColor = UIColor.green
+           
             
+            acceptOrDeclineView.isHidden = true
+            deleteGameButton.isHidden = false
+
             popUpView.isHidden = false
+           
         }
         
 

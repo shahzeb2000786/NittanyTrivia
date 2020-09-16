@@ -40,6 +40,9 @@ var userToReturn: [String: Any] = ["email": "JaneDoe@mail.com"]
 
 
 //getRandomEnemy queries the Users database and randomly finds an opponent foer the user to go against when the user clicks new game for versus mode. Creates a randomSortNum which is compared to the "randomSortNum" field in the user's collection to find a possible list random users and then draws a one random user from this list and assigns it to the variable "randomEnemy"
+func deleteGames(userName: String, EnemyName: String){
+    
+}
 func getRandomEnemy()  {
     var usersCollection = db.collection("Users")
     let randomSortNum = Int.random(in: 0..<500)//used to query collection to find

@@ -861,7 +861,7 @@
                                 <rect key="frame" x="0.0" y="83" width="414" height="627"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="UdF-dP-QFs" userLabel="popUpView">
-                                    <rect key="frame" x="0.0" y="100" width="414" height="311"/>
+                                    <rect key="frame" x="0.0" y="100" width="414" height="412"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWs-xI-Ryt" userLabel="cancelButton">
@@ -877,8 +877,8 @@
                                                 <action selector="cancelPopUp:" destination="bET-wL-egt" eventType="touchUpInside" id="LZG-Sf-rSQ"/>
                                             </connections>
                                         </button>
-                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="IfN-Rb-5xH">
-                                            <rect key="frame" x="0.0" y="48" width="414" height="271"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="IfN-Rb-5xH">
+                                            <rect key="frame" x="0.0" y="40" width="414" height="372"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Scored: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9kT-rO-ARS" userLabel="scoreLabel">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
@@ -887,30 +887,53 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enemy: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34A-9j-KIB" userLabel="enemyLabel">
-                                                    <rect key="frame" x="0.0" y="102" width="414" height="67"/>
+                                                    <rect key="frame" x="0.0" y="102" width="414" height="66.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P3A-Wm-SSz" userLabel="forfeitButton">
-                                                    <rect key="frame" x="80" y="204" width="254" height="67"/>
+                                                    <rect key="frame" x="151.5" y="203.5" width="111" height="67"/>
                                                     <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                    <state key="normal" title="Decline">
+                                                    <state key="normal" title="Delete">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="acceptOrDecline:" destination="bET-wL-egt" eventType="touchUpInside" id="ZO9-qo-GKN"/>
+                                                        <action selector="deleteGame:" destination="bET-wL-egt" eventType="touchUpInside" id="ZO9-qo-GKN"/>
                                                     </connections>
                                                 </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfZ-MN-WeT" userLabel="acceptOrDeclineView">
+                                                    <rect key="frame" x="147" y="305.5" width="120" height="66.5"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXD-7y-7zg" userLabel="checkMarkButton">
+                                                            <rect key="frame" x="0.0" y="15" width="40" height="36.5"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <state key="normal" backgroundImage="checkmark" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="acceptGame:" destination="bET-wL-egt" eventType="touchUpInside" id="g91-1Y-JCI"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3SN-OW-kAx" userLabel="xMarkButton">
+                                                            <rect key="frame" x="72" y="15" width="40" height="35.5"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <state key="normal" backgroundImage="xmark" catalog="system"/>
+                                                            <connections>
+                                                                <action selector="declineGame:" destination="bET-wL-egt" eventType="touchUpInside" id="VHp-vp-MQv"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="34A-9j-KIB" firstAttribute="leading" secondItem="IfN-Rb-5xH" secondAttribute="leading" id="GiF-vJ-EFH"/>
-                                                <constraint firstItem="P3A-Wm-SSz" firstAttribute="leading" secondItem="IfN-Rb-5xH" secondAttribute="leading" constant="80" id="Ifh-Jc-d28"/>
                                                 <constraint firstItem="9kT-rO-ARS" firstAttribute="leading" secondItem="IfN-Rb-5xH" secondAttribute="leading" id="M2P-Dh-KsA"/>
+                                                <constraint firstItem="wfZ-MN-WeT" firstAttribute="leading" secondItem="IfN-Rb-5xH" secondAttribute="leading" constant="147" id="Uer-LA-KIl"/>
                                                 <constraint firstAttribute="trailing" secondItem="34A-9j-KIB" secondAttribute="trailing" id="WrW-CN-Ml7"/>
+                                                <constraint firstAttribute="trailing" secondItem="wfZ-MN-WeT" secondAttribute="trailing" constant="147" id="eBJ-or-fQy"/>
                                                 <constraint firstAttribute="trailing" secondItem="9kT-rO-ARS" secondAttribute="trailing" id="hI8-Sm-aMD"/>
-                                                <constraint firstAttribute="trailing" secondItem="P3A-Wm-SSz" secondAttribute="trailing" constant="80" id="s5V-Ht-Xbq"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
@@ -959,16 +982,6 @@
                                     <segue destination="Tsd-UA-WOU" kind="show" id="cJ8-Ez-R5j"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wXD-7y-7zg">
-                                <rect key="frame" x="184" y="433" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" backgroundImage="checkmark" catalog="system"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3SN-OW-kAx">
-                                <rect key="frame" x="187" y="428" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" backgroundImage="checkmark" catalog="system"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" name="topViewColor"/>
                         <constraints>
@@ -992,7 +1005,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="9hy-ol-pcb"/>
                     <connections>
-                        <outlet property="acceptOrDeclineButton" destination="P3A-Wm-SSz" id="G9z-5G-1D0"/>
+                        <outlet property="acceptOrDeclineView" destination="wfZ-MN-WeT" id="90U-sM-ro8"/>
+                        <outlet property="deleteGameButton" destination="P3A-Wm-SSz" id="G9z-5G-1D0"/>
                         <outlet property="enemyPopUpScore" destination="34A-9j-KIB" id="Kk3-4x-4Dw"/>
                         <outlet property="gamesTable" destination="K54-rv-fNo" id="zZy-Hh-QB5"/>
                         <outlet property="playerPopUpScore" destination="9kT-rO-ARS" id="yl9-Fj-Ofo"/>
@@ -1230,6 +1244,7 @@
         <image name="minus.square.fill" catalog="system" width="128" height="114"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="backgroundColor">
             <color red="0.85882353782653809" green="0.9529411792755127" blue="0.98039215803146362" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

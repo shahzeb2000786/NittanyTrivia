@@ -159,31 +159,42 @@ func createEnemyGame(id: Int, opponentQuestionsAnswered: Int){
 
 
 //The gamdID will be set passed into function through variable stored in this game.swift file, which gets changed  when a user clicks on a challenger's game. The questionsAnswered parameter is the number of questions that the user answered NOT the enemy challenger's questions.
-func endGame(gameID: Int, questionsUserAnswered: Int){
+func endGame(gameID: Int, questionsUserAnswered: Int,isGameBeingDeleted: Bool){
     let currentUser = db.collection("Users").document(appDelegate.email)
     currentUser.getDocument { (document, error) in
         if let error = error {
             print(error.localizedDescription)
         }//if
         else{
-            if let document = document{
-                
+            
 
-                
+            if let document = document{
                 var currentGames = document.get("versus.games") as! [NSDictionary]//gets all of user's games
                 var gameLogs = document.get("versus.gameLogs") as! [NSDictionary]//gets game logs
-                if gameLogs.count == 10 {
+                if gameLogs.count == 10 && isGameBeingDeleted == false {
                     gameLogs.remove(at: gameLogs.count - 1 )
                 }
                 var gameIndex = 0
                 
                 for var game in currentGames {//finds the game with the designated id within the array
                     if game.value(forKey: "id") as! Int == gameID {
+                        
                         currentGames.remove(at: gameIndex)
-                        game.setValue(questionsUserAnswered, forKey: "questionsAnswered")
-                        gameLogs.append(game)
+                        if (isGameBeingDeleted == false){//executes if game is accepted and finished
+                            game.setValue(questionsUserAnswered, forKey: "questionsAnswered")
+                            gameLogs.append(game)
+                           
+                        }//if
+                        print("HELOOOOOOOOO")
+                        print("HELOOOOOOOOO")
+                        print("HELOOOOOOOOO")
+                        print("HELOOOOOOOOO")
+                        print("HELOOOOOOOOO")
+                        print("HELOOOOOOOOO")
+
                         currentUser.updateData(["versus.games" : currentGames, "versus.gameLogs": gameLogs])
-                        endEnemyGame(enemyAnswered: game.value(forKey: "enemyQuestionsAnswered") as! Int, userAnswered: questionsUserAnswered, enemyName: game.value(forKey: "enemy") as! String, currentUserSnapshot: document, gameID: gameID)
+                        endEnemyGame(enemyAnswered: game.value(forKey: "enemyQuestionsAnswered") as! Int, userAnswered: questionsUserAnswered, enemyName: game.value(forKey: "enemy") as! String, currentUserSnapshot: document, gameID: gameID, isGameBeingDeleted: isGameBeingDeleted)
+                       
                         break
                     }//if
                 gameIndex += 1
@@ -194,11 +205,9 @@ func endGame(gameID: Int, questionsUserAnswered: Int){
 
 
 //this function will will end the game for the challenger. enemyAnswered refers to the number of questions that the challenger answered and userAnswered refers to the number fo questions that the non challenger answered.
-func endEnemyGame(enemyAnswered: Int, userAnswered: Int, enemyName: String, currentUserSnapshot: DocumentSnapshot, gameID: Int ){
+    func endEnemyGame(enemyAnswered: Int, userAnswered: Int, enemyName: String, currentUserSnapshot: DocumentSnapshot, gameID: Int, isGameBeingDeleted: Bool ){
     let currentUser = db.collection("Users").document(appDelegate.email)
     let enemyUserReference = db.collection("Users").document(enemyName)
-    
-
     enemyUserReference.getDocument { (enemyUser, error) in
         if let error = error {
             print(error.localizedDescription)
@@ -212,14 +221,19 @@ func endEnemyGame(enemyAnswered: Int, userAnswered: Int, enemyName: String, curr
             
             var currentEnemyGames = enemyUser.get("versus.games") as! [NSDictionary]
             var gameLogs = enemyUser.get("versus.gameLogs") as! [NSDictionary]//gets game logs
-            if gameLogs.count == 10 {
+            if gameLogs.count == 10 && isGameBeingDeleted == false{
                 gameLogs.remove(at: gameLogs.count - 1 )
             }
             
             var gameIndex = 0
             for var game in currentEnemyGames {//finds the game with the designated id within the array
                 if game.value(forKey: "id") as! Int == gameID {
+                   
                     currentEnemyGames.remove(at: gameIndex)
+                    if (isGameBeingDeleted == true){
+                        enemyUserReference.updateData(["versus.games" : currentEnemyGames, "versus.gameLogs": gameLogs])
+                        return
+                    }
                     game.setValue(userAnswered, forKey: "enemyQuestionsAnswered")
                     gameLogs.append(game)
                     

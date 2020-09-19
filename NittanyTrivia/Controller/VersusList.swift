@@ -19,6 +19,7 @@ class VersusList: UIViewController {
     @IBOutlet weak var enemyPopUpScore: UILabel!
     @IBOutlet weak var deleteGameButton: UIButton!
     
+    @IBOutlet weak var declineGameButton: UIButton!
     @IBOutlet weak var acceptOrDeclineView: UIView!
     
     
@@ -26,9 +27,10 @@ class VersusList: UIViewController {
     var currentGames = [Any]()
     let enemyClickedOn: String = ""//the name of the opponent of the game that the person clicked on
     override func viewDidLoad(){
+      
         let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
         popUpView.isHidden = true
-        
+        declineGameButton.isUserInteractionEnabled = true
         gamesTable.dataSource = self
         gamesTable.delegate = self
         gamesTable.register(UINib(nibName: "gameCell", bundle: nil), forCellReuseIdentifier: "gameCell")
@@ -53,6 +55,9 @@ class VersusList: UIViewController {
     }
     
     @IBAction func deleteGame(_ sender: UIButton) {
+        endGame(gameID: currentGameID ?? -1 , questionsUserAnswered: 0, isGameBeingDeleted: true)
+        popUpView.isHidden = true
+        gamesTable.reloadData()
     }
     
     
@@ -60,9 +65,14 @@ class VersusList: UIViewController {
         self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
     }
     
-    @IBAction func declineGame(_ sender: UIButton) {
-        
+   
+    @IBAction func declineGame(_ sender: Any) {
+        popUpView.isHidden = true
+        endGame(gameID: currentGameID ?? -1, questionsUserAnswered: 0, isGameBeingDeleted: true)
+        print("sup")
+        gamesTable.reloadData()
     }
+    
     
 }
 
@@ -111,10 +121,7 @@ extension VersusList: UITableViewDelegate {
         let colorOfSelected =  cell.gameCellView.layer.borderColor!
         
         var currentGame = self.currentGames[indexPath.row] as! NSDictionary
-        
-
-        print(currentGame["id"])
-        currentGameID = currentGame["id"] as? Int
+        currentGameID = currentGame["id"] as? Int //currentGameID is a variable located in game.swift
         if UIColor(cgColor: colorOfSelected) == UIColor.red{
             
             
@@ -123,7 +130,6 @@ extension VersusList: UITableViewDelegate {
 
             popUpView.isHidden = false
           
-//            self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
 
         }
         else{

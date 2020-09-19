@@ -140,7 +140,7 @@ extension Versus{//extension to deal with number of questions user has answered,
             gameOverView.isHidden = false
            // timerText.text  = "0"
             if let gameID = currentGameID {//only executed if a player clicked on a challenge
-                endGame(gameID: gameID , questionsUserAnswered: currentScore)
+                endGame(gameID: gameID , questionsUserAnswered: currentScore, isGameBeingDeleted: false)
                 currentGameID = nil
             }
             else{

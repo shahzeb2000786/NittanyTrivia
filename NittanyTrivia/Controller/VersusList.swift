@@ -27,7 +27,7 @@ class VersusList: UIViewController {
     
     var currentGames = [Any]()
     
-    var selectedGame: Any = []
+    var selectedGame: Any = {}
     
     let enemyClickedOn: String = ""//the name of the opponent of the game that the person clicked on
     override func viewDidLoad(){
@@ -66,8 +66,11 @@ class VersusList: UIViewController {
         popUpView.isHidden = true
         var indexOfGameToRemove = 0
         for games in currentGames {
-            if (currentGames[indexOfGameToRemove] as! NSDictionary == selectedGame as! NSDictionary){
+           var gameToCheck =  currentGames[indexOfGameToRemove] as! NSDictionary
+            var selectedGameDict = selectedGame as! NSDictionary
+            if (gameToCheck["id"] as! Int == selectedGameDict["id"] as! Int){
                 currentGames.remove(at: indexOfGameToRemove)
+                break
             }
             indexOfGameToRemove = 1 + indexOfGameToRemove
         }
@@ -88,8 +91,11 @@ class VersusList: UIViewController {
         endGame(gameID: currentGameID ?? -1, questionsUserAnswered: 0, isGameBeingDeleted: true)
         var indexOfGameToRemove = 0
         for games in currentGames {
-            if (currentGames[indexOfGameToRemove] as! NSDictionary == selectedGame as! NSDictionary){
+           var gameToCheck =  currentGames[indexOfGameToRemove] as! NSDictionary
+            var selectedGameDict = selectedGame as! NSDictionary
+            if (gameToCheck["id"] as! Int == selectedGameDict["id"] as! Int){
                 currentGames.remove(at: indexOfGameToRemove)
+                break
             }
             indexOfGameToRemove = 1 + indexOfGameToRemove
         }
@@ -111,7 +117,6 @@ extension VersusList: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! gameCell
-            print(self.currentGames)
             var currentGame = self.currentGames[indexPath.row] as! NSDictionary
         
         cell.opponentLabel.text = (currentGame["enemy"] as! String)// + "     " + "Your score: " + (String(currentGame["questionsAnswered"] as! Int)) + "/10"

@@ -185,13 +185,7 @@ func endGame(gameID: Int, questionsUserAnswered: Int,isGameBeingDeleted: Bool){
                             gameLogs.append(game)
                            
                         }//if
-                        print("HELOOOOOOOOO")
-                        print("HELOOOOOOOOO")
-                        print("HELOOOOOOOOO")
-                        print("HELOOOOOOOOO")
-                        print("HELOOOOOOOOO")
-                        print("HELOOOOOOOOO")
-
+                      
                         currentUser.updateData(["versus.games" : currentGames, "versus.gameLogs": gameLogs])
                         endEnemyGame(enemyAnswered: game.value(forKey: "enemyQuestionsAnswered") as! Int, userAnswered: questionsUserAnswered, enemyName: game.value(forKey: "enemy") as! String, currentUserSnapshot: document, gameID: gameID, isGameBeingDeleted: isGameBeingDeleted)
                        

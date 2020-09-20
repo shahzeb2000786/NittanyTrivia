@@ -21,14 +21,19 @@ class VersusList: UIViewController {
     
     @IBOutlet weak var declineGameButton: UIButton!
     @IBOutlet weak var acceptOrDeclineView: UIView!
+    @IBOutlet weak var newGameButton: UIButton!
     
     
     
     var currentGames = [Any]()
+    
+    var selectedGame: Any = []
+    
     let enemyClickedOn: String = ""//the name of the opponent of the game that the person clicked on
     override func viewDidLoad(){
       
         let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
+        newGameButton.layer.cornerRadius = 30
         popUpView.isHidden = true
         declineGameButton.isUserInteractionEnabled = true
         gamesTable.dataSource = self
@@ -54,23 +59,43 @@ class VersusList: UIViewController {
          self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
     }
     
+    
+    
     @IBAction func deleteGame(_ sender: UIButton) {
         endGame(gameID: currentGameID ?? -1 , questionsUserAnswered: 0, isGameBeingDeleted: true)
         popUpView.isHidden = true
-        gamesTable.reloadData()
+        var indexOfGameToRemove = 0
+        for games in currentGames {
+            if (currentGames[indexOfGameToRemove] as! NSDictionary == selectedGame as! NSDictionary){
+                currentGames.remove(at: indexOfGameToRemove)
+            }
+            indexOfGameToRemove = 1 + indexOfGameToRemove
+        }
+        DispatchQueue.main.async {
+            self.gamesTable.reloadData()
+        }
     }
     
     
     @IBAction func acceptGame(_ sender: UIButton) {
         self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
+       
     }
     
    
     @IBAction func declineGame(_ sender: Any) {
         popUpView.isHidden = true
         endGame(gameID: currentGameID ?? -1, questionsUserAnswered: 0, isGameBeingDeleted: true)
-        print("sup")
-        gamesTable.reloadData()
+        var indexOfGameToRemove = 0
+        for games in currentGames {
+            if (currentGames[indexOfGameToRemove] as! NSDictionary == selectedGame as! NSDictionary){
+                currentGames.remove(at: indexOfGameToRemove)
+            }
+            indexOfGameToRemove = 1 + indexOfGameToRemove
+        }
+        DispatchQueue.main.async {
+            self.gamesTable.reloadData()
+        }
     }
     
     
@@ -122,6 +147,7 @@ extension VersusList: UITableViewDelegate {
         
         var currentGame = self.currentGames[indexPath.row] as! NSDictionary
         currentGameID = currentGame["id"] as? Int //currentGameID is a variable located in game.swift
+        selectedGame = currentGame as! Any//selectedGame is a global var located in this view controller
         if UIColor(cgColor: colorOfSelected) == UIColor.red{
             
             

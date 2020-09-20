@@ -1011,6 +1011,7 @@
                         <outlet property="deleteGameButton" destination="P3A-Wm-SSz" id="G9z-5G-1D0"/>
                         <outlet property="enemyPopUpScore" destination="34A-9j-KIB" id="Kk3-4x-4Dw"/>
                         <outlet property="gamesTable" destination="K54-rv-fNo" id="zZy-Hh-QB5"/>
+                        <outlet property="newGameButton" destination="9vn-hb-CUm" id="2M4-KA-WJp"/>
                         <outlet property="playerPopUpScore" destination="9kT-rO-ARS" id="yl9-Fj-Ofo"/>
                         <outlet property="popUpView" destination="UdF-dP-QFs" id="unG-tz-1G7"/>
                         <segue destination="zOd-1p-CTS" kind="show" identifier="toVersusScreen" id="Z7J-Bx-WOd"/>

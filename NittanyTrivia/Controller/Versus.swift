@@ -192,6 +192,15 @@ extension Versus{//extension with question timer functionality
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
             if self.timeToDisplay == 0{
                 timer.invalidate()
+
+                //currentGameID only exists if a user accepts a game and does not exist if they create one. currentGameID gets set in the VersusList.swift file
+                if let gameID = currentGameID {//only executed if a player clicked on a challenge
+                    endGame(gameID: gameID , questionsUserAnswered: self.currentScore, isGameBeingDeleted: false)
+                    currentGameID = nil
+                }
+                else{
+                    createGame(questionsAnswered: self.currentScore)
+                }
                 self.gameOverView.isHidden = false
             }
             else{
@@ -201,6 +210,21 @@ extension Versus{//extension with question timer functionality
         }//end of scheduled timer
     }//end of timer() function
 }//end of extension
+
+
+
+
+//extension Versus {
+//    func giveFeedBack(finalScore: Int){
+//        switch finalScore {
+//        case <#pattern#>:
+//            <#code#>
+//        default:
+//            <#code#>
+//        }
+//    }
+//}
+
 
 
 

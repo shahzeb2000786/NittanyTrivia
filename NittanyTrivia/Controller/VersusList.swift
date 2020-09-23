@@ -28,7 +28,6 @@ class VersusList: UIViewController {
     var currentGames = [Any]()
     
     var selectedGame: Any = {}
-    var referenceToSelectedGameID = Versus.currentGameIDS
     
     let enemyClickedOn: String = ""//the name of the opponent of the game that the person clicked on
     override func viewDidLoad(){
@@ -154,7 +153,7 @@ extension VersusList: UITableViewDelegate {
         
         var currentGame = self.currentGames[indexPath.row] as! NSDictionary
         
-        referenceToSelectedGameID = currentGame["id"] as! Int
+        currentGameID = currentGame["id"] as! Int
         
         
 

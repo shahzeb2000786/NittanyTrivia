@@ -25,7 +25,6 @@ class Versus: UIViewController{
     @IBOutlet weak var fourthOption: UIButton!
     
     
-    static var currentGameIDS: Int = 0
     var timeToDisplay = 15//the total amount of time user has to answer question
     var timerValue = 0// timeToDisplay - timerValue will be the will be the current time user has left
     var currentScore = 0
@@ -41,8 +40,8 @@ class Versus: UIViewController{
          self.question.layer.cornerRadius = 40
          self.question.numberOfLines = 2
          self.question.adjustsFontSizeToFitWidth = true
-        
-        
+ 
+
 
         
         
@@ -173,14 +172,14 @@ extension Versus{//extension to deal with number of questions user has answered,
     func gameOver() -> Bool {
             gameOverView.isHidden = false
            // timerText.text  = "0"
-                if Versus.currentGameIDS != 0{
-                    endGame(gameID: Versus.currentGameIDS , questionsUserAnswered: currentScore, isGameBeingDeleted: false)
+                if currentGameID != nil{
+                    endGame(gameID: currentGameID! , questionsUserAnswered: currentScore, isGameBeingDeleted: false)
                 }
                 else{
                     createGame(questionsAnswered: self.currentScore)
                 }
            
-            Versus.currentGameIDS = 0 //sets the currentGameIDS equal to nil once a player compltes game
+            currentGameID = nil //sets the currentGameIDS equal to nil once a player compltes game
             return true
        
     }//end of GameOver

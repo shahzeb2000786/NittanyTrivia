@@ -25,25 +25,57 @@ class Versus: UIViewController{
     @IBOutlet weak var fourthOption: UIButton!
     
     
-    
+    static var currentGameIDS: Int = 0
     var timeToDisplay = 15//the total amount of time user has to answer question
     var timerValue = 0// timeToDisplay - timerValue will be the will be the current time user has left
     var currentScore = 0
     var questionIndex = -1
     let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
     
+    
+  
     override func viewDidLoad(){
         
         super.viewDidLoad()
-        
-        timer()
         self.question.layer.masksToBounds = true
          self.question.layer.cornerRadius = 40
-        // self.question.minimum
          self.question.numberOfLines = 2
          self.question.adjustsFontSizeToFitWidth = true
         
-        getQuestion(numOfQuestions: 10)
+        
+
+        
+        
+        let someTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+            if self.timeToDisplay <= 0{
+                if (self.questionIndex >= questionsToAskUser.count - 1 ){
+    
+                    self.gameOver()
+                    timer.invalidate()
+                }
+                self.nextQuestion()
+                self.timeToDisplay = 15
+            }
+            else{
+                self.timeToDisplay -= 1
+                self.timerText.text? = String(self.timeToDisplay)
+            }
+        }//end of scheduled timer
+        
+        
+        
+        func cancelTimer(){
+            if (timeToDisplay == 0){
+                someTimer.invalidate()
+            }
+        }
+        
+        someTimer.fire()
+       
+    
+        
+        
+        getQuestion(numOfQuestions: 2)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
            print(questionsToAskUser)
            print(randomEnemy["email"])
@@ -96,9 +128,12 @@ class Versus: UIViewController{
          thirdOption.backgroundColor = UIColor.white
          fourthOption.backgroundColor = UIColor.white
         self.questionsCountAdder()//updates score/score ui
-        if self.isGameOver() == true {
+        if (questionIndex >= questionsToAskUser.count ){
+            timeToDisplay = 0
+            self.timerText.text? = "0"
             return
         }
+        
 
          DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // updates ui with a delay
             self.question.text? = String(self.questionIndex + 1) + ".) " +  (questionsToAskUser[self.questionIndex]).question
@@ -135,23 +170,20 @@ extension Versus{//extension to deal with number of questions user has answered,
     }
     
     
-    func isGameOver() -> Bool {
-        if (questionIndex >= questionsToAskUser.count ){
+    func gameOver() -> Bool {
             gameOverView.isHidden = false
            // timerText.text  = "0"
-            if let gameID = currentGameID {//only executed if a player clicked on a challenge
-                endGame(gameID: gameID , questionsUserAnswered: currentScore, isGameBeingDeleted: false)
-                currentGameID = nil
-            }
-            else{
-                createGame(questionsAnswered: self.currentScore)
-            }
+                if Versus.currentGameIDS != 0{
+                    endGame(gameID: Versus.currentGameIDS , questionsUserAnswered: currentScore, isGameBeingDeleted: false)
+                }
+                else{
+                    createGame(questionsAnswered: self.currentScore)
+                }
+           
+            Versus.currentGameIDS = 0 //sets the currentGameIDS equal to nil once a player compltes game
             return true
-        }//end of if
-        else {
-            return false
-        }
-    }//end isGameOver
+       
+    }//end of GameOver
 }//end of extension
 
 
@@ -186,30 +218,9 @@ extension Versus {
 
 
 
-extension Versus{//extension with question timer functionality
-   
-    func timer(){
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
-            if self.timeToDisplay == 0{
-                timer.invalidate()
 
-                //currentGameID only exists if a user accepts a game and does not exist if they create one. currentGameID gets set in the VersusList.swift file
-                if let gameID = currentGameID {//only executed if a player clicked on a challenge
-                    endGame(gameID: gameID , questionsUserAnswered: self.currentScore, isGameBeingDeleted: false)
-                    currentGameID = nil
-                }
-                else{
-                    createGame(questionsAnswered: self.currentScore)
-                }
-                self.gameOverView.isHidden = false
-            }
-            else{
-                self.timeToDisplay -= 1
-                self.timerText.text? = String(self.timeToDisplay)
-            }
-        }//end of scheduled timer
-    }//end of timer() function
-}//end of extension
+
+
 
 
 

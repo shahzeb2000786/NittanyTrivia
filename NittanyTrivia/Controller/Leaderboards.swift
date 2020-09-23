@@ -21,6 +21,8 @@ class Leaderboards: UIViewController {
         leaderboardsTable.dataSource = self
         leaderboardsTable.rowHeight = 65.00
         getLeaderboard()
+        leaderboardsTable.rowHeight = UITableView.automaticDimension
+        leaderboardsTable.estimatedRowHeight = 50
     }
     
     func getLeaderboard(){
@@ -65,18 +67,21 @@ extension Leaderboards: UITableViewDataSource {
         return self.topPlayers.count
 
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       return UITableView.automaticDimension
+   }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let leaderboardsCell = tableView.dequeueReusableCell(withIdentifier: "leaderboardsCell", for: indexPath)
         
         let user = self.topPlayers[indexPath.row]
-        leaderboardsCell.textLabel?.text =  String(indexPath.row + 1) + "     " + user.email + "    " + String(user.points) + " points"
+        
+        leaderboardsCell.textLabel?.text =  String(indexPath.row + 1) + "     " + user.email + "    " + String(user.points)
         leaderboardsCell.textLabel?.textColor = UIColor.white
         leaderboardsCell.clipsToBounds = true
         leaderboardsCell.backgroundColor = UIColor(named: "topViewColor")
         leaderboardsCell.layer.borderWidth = 2
         leaderboardsCell.layer.borderColor = UIColor.white.cgColor
-        //leaderboardsCell.layer.cornerRadius = 15
+        
 
         return leaderboardsCell
     }

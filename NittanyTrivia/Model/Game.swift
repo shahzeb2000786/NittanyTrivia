@@ -127,7 +127,7 @@ func createGame(questionsAnswered: Int){//questionsAnswered is num of question u
             else{
                 if let document = document{
                     currentGames = document.get("versus.games") as! [Any]
-                    let  gameID = Int.random(in: 0...100000)
+                    let  gameID = Int.random(in: 1...100000)
                     currentGames.append(["isChallenger": true, "enemy": randomEnemy["email"], "questionsAnswered": questionsAnswered, "enemyQuestionsAnswered": 0, "id": gameID])
                     currentUser.updateData(["versus.games" : currentGames])
                     createEnemyGame(id: gameID, opponentQuestionsAnswered: questionsAnswered)

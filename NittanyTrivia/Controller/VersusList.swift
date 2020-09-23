@@ -28,6 +28,7 @@ class VersusList: UIViewController {
     var currentGames = [Any]()
     
     var selectedGame: Any = {}
+    var referenceToSelectedGameID = Versus.currentGameIDS
     
     let enemyClickedOn: String = ""//the name of the opponent of the game that the person clicked on
     override func viewDidLoad(){
@@ -114,6 +115,7 @@ extension VersusList: UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return (60)
     }
+     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath) as! gameCell
@@ -151,6 +153,11 @@ extension VersusList: UITableViewDelegate {
         let colorOfSelected =  cell.gameCellView.layer.borderColor!
         
         var currentGame = self.currentGames[indexPath.row] as! NSDictionary
+        
+        referenceToSelectedGameID = currentGame["id"] as! Int
+        
+        
+
         currentGameID = currentGame["id"] as? Int //currentGameID is a variable located in game.swift
         selectedGame = currentGame as! Any//selectedGame is a global var located in this view controller
         if UIColor(cgColor: colorOfSelected) == UIColor.red{

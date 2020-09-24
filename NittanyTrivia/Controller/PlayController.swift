@@ -40,7 +40,7 @@ class PlayController: UIViewController {
         
         
         topBarView.backgroundColor = UIColor(named: "celebritiesColor") 
-        
+    enableOrDisableOptions(enable: false)
     self.nextQuestion() //updates the questionsToAskUser to a random question from the questions database
     
         
@@ -59,6 +59,7 @@ class PlayController: UIViewController {
         self.question.numberOfLines = 2
         self.question.adjustsFontSizeToFitWidth = true
         
+    
     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
         self.timer()
     }
@@ -105,6 +106,7 @@ class PlayController: UIViewController {
         fourthOption.backgroundColor = UIColor.white
            
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // updates ui with a delay, while firebase fetches data
+            self.enableOrDisableOptions(enable: true)
             self.question.text? = (questionsToAskUser[0]).question
             self.firstOption.setTitle(questionsToAskUser[0].option1, for: .normal)
            self.secondOption.setTitle(questionsToAskUser[0].option2, for: .normal)
@@ -151,7 +153,6 @@ extension PlayController{//extension to deal with number of questions user has a
         if Color == UIColor.red{
             gameOverView.isHidden = false
             timerText.text  = "0"
-        
             let userDocRef = db.collection("Users").document(appDelegate.email)
             userDocRef.getDocument { (document, error) in
                 if let document = document {
@@ -198,3 +199,12 @@ extension PlayController {
     }
 }
 
+//extension deals with disabling/enabling user interaction with option choices to prevent game from crashing if user clicks on an option before the question is loaded
+extension PlayController{
+    func enableOrDisableOptions(enable: Bool){
+            self.firstOption.isUserInteractionEnabled = enable
+            self.secondOption.isUserInteractionEnabled = enable
+            self.thirdOption.isUserInteractionEnabled = enable
+            self.fourthOption.isUserInteractionEnabled = enable
+    }
+}

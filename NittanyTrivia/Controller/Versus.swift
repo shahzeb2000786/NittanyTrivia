@@ -73,12 +73,12 @@ class Versus: UIViewController{
        
     
         
-        
-        getQuestion(numOfQuestions: 2)
+        enableOrDisableOptions(enable: false)
+        getQuestion(numOfQuestions: 5)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
            print(questionsToAskUser)
-           print(randomEnemy["email"])
             self.nextQuestion()
+            self.enableOrDisableOptions(enable: true)
         }//dispatchQueue
     }//viewDidLoad
     
@@ -87,6 +87,7 @@ class Versus: UIViewController{
         
         sender.backgroundColor = color// updates color depending if user got question correct or not
         self.scoreAdder(colorToCheck: color)
+        enableOrDisableOptions(enable: false)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.nextQuestion()
         }
@@ -96,6 +97,7 @@ class Versus: UIViewController{
         let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionsToAskUser[questionIndex].correctOption)
         sender.backgroundColor = color
         self.scoreAdder(colorToCheck: color)
+        enableOrDisableOptions(enable: false)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.nextQuestion()
         }
@@ -106,6 +108,7 @@ class Versus: UIViewController{
         let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionsToAskUser[questionIndex].correctOption)
         sender.backgroundColor = color
         self.scoreAdder(colorToCheck: color)
+        enableOrDisableOptions(enable: false)
        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
            self.nextQuestion()
        }
@@ -115,6 +118,7 @@ class Versus: UIViewController{
         let color = questionChecker.checkQuestion(selectedOption: sender.titleLabel?.text ?? "Error" , correctOption: questionsToAskUser[questionIndex].correctOption)
         sender.backgroundColor = color
         self.scoreAdder(colorToCheck: color)
+        enableOrDisableOptions(enable: false)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.nextQuestion()
         }
@@ -122,6 +126,7 @@ class Versus: UIViewController{
     
     
     func nextQuestion(){
+
          firstOption.backgroundColor = UIColor.white
          secondOption.backgroundColor = UIColor.white
          thirdOption.backgroundColor = UIColor.white
@@ -133,7 +138,6 @@ class Versus: UIViewController{
             return
         }
         
-
          DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // updates ui with a delay
             self.question.text? = String(self.questionIndex + 1) + ".) " +  (questionsToAskUser[self.questionIndex]).question
             self.firstOption.setTitle(questionsToAskUser[self.questionIndex].option1, for: .normal)
@@ -142,6 +146,7 @@ class Versus: UIViewController{
             self.fourthOption.setTitle(questionsToAskUser[self.questionIndex].option4, for: .normal)
             self.changeBarUI(category: questionsToAskUser[self.questionIndex].category)
             
+            self.enableOrDisableOptions(enable: true)
              self.timeToDisplay = 15
              self.timerText.text? = String(self.timeToDisplay)
         }//end of dispatchqeuue
@@ -174,9 +179,11 @@ extension Versus{//extension to deal with number of questions user has answered,
            // timerText.text  = "0"
                 if currentGameID != nil{
                     endGame(gameID: currentGameID! , questionsUserAnswered: currentScore, isGameBeingDeleted: false)
+                    scoreText.text = "Score: " + String(currentScore)
                 }
                 else{
                     createGame(questionsAnswered: self.currentScore)
+                    scoreText.text = "Score: " + String(currentScore)
                 }
            
             currentGameID = nil //sets the currentGameIDS equal to nil once a player compltes game
@@ -208,6 +215,16 @@ extension Versus {
             self.topBarView.backgroundColor = UIColor.gray
         }
         
+    }
+}
+
+//extension deals with disabling/enabling user interaction with option choices to prevent game from crashing if user clicks on an option before the question is loaded
+extension Versus{
+    func enableOrDisableOptions(enable: Bool){
+            self.firstOption.isUserInteractionEnabled = enable
+            self.secondOption.isUserInteractionEnabled = enable
+            self.thirdOption.isUserInteractionEnabled = enable
+            self.fourthOption.isUserInteractionEnabled = enable
     }
 }
 

@@ -1231,11 +1231,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YRE-e7-WtU" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1399" y="-940"/>
+            <point key="canvasLocation" x="1398.5507246376812" y="-940.17857142857133"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Z7J-Bx-WOd"/>
         <segue reference="vuu-Zg-3Or"/>
         <segue reference="cJ8-Ez-R5j"/>
     </inferredMetricsTieBreakers>

@@ -16,7 +16,7 @@ class VersusList: UIViewController {
     @IBOutlet weak var popUpView: UIView!
     
     @IBOutlet weak var playerPopUpScore: UILabel!
-    @IBOutlet weak var enemyPopUpScore: UILabel!
+    @IBOutlet weak var enemyLabel: UILabel!
     @IBOutlet weak var deleteGameButton: UIButton!
     
     @IBOutlet weak var declineGameButton: UIButton!
@@ -36,6 +36,8 @@ class VersusList: UIViewController {
         newGameButton.layer.cornerRadius = 30
         popUpView.isHidden = true
         declineGameButton.isUserInteractionEnabled = true
+        enemyLabel.minimumScaleFactor = 0.2
+        enemyLabel.adjustsFontSizeToFitWidth = true
         gamesTable.dataSource = self
         gamesTable.delegate = self
         gamesTable.register(UINib(nibName: "gameCell", bundle: nil), forCellReuseIdentifier: "gameCell")
@@ -164,7 +166,7 @@ extension VersusList: UITableViewDelegate {
             
             acceptOrDeclineView.isHidden = false
             deleteGameButton.isHidden = true
-
+            
             popUpView.isHidden = false
           
 
@@ -174,7 +176,11 @@ extension VersusList: UITableViewDelegate {
             
             acceptOrDeclineView.isHidden = true
             deleteGameButton.isHidden = false
-
+            var playerScore = String(currentGame["questionsAnswered"] as! Int)
+            
+            playerPopUpScore.text = "You Scored: " + playerScore
+            var enemyName = currentGame["enemy"] as! String
+            enemyLabel.text = "Enemy: " + enemyName
             popUpView.isHidden = false
            
         }

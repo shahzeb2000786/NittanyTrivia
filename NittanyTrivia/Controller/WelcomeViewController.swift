@@ -14,11 +14,14 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
     @IBOutlet weak var googleButton: GIDSignInButton!
     
+    @IBOutlet weak var titleLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().delegate = self //sets view controler as gidsignin delegate
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()         // Automatically sign in the user.
+        titleLabel.minimumScaleFactor = 8
+        titleLabel.adjustsFontSizeToFitWidth = true
         googleButton.layer.cornerRadius = 20
         googleButton.sizeToFit()
     

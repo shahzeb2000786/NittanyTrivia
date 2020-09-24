@@ -15,12 +15,13 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate {
     @IBOutlet weak var googleButton: GIDSignInButton!
     
     @IBOutlet weak var titleLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().delegate = self //sets view controler as gidsignin delegate
         GIDSignIn.sharedInstance()?.restorePreviousSignIn()         // Automatically sign in the user.
-        titleLabel.minimumScaleFactor = 8
+        titleLabel.minimumScaleFactor = 0.2
         titleLabel.adjustsFontSizeToFitWidth = true
         googleButton.layer.cornerRadius = 20
         googleButton.sizeToFit()
@@ -75,7 +76,7 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate {
                    }//else
                  }//getDocuments
                 
-                self.performSegue(withIdentifier: "toHomePage", sender: self)
+               self.performSegue(withIdentifier: "toHomePage", sender: self)
                 
                }
                else{

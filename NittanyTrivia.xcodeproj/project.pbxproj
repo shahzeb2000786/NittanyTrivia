@@ -18,6 +18,7 @@
 		BF52DE9724C3E01C00032553 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF52DE9524C3E01C00032553 /* LaunchScreen.storyboard */; };
 		BF52DEBB24C3E31B00032553 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = BF52DEBA24C3E31B00032553 /* Podfile */; };
 		BF5564B124FDFAEE00419626 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5564B024FDFAEE00419626 /* UserProfile.swift */; };
+		BF571C3A251DB936008162F5 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF571C39251DB936008162F5 /* Settings.swift */; };
 		BF5BF07624E5963100A5F709 /* Leaderboards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5BF07524E5963100A5F709 /* Leaderboards.swift */; };
 		BF5BF07824E5ADCF00A5F709 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5BF07724E5ADCF00A5F709 /* User.swift */; };
 		BF6B131A250F4368002030BC /* gameInfoAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6B1318250F4368002030BC /* gameInfoAlert.swift */; };
@@ -50,6 +51,8 @@
 		BF52DE9824C3E01C00032553 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF52DEBA24C3E31B00032553 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BF5564B024FDFAEE00419626 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		BF571C37251DA88F008162F5 /* NittanyTrivia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NittanyTrivia.entitlements; sourceTree = "<group>"; };
+		BF571C39251DB936008162F5 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		BF5BF07524E5963100A5F709 /* Leaderboards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboards.swift; sourceTree = "<group>"; };
 		BF5BF07724E5ADCF00A5F709 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BF6B1318250F4368002030BC /* gameInfoAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameInfoAlert.swift; sourceTree = "<group>"; };
@@ -114,6 +117,7 @@
 		BF52DE8624C3E01A00032553 /* NittanyTrivia */ = {
 			isa = PBXGroup;
 			children = (
+				BF571C37251DA88F008162F5 /* NittanyTrivia.entitlements */,
 				BFACF26924CBDB260022EF76 /* GoogleService-Info.plist */,
 				BF52DE8724C3E01A00032553 /* AppDelegate.swift */,
 				BF52DE8924C3E01A00032553 /* SceneDelegate.swift */,
@@ -139,6 +143,7 @@
 				BF3F669524E85A2000CA0644 /* Versus.swift */,
 				BF8532B624E9B58100B22D25 /* VersusList.swift */,
 				BF5564B024FDFAEE00419626 /* UserProfile.swift */,
+				BF571C39251DB936008162F5 /* Settings.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 				BFD0523424DA768200AAE4D3 /* Game.swift in Sources */,
 				BF5564B124FDFAEE00419626 /* UserProfile.swift in Sources */,
 				BFE2C6A424C89CDA00DEEE1E /* Question.swift in Sources */,
+				BF571C3A251DB936008162F5 /* Settings.swift in Sources */,
 				BF8374C024D65D2200996848 /* colorManager.swift in Sources */,
 				BF52DE9224C3E01A00032553 /* NittanyTrivia.xcdatamodeld in Sources */,
 				BF5BF07824E5ADCF00A5F709 /* User.swift in Sources */,
@@ -394,7 +400,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -448,7 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -463,6 +469,7 @@
 			baseConfigurationReference = 80D7DC0E3BA4B82FB5EDB38B /* Pods-NittanyTrivia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NittanyTrivia/NittanyTrivia.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TDY68T62HW;
 				INFOPLIST_FILE = NittanyTrivia/Info.plist;
@@ -474,7 +481,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pennstate.NittanyTrivia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -483,6 +490,7 @@
 			baseConfigurationReference = A99253257E78677A29AF34D4 /* Pods-NittanyTrivia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NittanyTrivia/NittanyTrivia.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TDY68T62HW;
 				INFOPLIST_FILE = NittanyTrivia/Info.plist;
@@ -494,7 +502,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.pennstate.NittanyTrivia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

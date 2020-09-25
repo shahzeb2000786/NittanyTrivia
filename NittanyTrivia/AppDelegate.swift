@@ -16,17 +16,19 @@ import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
-
+    let defaults = UserDefaults.standard
     var userId = ""            // For client-side use only!
     var fullName = ""
     var givenName = ""
     var email = ""
+    //let firebaseAuth = Auth.auth()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         let db = Firestore.firestore()
-
+       
+        
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         return true
@@ -40,6 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // ...
         return
       }
+        defaults.setValue("poop", forKey: "email")
+
         print("successful sign in")
       guard let authentication = user.authentication else { return }
       let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,

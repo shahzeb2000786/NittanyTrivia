@@ -40,7 +40,7 @@ class Versus: UIViewController{
          self.question.layer.cornerRadius = 40
          self.question.numberOfLines = 2
          self.question.adjustsFontSizeToFitWidth = true
- 
+        self.scoreText.text = "0"
 
 
         
@@ -179,11 +179,11 @@ extension Versus{//extension to deal with number of questions user has answered,
            // timerText.text  = "0"
                 if currentGameID != nil{
                     endGame(gameID: currentGameID! , questionsUserAnswered: currentScore, isGameBeingDeleted: false)
-                    scoreText.text = "Score: " + String(currentScore)
+                    finalScoreText.text = "Score: " + String(currentScore)
                 }
                 else{
                     createGame(questionsAnswered: self.currentScore)
-                    scoreText.text = "Score: " + String(currentScore)
+                    finalScoreText.text = "Score: " + String(currentScore)
                 }
            
             currentGameID = nil //sets the currentGameIDS equal to nil once a player compltes game

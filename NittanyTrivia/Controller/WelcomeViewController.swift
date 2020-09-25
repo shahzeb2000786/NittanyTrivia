@@ -12,15 +12,27 @@ import GoogleSignIn
 
 class WelcomeViewController: UIViewController, GIDSignInDelegate {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
+
+    
     @IBOutlet weak var googleButton: GIDSignInButton!
     
     @IBOutlet weak var titleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+       // self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().delegate = self //sets view controler as gidsignin delegate
-        GIDSignIn.sharedInstance()?.restorePreviousSignIn()         // Automatically sign in the user.
+        let defaults = UserDefaults.standard
+        let hasSignedIn = defaults.value(forKey: "hasSignedIn")
+        //checks if hassigned in as nil or 1, 1 is the default value given to a user default value that gets set to nil (which is the case when the sign out button is clicked)
+        if hasSignedIn != nil{
+            if (hasSignedIn as! Int != 1) {
+                GIDSignIn.sharedInstance()?.restorePreviousSignIn()         // Automatically sign in the user.
+            }
+        }
+
         titleLabel.minimumScaleFactor = 0.2
         titleLabel.adjustsFontSizeToFitWidth = true
         googleButton.layer.cornerRadius = 20

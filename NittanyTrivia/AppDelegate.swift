@@ -16,18 +16,19 @@ import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
-    let defaults = UserDefaults.standard
     var userId = ""            // For client-side use only!
     var fullName = ""
     var givenName = ""
     var email = ""
+    var userDefaults = UserDefaults.standard
+
     //let firebaseAuth = Auth.auth()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         let db = Firestore.firestore()
-       
+
         
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
@@ -42,16 +43,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // ...
         return
       }
-        defaults.setValue("poop", forKey: "email")
 
         print("successful sign in")
       guard let authentication = user.authentication else { return }
       let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
                                                         accessToken: authentication.accessToken)
-     userId = user.userID                  // For client-side use only, setting global vals to hold google info
+    userId = user.userID                  // For client-side use only, setting global vals to hold google info
      fullName = user.profile.name
      givenName = user.profile.givenName
      email = user.profile.email
+     userDefaults.setValue(email, forKey: "email")
+
       let idToken = user.authentication.idToken // Safe to send to the server
         Auth.auth().signIn(with: credential) { (User, Error) in    //authenticates user's sign in info
             if let userInfo = User {

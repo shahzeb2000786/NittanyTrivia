@@ -31,7 +31,10 @@ class VersusList: UIViewController {
     
     let enemyClickedOn: String = ""//the name of the opponent of the game that the person clicked on
     override func viewDidLoad(){
-      
+        
+        
+        
+        
         let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
         newGameButton.layer.cornerRadius = 30
         popUpView.isHidden = true

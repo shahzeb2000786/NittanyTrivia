@@ -28,14 +28,11 @@ class Settings: UIViewController{
 
         do {
             GIDSignIn.sharedInstance().signOut()
-            let defaults = UserDefaults.standard
-            defaults.setValue(nil, forKey: "hasSignedIn")
+            
+            appDelegate.userDefaults.setValue(nil, forKey: "email")
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                print(defaults.value(forKey: "hasSignedIn"))
-                print(defaults.value(forKey: "hasSignedIn"))
-                print(defaults.value(forKey: "hasSignedIn"))
-              self.navigationController?.popToRootViewController(animated: false)
-             // self.performSegue(withIdentifier: "toSignInScreen", sender: self)
+           
+              self.performSegue(withIdentifier: "toSignInScreen", sender: self)
             })
            
             

@@ -133,7 +133,7 @@
                                         </state>
                                         <connections>
                                             <action selector="signOutUser:" destination="IRX-LV-6Hv" eventType="touchUpInside" id="GnK-dE-zQw"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="rv0-04-O8A"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="toSignInScreen" id="rv0-04-O8A"/>
                                         </connections>
                                     </button>
                                 </subviews>

@@ -26,12 +26,9 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self //sets view controler as gidsignin delegate
         let defaults = UserDefaults.standard
         let hasSignedIn = defaults.value(forKey: "hasSignedIn")
-        print(hasSignedIn)
-        //checks if hassigned in as nil or 1, 1 is the default value given to a user default value that gets set to nil (which is the case when the sign out button is clicked)
-        if hasSignedIn != nil{
-            if (hasSignedIn as! Int != 1) {
+        let savedEmail = appDelegate.userDefaults.value(forKey: "email")
+        if savedEmail != nil{
                 GIDSignIn.sharedInstance()?.restorePreviousSignIn()         // Automatically sign in the user.
-            }
         }
 
         titleLabel.minimumScaleFactor = 0.2

@@ -68,13 +68,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NXZ-nb-Zrs" userLabel="PanelView">
-                                <rect key="frame" x="0.0" y="690" width="414" height="118"/>
+                                <rect key="frame" x="0.0" y="720" width="414" height="88"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="LNH-RK-j8v" userLabel="Panel Stack">
-                                        <rect key="frame" x="0.0" y="5" width="414" height="93"/>
+                                        <rect key="frame" x="0.0" y="5" width="414" height="63"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3tD-dz-uTs" userLabel="Profile Button">
-                                                <rect key="frame" x="0.0" y="1.5" width="103.5" height="90"/>
+                                                <rect key="frame" x="0.0" y="1.5" width="103.5" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" backgroundImage="person.fill" catalog="system"/>
@@ -83,7 +83,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XwW-hN-WHT" userLabel="Store Button">
-                                                <rect key="frame" x="103.5" y="0.5" width="103.5" height="92"/>
+                                                <rect key="frame" x="103.5" y="0.5" width="103.5" height="62"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" backgroundImage="dollarsign.circle.fill" catalog="system"/>
@@ -92,7 +92,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6L-U7-wBD" userLabel="Home Button">
-                                                <rect key="frame" x="207" y="0.0" width="103.5" height="93"/>
+                                                <rect key="frame" x="207" y="0.0" width="103.5" height="63"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" backgroundImage="house.fill" catalog="system"/>
@@ -102,7 +102,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Exg-Ku-95X" userLabel="Help Button">
-                                                <rect key="frame" x="310.5" y="0.5" width="103.5" height="92"/>
+                                                <rect key="frame" x="310.5" y="0.5" width="103.5" height="62"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" backgroundImage="questionmark.circle.fill" catalog="system"/>
@@ -122,10 +122,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vtL-nf-bHR">
-                                <rect key="frame" x="0.0" y="100" width="414" height="582"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="612"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgk-zQ-UcS" userLabel="signOutButton">
-                                        <rect key="frame" x="79" y="243" width="256" height="96"/>
+                                        <rect key="frame" x="79" y="258" width="256" height="96"/>
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                         <state key="normal" title="Sign Out">
@@ -147,7 +147,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="pUa-cf-NJW" firstAttribute="trailing" secondItem="ABB-nc-rOF" secondAttribute="trailing" id="Nqv-Fw-Ghn"/>
-                            <constraint firstAttribute="bottom" secondItem="vtL-nf-bHR" secondAttribute="bottom" constant="160" id="OTh-vb-QjW"/>
+                            <constraint firstAttribute="bottom" secondItem="vtL-nf-bHR" secondAttribute="bottom" constant="130" id="OTh-vb-QjW"/>
                             <constraint firstItem="NXZ-nb-Zrs" firstAttribute="top" secondItem="vtL-nf-bHR" secondAttribute="bottom" constant="8" symbolic="YES" id="RZg-PE-OSr"/>
                             <constraint firstItem="vtL-nf-bHR" firstAttribute="leading" secondItem="NXZ-nb-Zrs" secondAttribute="leading" id="Vgc-1O-RYc"/>
                             <constraint firstItem="pUa-cf-NJW" firstAttribute="leading" secondItem="ABB-nc-rOF" secondAttribute="leading" id="WbJ-Ve-31f"/>

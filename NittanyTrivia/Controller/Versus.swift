@@ -74,7 +74,7 @@ class Versus: UIViewController{
     
         
         enableOrDisableOptions(enable: false)
-        getQuestion(numOfQuestions: 5)
+        getQuestion(numOfQuestions: 1)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
            print(questionsToAskUser)
             self.nextQuestion()

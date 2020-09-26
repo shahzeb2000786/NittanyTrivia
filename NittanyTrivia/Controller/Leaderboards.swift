@@ -17,7 +17,10 @@ class Leaderboards: UIViewController {
     @IBOutlet weak var leaderboardsTable: UITableView!
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+
         leaderboardsTable.dataSource = self
         leaderboardsTable.rowHeight = 65.00
         getLeaderboard()

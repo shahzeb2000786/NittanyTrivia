@@ -58,6 +58,7 @@ class VersusList: UIViewController {
     
     
     @IBAction func createNewGame(_ sender: Any) {
+        currentGameID = nil
          self.performSegue(withIdentifier: "toVersusScreen", sender: UITableViewCell.self)
     }
     

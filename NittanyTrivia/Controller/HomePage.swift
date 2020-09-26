@@ -26,8 +26,8 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
     override func viewDidLoad() {
         let defaults = UserDefaults.standard
         defaults.setValue(true, forKey: "hasSignedIn")
-        let hasSignedIn = defaults.value(forKey: "hasSignedIn")
-        
+        let hasSignedIn = defaults.value(forKey: "hasSignedIn") as! Bool
+        print(hasSignedIn)
 
         super.viewDidLoad()
         navigationItem.hidesBackButton = true

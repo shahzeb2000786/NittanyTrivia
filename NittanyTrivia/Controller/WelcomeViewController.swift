@@ -21,11 +21,8 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
        
-       // self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().delegate = self //sets view controler as gidsignin delegate
-        let defaults = UserDefaults.standard
-        let hasSignedIn = defaults.value(forKey: "hasSignedIn")
         let savedEmail = appDelegate.userDefaults.value(forKey: "email")
         if savedEmail != nil{
                 GIDSignIn.sharedInstance()?.restorePreviousSignIn()         // Automatically sign in the user.

@@ -39,7 +39,7 @@ class PlayController: UIViewController {
    
         
         
-        topBarView.backgroundColor = UIColor(named: "celebritiesColor") 
+    topBarView.backgroundColor = UIColor(named: "celebritiesColor")
     enableOrDisableOptions(enable: false)
     self.nextQuestion() //updates the questionsToAskUser to a random question from the questions database
     

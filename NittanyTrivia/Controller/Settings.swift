@@ -30,6 +30,8 @@ class Settings: UIViewController{
             GIDSignIn.sharedInstance().signOut()
             
             appDelegate.userDefaults.setValue(nil, forKey: "email")
+            appDelegate.userDefaults.setValue(nil, forKey: "appleUID")
+
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
            
               self.performSegue(withIdentifier: "toSignInScreen", sender: self)

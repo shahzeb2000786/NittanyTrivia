@@ -24,28 +24,35 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="78" translatesAutoresizingMaskIntoConstraints="NO" id="AIc-Hu-Zwu">
-                                <rect key="frame" x="10" y="318" width="394" height="344"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="AIc-Hu-Zwu">
+                                <rect key="frame" x="10" y="467" width="394" height="325"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MyH-C9-myF" userLabel="appleButton">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="133"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="152.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kw4-HP-qmv" customClass="GIDSignInButton">
-                                        <rect key="frame" x="0.0" y="211" width="394" height="133"/>
+                                        <rect key="frame" x="0.0" y="172.5" width="394" height="152.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Image-1" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BdQ-iy-QQ5">
+                                <rect key="frame" x="51" y="227" width="313" height="180"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.2734910102739726" alpha="0.84720141267123283" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="AIc-Hu-Zwu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Bkg-M2-Bfn"/>
+                            <constraint firstItem="BdQ-iy-QQ5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="51" id="E57-Sh-jpU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AIc-Hu-Zwu" secondAttribute="trailing" constant="10" id="G70-vU-oKg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AIc-Hu-Zwu" secondAttribute="bottom" constant="70" id="HoC-3E-583"/>
                             <constraint firstItem="osm-Qs-bPc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="43" id="POc-FD-sdd"/>
-                            <constraint firstItem="AIc-Hu-Zwu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="318" id="XSo-zO-szW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BdQ-iy-QQ5" secondAttribute="trailing" constant="50" id="mhe-ec-vIc"/>
                             <constraint firstItem="osm-Qs-bPc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mj9-vU-lyu"/>
+                            <constraint firstItem="AIc-Hu-Zwu" firstAttribute="top" secondItem="BdQ-iy-QQ5" secondAttribute="bottom" constant="60" id="tfx-kx-jBR"/>
+                            <constraint firstItem="BdQ-iy-QQ5" firstAttribute="top" secondItem="osm-Qs-bPc" secondAttribute="bottom" constant="30" id="u48-dO-eA1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fT5-Pz-Hga"/>
@@ -1412,7 +1419,7 @@
             <color red="0.85882353782653809" green="0.9529411792755127" blue="0.98039215803146362" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="topViewColor">
-            <color red="0.0" green="0.027000000700354576" blue="0.63099998235702515" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.0" green="0.027000000700354576" blue="0.5" alpha="0.90213143825531006" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

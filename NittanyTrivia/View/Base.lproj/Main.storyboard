@@ -61,7 +61,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pUa-cf-NJW">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="107"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
                                 <color key="backgroundColor" name="topViewColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -77,17 +77,17 @@
                                                 <rect key="frame" x="0.0" y="1.5" width="103.5" height="89"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" backgroundImage="person.fill" catalog="system"/>
+                                                <state key="normal" backgroundImage="person.3.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="leaderboardPressed:" destination="Tsd-UA-WOU" eventType="touchUpInside" id="0RG-gu-9Ly"/>
                                                     <segue destination="pn1-wV-3hQ" kind="show" id="xJe-jC-h6W"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XwW-hN-WHT" userLabel="Store Button">
-                                                <rect key="frame" x="103.5" y="0.5" width="103.5" height="91"/>
+                                                <rect key="frame" x="103.5" y="-0.5" width="103.5" height="92.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" backgroundImage="dollarsign.circle.fill" catalog="system"/>
+                                                <state key="normal" backgroundImage="gearshape.2.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="storePressed:" destination="Tsd-UA-WOU" eventType="touchUpInside" id="mT9-Tn-3II"/>
                                                 </connections>
@@ -103,10 +103,10 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Exg-Ku-95X" userLabel="Help Button">
-                                                <rect key="frame" x="310.5" y="0.5" width="103.5" height="91"/>
+                                                <rect key="frame" x="310.5" y="1.5" width="103.5" height="89"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" backgroundImage="questionmark.circle.fill" catalog="system"/>
+                                                <state key="normal" backgroundImage="person.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="helpPagePressed:" destination="Tsd-UA-WOU" eventType="touchUpInside" id="BJB-xM-Yvu"/>
                                                     <segue destination="10Z-7o-AfZ" kind="show" id="6Yw-RR-2V5"/>
@@ -124,10 +124,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vtL-nf-bHR">
-                                <rect key="frame" x="0.0" y="115" width="414" height="602"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="577"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgk-zQ-UcS" userLabel="signOutButton">
-                                        <rect key="frame" x="40" y="253" width="334" height="96"/>
+                                        <rect key="frame" x="40" y="240.5" width="334" height="96"/>
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="70"/>
                                         <state key="normal" title="Sign Out">
@@ -161,7 +161,7 @@
                             <constraint firstItem="vtL-nf-bHR" firstAttribute="top" secondItem="pUa-cf-NJW" secondAttribute="bottom" constant="8" symbolic="YES" id="gzi-jX-Jzt"/>
                             <constraint firstItem="NXZ-nb-Zrs" firstAttribute="leading" secondItem="ABB-nc-rOF" secondAttribute="leading" id="hkw-fI-lb0"/>
                             <constraint firstItem="pUa-cf-NJW" firstAttribute="top" secondItem="EjW-sT-rwm" secondAttribute="top" id="oEQ-BS-51d"/>
-                            <constraint firstItem="vtL-nf-bHR" firstAttribute="top" secondItem="EjW-sT-rwm" secondAttribute="top" constant="115" id="okY-IL-JoP"/>
+                            <constraint firstItem="vtL-nf-bHR" firstAttribute="top" secondItem="EjW-sT-rwm" secondAttribute="top" constant="140" id="okY-IL-JoP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6Vd-9H-zi3"/>
@@ -328,17 +328,17 @@
                                                 <rect key="frame" x="0.0" y="1.5" width="103.5" height="86"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" backgroundImage="person.fill" catalog="system"/>
+                                                <state key="normal" backgroundImage="person.3.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="leaderboardPressed:" destination="Tsd-UA-WOU" eventType="touchUpInside" id="Bge-xR-Smn"/>
                                                     <segue destination="pn1-wV-3hQ" kind="show" id="FKg-Oo-Hti"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PnM-Gv-GLb" userLabel="Store Button">
-                                                <rect key="frame" x="103.5" y="0.5" width="103.5" height="88"/>
+                                                <rect key="frame" x="103.5" y="-0.5" width="103.5" height="89.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" backgroundImage="dollarsign.circle.fill" catalog="system"/>
+                                                <state key="normal" backgroundImage="gearshape.2.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="storePressed:" destination="Tsd-UA-WOU" eventType="touchUpInside" id="0Rg-GJ-bfb"/>
                                                     <segue destination="IRX-LV-6Hv" kind="show" id="zzP-7i-Qoo"/>
@@ -355,10 +355,10 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4f4-LG-67v" userLabel="Help Button">
-                                                <rect key="frame" x="310.5" y="0.5" width="103.5" height="88"/>
+                                                <rect key="frame" x="310.5" y="1.5" width="103.5" height="86"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" backgroundImage="questionmark.circle.fill" catalog="system"/>
+                                                <state key="normal" backgroundImage="person.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="helpPagePressed:" destination="Tsd-UA-WOU" eventType="touchUpInside" id="MEB-LY-VrX"/>
                                                 </connections>
@@ -628,7 +628,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="06k-1h-Kod">
-                                <rect key="frame" x="0.0" y="90" width="414" height="632"/>
+                                <rect key="frame" x="0.0" y="120" width="414" height="602"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" name="backgroundColor"/>
                                 <prototypes>
@@ -643,7 +643,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Leaderboards" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIR-BG-AWM">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                 <color key="backgroundColor" name="topViewColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -659,16 +659,16 @@
                                                 <rect key="frame" x="0.0" y="1.5" width="103.5" height="89"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" backgroundImage="person.fill" catalog="system"/>
+                                                <state key="normal" backgroundImage="person.3.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="leaderboardPressed:" destination="Tsd-UA-WOU" eventType="touchUpInside" id="ULL-hc-Be9"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFs-YN-LKA" userLabel="Store Button">
-                                                <rect key="frame" x="103.5" y="0.5" width="103.5" height="91"/>
+                                                <rect key="frame" x="103.5" y="-0.5" width="103.5" height="92.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" backgroundImage="dollarsign.circle.fill" catalog="system"/>
+                                                <state key="normal" backgroundImage="gearshape.2.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="storePressed:" destination="Tsd-UA-WOU" eventType="touchUpInside" id="vST-5u-vJX"/>
                                                     <segue destination="IRX-LV-6Hv" kind="show" id="FBO-p8-8wA"/>
@@ -685,10 +685,10 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XkK-Th-R0L" userLabel="Help Button">
-                                                <rect key="frame" x="310.5" y="0.5" width="103.5" height="91"/>
+                                                <rect key="frame" x="310.5" y="1.5" width="103.5" height="89"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" backgroundImage="questionmark.circle.fill" catalog="system"/>
+                                                <state key="normal" backgroundImage="person.fill" catalog="system"/>
                                                 <connections>
                                                     <action selector="helpPagePressed:" destination="Tsd-UA-WOU" eventType="touchUpInside" id="Zyn-5e-wEx"/>
                                                     <segue destination="10Z-7o-AfZ" kind="show" id="WzH-4S-thT"/>
@@ -712,7 +712,7 @@
                             <constraint firstAttribute="bottom" secondItem="0X8-Gl-2vH" secondAttribute="bottom" id="5D5-QS-Aa4"/>
                             <constraint firstItem="zIR-BG-AWM" firstAttribute="top" secondItem="ntD-Te-P1D" secondAttribute="top" id="5q7-gz-dT1"/>
                             <constraint firstAttribute="trailing" secondItem="0X8-Gl-2vH" secondAttribute="trailing" id="CI4-NO-RaR"/>
-                            <constraint firstItem="06k-1h-Kod" firstAttribute="top" secondItem="ntD-Te-P1D" secondAttribute="top" constant="90" id="dJR-Vw-lNp"/>
+                            <constraint firstItem="06k-1h-Kod" firstAttribute="top" secondItem="ntD-Te-P1D" secondAttribute="top" constant="120" id="dJR-Vw-lNp"/>
                             <constraint firstItem="06k-1h-Kod" firstAttribute="leading" secondItem="eB0-7Z-syR" secondAttribute="leading" id="gGg-5O-LCx"/>
                             <constraint firstAttribute="bottom" secondItem="06k-1h-Kod" secondAttribute="bottom" constant="120" id="hne-2O-8Z6"/>
                             <constraint firstItem="06k-1h-Kod" firstAttribute="trailing" secondItem="eB0-7Z-syR" secondAttribute="trailing" id="phU-KB-34L"/>
@@ -867,17 +867,17 @@
                                                         <rect key="frame" x="0.0" y="1.5" width="103.5" height="87"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" backgroundImage="person.fill" catalog="system"/>
+                                                        <state key="normal" backgroundImage="person.3.fill" catalog="system"/>
                                                         <connections>
                                                             <action selector="leaderboardPressed:" destination="Tsd-UA-WOU" eventType="touchUpInside" id="MSs-TM-7rE"/>
                                                             <segue destination="pn1-wV-3hQ" kind="show" id="HWk-qu-QeW"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10G-mU-Aqx" userLabel="Store Button">
-                                                        <rect key="frame" x="103.5" y="0.5" width="103.5" height="89"/>
+                                                        <rect key="frame" x="103.5" y="-0.5" width="103.5" height="90.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" backgroundImage="dollarsign.circle.fill" catalog="system"/>
+                                                        <state key="normal" backgroundImage="gearshape.2.fill" catalog="system"/>
                                                         <connections>
                                                             <action selector="storePressed:" destination="Tsd-UA-WOU" eventType="touchUpInside" id="wiG-Id-fmz"/>
                                                             <segue destination="IRX-LV-6Hv" kind="show" id="9iF-zu-eI0"/>
@@ -893,10 +893,10 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IaU-VJ-vSu" userLabel="Help Button">
-                                                        <rect key="frame" x="310.5" y="0.5" width="103.5" height="89"/>
+                                                        <rect key="frame" x="310.5" y="1.5" width="103.5" height="87"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" backgroundImage="questionmark.circle.fill" catalog="system"/>
+                                                        <state key="normal" backgroundImage="person.fill" catalog="system"/>
                                                         <connections>
                                                             <action selector="helpPagePressed:" destination="Tsd-UA-WOU" eventType="touchUpInside" id="5q1-E8-ZyS"/>
                                                             <segue destination="10Z-7o-AfZ" kind="show" id="Kci-Vm-bjW"/>
@@ -1383,21 +1383,21 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="TyI-Qa-pbP"/>
-        <segue reference="vEE-Og-vjL"/>
+        <segue reference="G5d-mF-FFZ"/>
         <segue reference="xJe-jC-h6W"/>
-        <segue reference="6Yw-RR-2V5"/>
-        <segue reference="zzP-7i-Qoo"/>
+        <segue reference="WzH-4S-thT"/>
+        <segue reference="FBO-p8-8wA"/>
         <segue reference="rv0-04-O8A"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Image-1" width="365" height="252"/>
         <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
-        <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="gearshape.2.fill" catalog="system" width="128" height="100"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="minus.square.fill" catalog="system" width="128" height="114"/>
+        <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="backgroundColor">
             <color red="0.85882353782653809" green="0.9529411792755127" blue="0.98039215803146362" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

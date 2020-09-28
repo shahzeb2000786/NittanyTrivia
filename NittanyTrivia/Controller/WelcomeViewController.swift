@@ -14,7 +14,7 @@ import AuthenticationServices
 
 class WelcomeViewController: UIViewController, GIDSignInDelegate, ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
-        return ASPresentationAnchor()
+        return self.view.window!
     }
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a delegate of the UIapplication and downcasts it to be of type AppDelegate which will allow access to google sign in info variables in the appdelegate class.
@@ -38,9 +38,9 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate, ASAuthorizatio
         if savedEmail != nil{
                 GIDSignIn.sharedInstance()?.restorePreviousSignIn()         // Automatically sign in the user.
         }
-        if savedAppleUID != nil{
-            createAppleIDUser(userIdentifier: savedAppleUID as! String, firstName: "", lastName: "", email: "")
-        }
+//        if savedAppleUID != nil{
+//            createAppleIDUser(userIdentifier: savedAppleUID as! String, firstName: "", lastName: "", email: "")
+//        }
 
         titleLabel.minimumScaleFactor = 0.2
         titleLabel.adjustsFontSizeToFitWidth = true
@@ -52,7 +52,7 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate, ASAuthorizatio
     
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-         let db = Firestore.firestore()
+        let db = Firestore.firestore()
 
          if let error = error {
            return
@@ -122,6 +122,7 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate, ASAuthorizatio
     
     @objc
     func handleAuthorizationAppleIDButtonPress() {
+        print("button press logged")
         let appleIDProvider = ASAuthorizationAppleIDProvider()
         let request = appleIDProvider.createRequest()
         request.requestedScopes = [.fullName, .email]
@@ -132,33 +133,34 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate, ASAuthorizatio
         authorizationController.performRequests()
     }
     
+
+    
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
         case let appleIDCredential as ASAuthorizationAppleIDCredential:
-        
+            
+            // Create an account in your system.
             let userIdentifier = appleIDCredential.user
             let fullName = appleIDCredential.fullName
             let emails = appleIDCredential.email
             
-           
-           
-            createAppleIDUser(userIdentifier: userIdentifier, firstName: "testemail897@gmail.com", lastName: "testemail897@gmail.com", email: "testemail897@gmail.com")
-    
             
+            createAppleIDUser(userIdentifier: userIdentifier, firstName: fullName?.givenName ?? "h", lastName: fullName?.familyName ?? "h" , email: emails ?? "h", UID: userIdentifier)
+        
+        
         case let passwordCredential as ASPasswordCredential:
-        print("password credential case")
+        
             // Sign in using an existing iCloud Keychain credential.
             let username = passwordCredential.user
             let password = passwordCredential.password
-    
+            
             // For the purpose of this demo app, show the password credential as an alert.
-    
-    
+           
+            
         default:
             break
         }
     }
-    
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         print(error.localizedDescription)
@@ -167,7 +169,7 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate, ASAuthorizatio
     
     
     
-    func createAppleIDUser(userIdentifier: String, firstName: String, lastName: String, email: String){
+    func createAppleIDUser(userIdentifier: String, firstName: String, lastName: String, email: String, UID: String){
         db.collection("Users").whereField("id", isEqualTo: userIdentifier)
         .getDocuments() { (querySnapshot, err) in
            if let err = err {
@@ -175,6 +177,10 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate, ASAuthorizatio
            } else {
             if (querySnapshot!.documents == []){
                 self.appDelegate.userDefaults.setValue(userIdentifier, forKey: "appleUID")
+                self.appDelegate.email = email
+                self.appDelegate.fullName = lastName
+                self.appDelegate.givenName = firstName
+                self.appDelegate.userId = UID
                 db.collection("Users").document(email).setData([
                     "id": userIdentifier,
                     "firstName": firstName,

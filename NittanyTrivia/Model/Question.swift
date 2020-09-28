@@ -21,7 +21,6 @@ struct Question {
     let difficulty: String
 }
 
-
 //the questionToAskUser variable below, will be the question to show the user when they play and is initailized below
 var questionToAskUser = Question(question: "", option1: "", option2: "", option3: "", option4: "", correctOption: "", category: "1", difficulty: "1")
 var questionsToAskUser: [Question] = [Question(question: "", option1: "", option2: "", option3: "", option4: "", correctOption: "", category: "1", difficulty: "1")]

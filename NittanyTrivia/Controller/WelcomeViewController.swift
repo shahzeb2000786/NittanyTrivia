@@ -28,9 +28,18 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate, ASAuthorizatio
     @IBOutlet weak var signInStack: UIStackView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        var title = "Nittany Trivia"
+        var time = 0.20
+        for var letter in title {
+            var letter = String(letter)
+            DispatchQueue.main.asyncAfter(deadline: .now() + time) {
+                self.titleLabel?.text = (self.titleLabel?.text)! + (letter)
+            }
+            time += 0.20
+        }
+        
         appleView.isHidden = false
         setupAppleButton()
-        
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().delegate = self //sets view controler as gidsignin delegate
         let savedEmail = appDelegate.userDefaults.value(forKey: "email")
@@ -38,6 +47,7 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate, ASAuthorizatio
         if savedEmail != nil{
                 GIDSignIn.sharedInstance()?.restorePreviousSignIn()         // Automatically sign in the user.
         }
+        
 //        if savedAppleUID != nil{
 //            createAppleIDUser(userIdentifier: savedAppleUID as! String, firstName: "", lastName: "", email: "")
 //        }

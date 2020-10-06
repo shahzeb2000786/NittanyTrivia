@@ -310,6 +310,6 @@ func getGameLogs(){
 func deleteGameLogs(){
     let currentUser = db.collection("Users").document(appDelegate.email)
     currentUser.setValue([], forKey: "versus.gameLogs")
-    currentUserGameLogs = []
+    currentUserGameLogs = nil
 }
 

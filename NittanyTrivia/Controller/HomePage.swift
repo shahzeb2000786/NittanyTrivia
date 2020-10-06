@@ -23,13 +23,14 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
     @IBOutlet weak var livesLabel: UIButton!
     
     @IBOutlet weak var gamesLogTable: UITableView!
+    @IBOutlet weak var gamesLogView: UIView!
     
     override func viewDidLoad() {
         
         UserDefaults.standard.setValue(appDelegate.email, forKey: "email")
         getGameLogs()//this function is located in game.swift and modifies currentUserGameLogs
         gamesLogTable.dataSource = self
-
+        gamesLogView.isHidden = true
         
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
@@ -45,16 +46,28 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
         coinsLabel.isHidden = true
         livesLabel.isHidden = true
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
-            self.gamesLogTable.isHidden = false
+        if currentUserGameLogs != nil{
+            
+//            DispatchQueue.main.async{
+//                self.gamesLogTable.reloadData()
+//                self.gamesLogView.isHidden = false
+//            }
+            
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
+            self.gamesLogTable.reloadData()
+            self.gamesLogView.isHidden = false
+            })
+            
         }
+       
     
     }//viewDidLoad
     
     
 
     @IBAction func cancelGamesLogTable(_ sender: UIButton) {
-        gamesLogTable.isHidden = true
+        gamesLogView.isHidden = true
         //gamesLogDelete
     }
     
@@ -85,26 +98,28 @@ extension HomePage: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "gameLog")
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gameLog", for: indexPath)
+        print(indexPath.row)
         
         let gameLog = currentUserGameLogs?[indexPath.row]
+        let enemyName = gameLog?["enemy"] as! String
         let enemyScore = gameLog?["enemyQuestionsAnswered"] as! Int
         let userScore = gameLog?["questionsAnswered"] as! Int
         if (enemyScore >  userScore){
-            cell?.textLabel?.textColor = UIColor.red
-            cell?.textLabel?.text = "You lost by " + String(enemyScore - userScore) + " points"
+            cell.textLabel?.textColor = UIColor.red
+            cell.textLabel?.text = "You lost by " + String(enemyScore - userScore) + " points to " + enemyName
         }
         else if(userScore > enemyScore){
-            cell?.textLabel?.textColor = UIColor.green
-            cell?.textLabel?.text = "You won by " + String(userScore - enemyScore) + " points"
+            cell.textLabel?.textColor = UIColor.green
+            cell.textLabel?.text = "You won by " + String(userScore - enemyScore) + " points to " + enemyName
         }
         else{
-            cell?.textLabel?.textColor = UIColor.gray
-            cell?.textLabel?.text = "You drew by scoring: " + String(userScore) + " points"
+            cell.textLabel?.textColor = UIColor.gray
+            cell.textLabel?.text = "You drew by scoring: " + String(userScore) + " points against " + enemyName
 
         }
-        return cell!
+        
+        return cell
     }
     
     

@@ -829,10 +829,10 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDC-fO-Tix" userLabel="LogoView">
                                                         <rect key="frame" x="0.0" y="214" width="414" height="199"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xXN-B0-Zfz">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image-1" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xXN-B0-Zfz" userLabel="PennStateLogo">
                                                                 <rect key="frame" x="20" y="0.0" width="374" height="199"/>
                                                             </imageView>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8pt-JG-Nce">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8pt-JG-Nce" userLabel="gameLogsView">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="199"/>
                                                                 <subviews>
                                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CNB-FF-mEP">
@@ -1005,6 +1005,7 @@
                         <outlet property="coinsLabel" destination="VPB-fg-ajk" id="O0F-O6-jVi"/>
                         <outlet property="competeButton" destination="oNB-5X-nqt" id="xex-vw-kvO"/>
                         <outlet property="gamesLogTable" destination="CNB-FF-mEP" id="8tg-YT-64l"/>
+                        <outlet property="gamesLogView" destination="8pt-JG-Nce" id="aeN-QX-tiV"/>
                         <outlet property="livesLabel" destination="jPk-bt-At9" id="u6i-GM-aSv"/>
                         <outlet property="survivalButton" destination="cJS-SF-IIg" id="89m-xb-1gV"/>
                     </connections>
@@ -1444,8 +1445,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="abj-5Y-wuH"/>
         <segue reference="TyI-Qa-pbP"/>
-        <segue reference="cJ8-Ez-R5j"/>
+        <segue reference="61Z-LX-1cW"/>
         <segue reference="HWk-qu-QeW"/>
         <segue reference="Kci-Vm-bjW"/>
         <segue reference="9iF-zu-eI0"/>

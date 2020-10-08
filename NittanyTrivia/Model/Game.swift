@@ -11,7 +11,7 @@ import Firebase
 
 
 var currentGameID: Int?
-var currentUserGameLogs: [NSDictionary]?
+var currentUserGameLogs: [NSDictionary]? = []
 
 //struct which contains stats of players
 struct playerStats {
@@ -304,12 +304,23 @@ func getGameLogs(){
             currentUserGameLogs = userInfo.get("versus.gameLogs") as! [NSDictionary]
             print(currentUserGameLogs)
         }//if
+        if let error = error {
+            print (error.localizedDescription)
+        }
     }//getDocument
 }//getGameLogs
 
 func deleteGameLogs(){
     let currentUser = db.collection("Users").document(appDelegate.email)
-    currentUser.setValue([], forKey: "versus.gameLogs")
-    currentUserGameLogs = nil
-}
+    currentUser.getDocument { (userInfo, error) in
+        if let userInfo = userInfo{
+            currentUser.updateData([ "versus.gameLogs": []])
+            currentUserGameLogs?.removeAll()
+        }//if
+        
+        if let error = error{
+            print(error.localizedDescription)
+        }
+    }//getDocument
+}//deleteGameLogs
 

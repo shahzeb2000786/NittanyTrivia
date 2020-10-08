@@ -28,9 +28,11 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
     override func viewDidLoad() {
         
         UserDefaults.standard.setValue(appDelegate.email, forKey: "email")
-        getGameLogs()//this function is located in game.swift and modifies currentUserGameLogs
-        gamesLogTable.dataSource = self
+        getGameLogs()//this function is located in game.swift and modifies currentUserGameLogs and is located within game.swift file
         gamesLogView.isHidden = true
+        
+        
+        gamesLogTable.dataSource = self
         
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
@@ -46,20 +48,17 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
         coinsLabel.isHidden = true
         livesLabel.isHidden = true
         
-        if currentUserGameLogs != nil{
             
-//            DispatchQueue.main.async{
-//                self.gamesLogTable.reloadData()
-//                self.gamesLogView.isHidden = false
-//            }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+            if  currentUserGameLogs != nil && currentUserGameLogs != []{
+                self.gamesLogTable.reloadData()
+                self.gamesLogView.isHidden = false
+            }
+           
+        })
             
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5, execute: {
-            self.gamesLogTable.reloadData()
-            self.gamesLogView.isHidden = false
-            })
-            
-        }
+        
        
     
     }//viewDidLoad
@@ -68,21 +67,33 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
 
     @IBAction func cancelGamesLogTable(_ sender: UIButton) {
         gamesLogView.isHidden = true
-        //gamesLogDelete
+        deleteGameLogs()
+        
     }
     
     @IBAction func leaderboardPressed(_ sender: UIButton) {
+        if  currentUserGameLogs != nil && currentUserGameLogs != []{
+            deleteGameLogs()
+        }
         sender.tintColor = UIColor.gray
     }
     
     @IBAction func storePressed(_ sender: UIButton) {
-        
+        if  currentUserGameLogs != nil && currentUserGameLogs != []{
+            deleteGameLogs()
+        }
     }
     
     @IBAction func homePressed(_ sender: UIButton) {
+        if  currentUserGameLogs != nil && currentUserGameLogs != []{
+            deleteGameLogs()
+        }
     }
     
     @IBAction func helpPagePressed(_ sender: UIButton){
+        if  currentUserGameLogs != nil && currentUserGameLogs != []{
+            deleteGameLogs()
+        }
     }
     
 
@@ -92,30 +103,35 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
 extension HomePage: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let currentUserGameLogs = currentUserGameLogs{
-            return currentUserGameLogs.count
+            return currentUserGameLogs.count + 1
         }
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "gameLog", for: indexPath)
-        print(indexPath.row)
         
-        let gameLog = currentUserGameLogs?[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gameLog", for: indexPath)
+        cell.backgroundColor = UIColor.black
+
+        if (indexPath.row == 0){
+            return cell
+        }
+        
+        let gameLog = currentUserGameLogs?[indexPath.row - 1]
         let enemyName = gameLog?["enemy"] as! String
         let enemyScore = gameLog?["enemyQuestionsAnswered"] as! Int
         let userScore = gameLog?["questionsAnswered"] as! Int
         if (enemyScore >  userScore){
             cell.textLabel?.textColor = UIColor.red
-            cell.textLabel?.text = "You lost by " + String(enemyScore - userScore) + " points to " + enemyName
+            cell.textLabel?.text = "You lost a game by " + " and earned 0 points"
         }
         else if(userScore > enemyScore){
             cell.textLabel?.textColor = UIColor.green
-            cell.textLabel?.text = "You won by " + String(userScore - enemyScore) + " points to " + enemyName
+            cell.textLabel?.text = "You won a game by " + " and earned 20 points"
         }
         else{
             cell.textLabel?.textColor = UIColor.gray
-            cell.textLabel?.text = "You drew by scoring: " + String(userScore) + " points against " + enemyName
+            cell.textLabel?.text = "You drew a game by " + " and earned 10 points"
 
         }
         

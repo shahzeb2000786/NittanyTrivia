@@ -846,6 +846,7 @@
                                                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                                 </tableViewCellContentView>
+                                                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             </tableViewCell>
                                                                         </prototypes>
                                                                     </tableView>
@@ -1445,7 +1446,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="abj-5Y-wuH"/>
         <segue reference="TyI-Qa-pbP"/>
         <segue reference="61Z-LX-1cW"/>
         <segue reference="HWk-qu-QeW"/>

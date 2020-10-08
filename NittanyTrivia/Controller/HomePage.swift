@@ -28,7 +28,7 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
     override func viewDidLoad() {
         
         UserDefaults.standard.setValue(appDelegate.email, forKey: "email")
-        getGameLogs()//this function is located in game.swift and modifies currentUserGameLogs and is located within game.swift file
+        
         gamesLogView.isHidden = true
         
         
@@ -50,13 +50,18 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
         
             
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
-            if  currentUserGameLogs != nil && currentUserGameLogs != []{
-                self.gamesLogTable.reloadData()
-                self.gamesLogView.isHidden = false
-            }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            getGameLogs()//this function is located in game.swift and modifies currentUserGameLogs and is located within game.swift file
            
-        })
+            if  currentUserGameLogs != nil && currentUserGameLogs != []{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.gamesLogTable.reloadData()
+                    self.gamesLogView.isHidden = false
+                }//if
+                
+            }//first dispatchqueue
+           
+        })//sedond dispatchqueue
             
         
        

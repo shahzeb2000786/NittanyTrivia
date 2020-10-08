@@ -20,6 +20,8 @@ import Foundation
 
 struct LeaderboardsUser {//struct which contains relevant user info to put on leaderboard
    var email: String
+   var firstName: String
+   var lastName: String
    var points: Int
 }
 

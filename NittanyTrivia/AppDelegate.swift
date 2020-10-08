@@ -18,7 +18,7 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     var userId = ""            // For client-side use only!
     var fullName = ""
-    var givenName = ""
+    var lastName = ""
     var email = ""
     var userDefaults = UserDefaults.standard
 
@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
                                                         accessToken: authentication.accessToken)
     userId = user.userID                  // For client-side use only, setting global vals to hold google info
      fullName = user.profile.name
-     givenName = user.profile.givenName
+     lastName = user.profile.givenName
      email = user.profile.email
      userDefaults.setValue(email, forKey: "email")
 

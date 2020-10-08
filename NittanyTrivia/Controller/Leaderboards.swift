@@ -43,8 +43,10 @@ class Leaderboards: UIViewController {
                        if let querySnapshot = querySnapshot {
                            for document in querySnapshot.documents{
                             let userEmail = document.data()["email"] as! String
+                            let userFirstName = document.data()["firstName"] as! String
+                            let userLastName = document.data()["lastName"] as! String
                             let userPoints = document.data()["points"] as! Int
-                            var user = LeaderboardsUser(email: userEmail , points: userPoints)
+                            var user = LeaderboardsUser(email: userEmail, firstName: userFirstName, lastName: userLastName, points: userPoints)
                             self.topPlayers.append(user)
                              
                             DispatchQueue.main.async{
@@ -78,7 +80,7 @@ extension Leaderboards: UITableViewDataSource {
         
         let user = self.topPlayers[indexPath.row]
         
-        leaderboardsCell.textLabel?.text =  String(indexPath.row + 1) + "     " + user.email + "    " + String(user.points)
+        leaderboardsCell.textLabel?.text =  String(indexPath.row + 1) + "     " + user.firstName + " " + user.lastName + "    " + String(user.points)
         leaderboardsCell.textLabel?.textColor = UIColor.white
         leaderboardsCell.clipsToBounds = true
         leaderboardsCell.backgroundColor = UIColor(named: "topViewColor")

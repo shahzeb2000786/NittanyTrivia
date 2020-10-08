@@ -78,8 +78,8 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate, ASAuthorizatio
                 //sets global vars defined in app delegate, then performs segue to homepage
                 self.appDelegate.email = user.profile.email
                 self.appDelegate.userId = user.userID
-                self.appDelegate.fullName = user.profile.name
-                self.appDelegate.givenName = user.profile.givenName
+                self.appDelegate.fullName = user.profile.familyName
+                self.appDelegate.lastName = user.profile.givenName
                 
                 
                 
@@ -103,7 +103,7 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate, ASAuthorizatio
                if (querySnapshot!.documents == []){
                 db.collection("Users").document(email).setData([
                     "id": self.appDelegate.userId,
-                    "firstName": self.appDelegate.givenName,
+                    "firstName": self.appDelegate.lastName,
                     "lastName": self.appDelegate.fullName,
                     "email": self.appDelegate.email,
                     "points": 0,
@@ -189,7 +189,7 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate, ASAuthorizatio
                 self.appDelegate.userDefaults.setValue(userIdentifier, forKey: "appleUID")
                 self.appDelegate.email = email
                 self.appDelegate.fullName = lastName
-                self.appDelegate.givenName = firstName
+                self.appDelegate.lastName = firstName
                 self.appDelegate.userId = UID
                 db.collection("Users").document(email).setData([
                     "id": userIdentifier,
@@ -213,7 +213,7 @@ class WelcomeViewController: UIViewController, GIDSignInDelegate, ASAuthorizatio
                     self.appDelegate.userDefaults.setValue(appleUID, forKey: "appleUID")
                     self.appDelegate.email = user["email"] as! String
                     self.appDelegate.fullName = user["lastName"] as! String
-                    self.appDelegate.givenName = user["firstName"] as! String
+                    self.appDelegate.lastName = user["firstName"] as! String
                     self.appDelegate.userId = appleUID
                 }
                 self.performSegue(withIdentifier: "toHomePage", sender: self)

@@ -23,7 +23,7 @@ class Settings: UIViewController{
     @IBAction func signOutUser(_ sender: UIButton) {
         appDelegate.fullName = ""
         appDelegate.email = ""
-        appDelegate.givenName = ""
+        appDelegate.lastName = ""
         appDelegate.userId = ""
 
         do {

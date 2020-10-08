@@ -64,7 +64,13 @@ let appDelegate = UIApplication.shared.delegate as! AppDelegate//creates a deleg
     }//viewDidLoad
     
     
-
+    @IBAction func competeButtonPressed(_ sender: Any) {
+        deleteGameLogs()
+    }
+    
+    @IBAction func survivalButtonPressed(_ sender: Any) {
+        deleteGameLogs()
+    }
     @IBAction func cancelGamesLogTable(_ sender: UIButton) {
         gamesLogView.isHidden = true
         deleteGameLogs()
@@ -111,11 +117,12 @@ extension HomePage: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameLog", for: indexPath)
-        cell.backgroundColor = UIColor.black
-
+        cell.backgroundColor = UIColor(named: "topViewColor")
         if (indexPath.row == 0){
             return cell
         }
+        cell.layer.borderWidth = 2.0
+        cell.layer.borderColor =  UIColor(named: "celebritiesColor")?.cgColor
         
         let gameLog = currentUserGameLogs?[indexPath.row - 1]
         let enemyName = gameLog?["enemy"] as! String
@@ -123,14 +130,14 @@ extension HomePage: UITableViewDataSource{
         let userScore = gameLog?["questionsAnswered"] as! Int
         if (enemyScore >  userScore){
             cell.textLabel?.textColor = UIColor.red
-            cell.textLabel?.text = "You lost a game by " + " and earned 0 points"
+            cell.textLabel?.text = "You lost a game" + " and earned 0 points"
         }
         else if(userScore > enemyScore){
             cell.textLabel?.textColor = UIColor.green
-            cell.textLabel?.text = "You won a game by " + " and earned 20 points"
+            cell.textLabel?.text = "You won a game by" + " and earned 20 points"
         }
         else{
-            cell.textLabel?.textColor = UIColor.gray
+            cell.textLabel?.textColor = UIColor.white
             cell.textLabel?.text = "You drew a game by " + " and earned 10 points"
 
         }
